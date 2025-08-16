@@ -1,0 +1,25 @@
+logger.root_level: "INFO"
+
+database.protocol: "postgresql+psycopg"
+database.user: "test_user"
+database.password: "test_password"
+database.host: "localhost"
+database.port: "5432"
+database.database: "permitta"
+database.seed_data_path: "permitta/seed_data"
+
+ldap_client.host: localhost
+ldap_client.port: "3890"
+ldap_client.base_dn: dc=example,dc=com
+ldap_client.user_dn: uid=admin,ou=people,dc=example,dc=com
+ldap_client.password: changeme
+ldap_client.user_base_dn: ou=people,dc=example,dc=com
+
+ldap_connector.user_search_base: ou=people,dc=example,dc=com
+ldap_connector.user_search_filter: (&(uid=*)(memberof=cn=permitta_users_gl,ou=groups,dc=example,dc=com))
+ldap_connector.attr_user_name: uid
+ldap_connector.attr_user_id: uid
+ldap_connector.attr_first_name: givenname
+ldap_connector.attr_last_name: sn
+ldap_connector.attr_email: mail
+ldap_connector.attr_groups: memberOf

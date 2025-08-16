@@ -1,0 +1,17 @@
+flask
+flask-pydantic
+black
+psycopg-binary
+sqlalchemy
+pytest-postgresql
+pyyaml
+pytest
+isort
+trino
+ldap3
+click
+requests
+responses
+mkdocs
+mkdocs-material
+autoflake

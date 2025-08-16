@@ -1,0 +1,3979 @@
+[
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com",
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "abigail.hamilton"
+    ],
+    "cn": [
+      "Abigail Hamilton"
+    ],
+    "mail": [
+      "abigail.hamilton@example.com"
+    ],
+    "sn": [
+      "Hamilton"
+    ],
+    "givenname": [
+      "Abigail"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "abssil\u00e3o.rodrigues"
+    ],
+    "cn": [
+      "Abssil\u00e3o Rodrigues"
+    ],
+    "mail": [
+      "abssil\u00e3o.rodrigues@example.com"
+    ],
+    "sn": [
+      "Rodrigues"
+    ],
+    "givenname": [
+      "Abssil\u00e3o"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "adam.porter"
+    ],
+    "cn": [
+      "Adam Porter"
+    ],
+    "mail": [
+      "adam.porter@example.com"
+    ],
+    "sn": [
+      "Porter"
+    ],
+    "givenname": [
+      "Adam"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=lldap_admin,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "admin"
+    ],
+    "cn": [
+      "Administrator"
+    ],
+    "mail": [
+      "admin@example.com"
+    ],
+    "sn": [],
+    "givenname": []
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "ahmet.aky\u00fcz"
+    ],
+    "cn": [
+      "Ahmet Aky\u00fcz"
+    ],
+    "mail": [
+      "ahmet.aky\u00fcz@example.com"
+    ],
+    "sn": [
+      "Aky\u00fcz"
+    ],
+    "givenname": [
+      "Ahmet"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "alani.gon\u00e7alves"
+    ],
+    "cn": [
+      "Alani Gon\u00e7alves"
+    ],
+    "mail": [
+      "alani.gon\u00e7alves@example.com"
+    ],
+    "sn": [
+      "Gon\u00e7alves"
+    ],
+    "givenname": [
+      "Alani"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "alexandra.henry"
+    ],
+    "cn": [
+      "Alexandra Henry"
+    ],
+    "mail": [
+      "alexandra.henry@example.com"
+    ],
+    "sn": [
+      "Henry"
+    ],
+    "givenname": [
+      "Alexandra"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "alexis.faure"
+    ],
+    "cn": [
+      "Alexis Faure"
+    ],
+    "mail": [
+      "alexis.faure@example.com"
+    ],
+    "sn": [
+      "Faure"
+    ],
+    "givenname": [
+      "Alexis"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "alfred.nielsen"
+    ],
+    "cn": [
+      "Alfred Nielsen"
+    ],
+    "mail": [
+      "alfred.nielsen@example.com"
+    ],
+    "sn": [
+      "Nielsen"
+    ],
+    "givenname": [
+      "Alfred"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "alisa.niva"
+    ],
+    "cn": [
+      "Alisa Niva"
+    ],
+    "mail": [
+      "alisa.niva@example.com"
+    ],
+    "sn": [
+      "Niva"
+    ],
+    "givenname": [
+      "Alisa"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "alizee.leroux"
+    ],
+    "cn": [
+      "Alizee Leroux"
+    ],
+    "mail": [
+      "alizee.leroux@example.com"
+    ],
+    "sn": [
+      "Leroux"
+    ],
+    "givenname": [
+      "Alizee"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "alma.thomsen"
+    ],
+    "cn": [
+      "Alma Thomsen"
+    ],
+    "mail": [
+      "alma.thomsen@example.com"
+    ],
+    "sn": [
+      "Thomsen"
+    ],
+    "givenname": [
+      "Alma"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "alo\u00efs.moulin"
+    ],
+    "cn": [
+      "Alo\u00efs Moulin"
+    ],
+    "mail": [
+      "alo\u00efs.moulin@example.com"
+    ],
+    "sn": [
+      "Moulin"
+    ],
+    "givenname": [
+      "Alo\u00efs"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "alysha.vande westelaken"
+    ],
+    "cn": [
+      "Alysha Van De Westelaken"
+    ],
+    "mail": [
+      "alysha.vande westelaken@example.com"
+    ],
+    "sn": [
+      "Van De Westelaken"
+    ],
+    "givenname": [
+      "Alysha"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "alyssa.andre"
+    ],
+    "cn": [
+      "Alyssa Andre"
+    ],
+    "mail": [
+      "alyssa.andre@example.com"
+    ],
+    "sn": [
+      "Andre"
+    ],
+    "givenname": [
+      "Alyssa"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "amelia.mercier"
+    ],
+    "cn": [
+      "Amelia Mercier"
+    ],
+    "mail": [
+      "amelia.mercier@example.com"
+    ],
+    "sn": [
+      "Mercier"
+    ],
+    "givenname": [
+      "Amelia"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "amy.miller"
+    ],
+    "cn": [
+      "Amy Miller"
+    ],
+    "mail": [
+      "amy.miller@example.com"
+    ],
+    "sn": [
+      "Miller"
+    ],
+    "givenname": [
+      "Amy"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "andrea.hernandez"
+    ],
+    "cn": [
+      "Andrea Hernandez"
+    ],
+    "mail": [
+      "andrea.hernandez@example.com"
+    ],
+    "sn": [
+      "Hernandez"
+    ],
+    "givenname": [
+      "Andrea"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "ane.vankessel"
+    ],
+    "cn": [
+      "Ane Van Kessel"
+    ],
+    "mail": [
+      "ane.vankessel@example.com"
+    ],
+    "sn": [
+      "Van Kessel"
+    ],
+    "givenname": [
+      "Ane"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "angela.newman"
+    ],
+    "cn": [
+      "Angela Newman"
+    ],
+    "mail": [
+      "angela.newman@example.com"
+    ],
+    "sn": [
+      "Newman"
+    ],
+    "givenname": [
+      "Angela"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "anna.miller"
+    ],
+    "cn": [
+      "Anna Miller"
+    ],
+    "mail": [
+      "anna.miller@example.com"
+    ],
+    "sn": [
+      "Miller"
+    ],
+    "givenname": [
+      "Anna"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "annika.schulte"
+    ],
+    "cn": [
+      "Annika Schulte"
+    ],
+    "mail": [
+      "annika.schulte@example.com"
+    ],
+    "sn": [
+      "Schulte"
+    ],
+    "givenname": [
+      "Annika"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "anton.christensen"
+    ],
+    "cn": [
+      "Anton Christensen"
+    ],
+    "mail": [
+      "anton.christensen@example.com"
+    ],
+    "sn": [
+      "Christensen"
+    ],
+    "givenname": [
+      "Anton"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "ariana.thompson"
+    ],
+    "cn": [
+      "Ariana Thompson"
+    ],
+    "mail": [
+      "ariana.thompson@example.com"
+    ],
+    "sn": [
+      "Thompson"
+    ],
+    "givenname": [
+      "Ariana"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "arlo.jackson"
+    ],
+    "cn": [
+      "Arlo Jackson"
+    ],
+    "mail": [
+      "arlo.jackson@example.com"
+    ],
+    "sn": [
+      "Jackson"
+    ],
+    "givenname": [
+      "Arlo"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "arnaud.lo"
+    ],
+    "cn": [
+      "Arnaud Lo"
+    ],
+    "mail": [
+      "arnaud.lo@example.com"
+    ],
+    "sn": [
+      "Lo"
+    ],
+    "givenname": [
+      "Arnaud"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "arnold.allen"
+    ],
+    "cn": [
+      "Arnold Allen"
+    ],
+    "mail": [
+      "arnold.allen@example.com"
+    ],
+    "sn": [
+      "Allen"
+    ],
+    "givenname": [
+      "Arnold"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "arnold.gardner"
+    ],
+    "cn": [
+      "Arnold Gardner"
+    ],
+    "mail": [
+      "arnold.gardner@example.com"
+    ],
+    "sn": [
+      "Gardner"
+    ],
+    "givenname": [
+      "Arnold"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "ashley.tucker"
+    ],
+    "cn": [
+      "Ashley Tucker"
+    ],
+    "mail": [
+      "ashley.tucker@example.com"
+    ],
+    "sn": [
+      "Tucker"
+    ],
+    "givenname": [
+      "Ashley"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "aur\u00e9lien.fontai"
+    ],
+    "cn": [
+      "Aur\u00e9lien Fontai"
+    ],
+    "mail": [
+      "aur\u00e9lien.fontai@example.com"
+    ],
+    "sn": [
+      "Fontai"
+    ],
+    "givenname": [
+      "Aur\u00e9lien"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "aur\u00e9lien.leroy"
+    ],
+    "cn": [
+      "Aur\u00e9lien Leroy"
+    ],
+    "mail": [
+      "aur\u00e9lien.leroy@example.com"
+    ],
+    "sn": [
+      "Leroy"
+    ],
+    "givenname": [
+      "Aur\u00e9lien"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "becky.holmes"
+    ],
+    "cn": [
+      "Becky Holmes"
+    ],
+    "mail": [
+      "becky.holmes@example.com"
+    ],
+    "sn": [
+      "Holmes"
+    ],
+    "givenname": [
+      "Becky"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "ben.perry"
+    ],
+    "cn": [
+      "Ben Perry"
+    ],
+    "mail": [
+      "ben.perry@example.com"
+    ],
+    "sn": [
+      "Perry"
+    ],
+    "givenname": [
+      "Ben"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "benedikt.hein"
+    ],
+    "cn": [
+      "Benedikt Hein"
+    ],
+    "mail": [
+      "benedikt.hein@example.com"
+    ],
+    "sn": [
+      "Hein"
+    ],
+    "givenname": [
+      "Benedikt"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "benjamin.beck"
+    ],
+    "cn": [
+      "Benjamin Beck"
+    ],
+    "mail": [
+      "benjamin.beck@example.com"
+    ],
+    "sn": [
+      "Beck"
+    ],
+    "givenname": [
+      "Benjamin"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "benjamin.patel"
+    ],
+    "cn": [
+      "Benjamin Patel"
+    ],
+    "mail": [
+      "benjamin.patel@example.com"
+    ],
+    "sn": [
+      "Patel"
+    ],
+    "givenname": [
+      "Benjamin"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "bernard.wilson"
+    ],
+    "cn": [
+      "Bernard Wilson"
+    ],
+    "mail": [
+      "bernard.wilson@example.com"
+    ],
+    "sn": [
+      "Wilson"
+    ],
+    "givenname": [
+      "Bernard"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "buse.da\u011fda\u015f"
+    ],
+    "cn": [
+      "Buse Da\u011fda\u015f"
+    ],
+    "mail": [
+      "buse.da\u011fda\u015f@example.com"
+    ],
+    "sn": [
+      "Da\u011fda\u015f"
+    ],
+    "givenname": [
+      "Buse"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "carsta.rocha"
+    ],
+    "cn": [
+      "Carsta Rocha"
+    ],
+    "mail": [
+      "carsta.rocha@example.com"
+    ],
+    "sn": [
+      "Rocha"
+    ],
+    "givenname": [
+      "Carsta"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "cassandre.leroux"
+    ],
+    "cn": [
+      "Cassandre Leroux"
+    ],
+    "mail": [
+      "cassandre.leroux@example.com"
+    ],
+    "sn": [
+      "Leroux"
+    ],
+    "givenname": [
+      "Cassandre"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "charlie.palmer"
+    ],
+    "cn": [
+      "Charlie Palmer"
+    ],
+    "mail": [
+      "charlie.palmer@example.com"
+    ],
+    "sn": [
+      "Palmer"
+    ],
+    "givenname": [
+      "Charlie"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "charlotte.lee"
+    ],
+    "cn": [
+      "Charlotte Lee"
+    ],
+    "mail": [
+      "charlotte.lee@example.com"
+    ],
+    "sn": [
+      "Lee"
+    ],
+    "givenname": [
+      "Charlotte"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "christoffer.christiansen"
+    ],
+    "cn": [
+      "Christoffer Christiansen"
+    ],
+    "mail": [
+      "christoffer.christiansen@example.com"
+    ],
+    "sn": [
+      "Christiansen"
+    ],
+    "givenname": [
+      "Christoffer"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "cindy.perez"
+    ],
+    "cn": [
+      "Cindy Perez"
+    ],
+    "mail": [
+      "cindy.perez@example.com"
+    ],
+    "sn": [
+      "Perez"
+    ],
+    "givenname": [
+      "Cindy"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "claire.garcia"
+    ],
+    "cn": [
+      "Claire Garcia"
+    ],
+    "mail": [
+      "claire.garcia@example.com"
+    ],
+    "sn": [
+      "Garcia"
+    ],
+    "givenname": [
+      "Claire"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "clinton.bennett"
+    ],
+    "cn": [
+      "Clinton Bennett"
+    ],
+    "mail": [
+      "clinton.bennett@example.com"
+    ],
+    "sn": [
+      "Bennett"
+    ],
+    "givenname": [
+      "Clinton"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "clotildes.darosa"
+    ],
+    "cn": [
+      "Clotildes Da Rosa"
+    ],
+    "mail": [
+      "clotildes.darosa@example.com"
+    ],
+    "sn": [
+      "Da Rosa"
+    ],
+    "givenname": [
+      "Clotildes"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "consuelo.arias"
+    ],
+    "cn": [
+      "Consuelo Arias"
+    ],
+    "mail": [
+      "consuelo.arias@example.com"
+    ],
+    "sn": [
+      "Arias"
+    ],
+    "givenname": [
+      "Consuelo"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "darius.conrad"
+    ],
+    "cn": [
+      "Darius Conrad"
+    ],
+    "mail": [
+      "darius.conrad@example.com"
+    ],
+    "sn": [
+      "Conrad"
+    ],
+    "givenname": [
+      "Darius"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "dawn.neal"
+    ],
+    "cn": [
+      "Dawn Neal"
+    ],
+    "mail": [
+      "dawn.neal@example.com"
+    ],
+    "sn": [
+      "Neal"
+    ],
+    "givenname": [
+      "Dawn"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "debbie.may"
+    ],
+    "cn": [
+      "Debbie May"
+    ],
+    "mail": [
+      "debbie.may@example.com"
+    ],
+    "sn": [
+      "May"
+    ],
+    "givenname": [
+      "Debbie"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "delphine.taylor"
+    ],
+    "cn": [
+      "Delphine Taylor"
+    ],
+    "mail": [
+      "delphine.taylor@example.com"
+    ],
+    "sn": [
+      "Taylor"
+    ],
+    "givenname": [
+      "Delphine"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "deolindo.vieira"
+    ],
+    "cn": [
+      "Deolindo Vieira"
+    ],
+    "mail": [
+      "deolindo.vieira@example.com"
+    ],
+    "sn": [
+      "Vieira"
+    ],
+    "givenname": [
+      "Deolindo"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "donald.riley"
+    ],
+    "cn": [
+      "Donald Riley"
+    ],
+    "mail": [
+      "donald.riley@example.com"
+    ],
+    "sn": [
+      "Riley"
+    ],
+    "givenname": [
+      "Donald"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "dora.barnes"
+    ],
+    "cn": [
+      "Dora Barnes"
+    ],
+    "mail": [
+      "dora.barnes@example.com"
+    ],
+    "sn": [
+      "Barnes"
+    ],
+    "givenname": [
+      "Dora"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "druso.nascimento"
+    ],
+    "cn": [
+      "Druso Nascimento"
+    ],
+    "mail": [
+      "druso.nascimento@example.com"
+    ],
+    "sn": [
+      "Nascimento"
+    ],
+    "givenname": [
+      "Druso"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "dylan.soto"
+    ],
+    "cn": [
+      "Dylan Soto"
+    ],
+    "mail": [
+      "dylan.soto@example.com"
+    ],
+    "sn": [
+      "Soto"
+    ],
+    "givenname": [
+      "Dylan"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "edgar.friedrich"
+    ],
+    "cn": [
+      "Edgar Friedrich"
+    ],
+    "mail": [
+      "edgar.friedrich@example.com"
+    ],
+    "sn": [
+      "Friedrich"
+    ],
+    "givenname": [
+      "Edgar"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "edgar.shelton"
+    ],
+    "cn": [
+      "Edgar Shelton"
+    ],
+    "mail": [
+      "edgar.shelton@example.com"
+    ],
+    "sn": [
+      "Shelton"
+    ],
+    "givenname": [
+      "Edgar"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "eduardo.vande woestijne"
+    ],
+    "cn": [
+      "Eduardo Van De Woestijne"
+    ],
+    "mail": [
+      "eduardo.vande woestijne@example.com"
+    ],
+    "sn": [
+      "Van De Woestijne"
+    ],
+    "givenname": [
+      "Eduardo"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "eemil.neva"
+    ],
+    "cn": [
+      "Eemil Neva"
+    ],
+    "mail": [
+      "eemil.neva@example.com"
+    ],
+    "sn": [
+      "Neva"
+    ],
+    "givenname": [
+      "Eemil"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "efe.aydan"
+    ],
+    "cn": [
+      "Efe Aydan"
+    ],
+    "mail": [
+      "efe.aydan@example.com"
+    ],
+    "sn": [
+      "Aydan"
+    ],
+    "givenname": [
+      "Efe"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "emeline.charles"
+    ],
+    "cn": [
+      "Emeline Charles"
+    ],
+    "mail": [
+      "emeline.charles@example.com"
+    ],
+    "sn": [
+      "Charles"
+    ],
+    "givenname": [
+      "Emeline"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "emily.wright"
+    ],
+    "cn": [
+      "Emily Wright"
+    ],
+    "mail": [
+      "emily.wright@example.com"
+    ],
+    "sn": [
+      "Wright"
+    ],
+    "givenname": [
+      "Emily"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "emine.barentsen"
+    ],
+    "cn": [
+      "Emine Barentsen"
+    ],
+    "mail": [
+      "emine.barentsen@example.com"
+    ],
+    "sn": [
+      "Barentsen"
+    ],
+    "givenname": [
+      "Emine"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "emma.manni"
+    ],
+    "cn": [
+      "Emma Manni"
+    ],
+    "mail": [
+      "emma.manni@example.com"
+    ],
+    "sn": [
+      "Manni"
+    ],
+    "givenname": [
+      "Emma"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "enora.aubert"
+    ],
+    "cn": [
+      "Enora Aubert"
+    ],
+    "mail": [
+      "enora.aubert@example.com"
+    ],
+    "sn": [
+      "Aubert"
+    ],
+    "givenname": [
+      "Enora"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "enrique.brewer"
+    ],
+    "cn": [
+      "Enrique Brewer"
+    ],
+    "mail": [
+      "enrique.brewer@example.com"
+    ],
+    "sn": [
+      "Brewer"
+    ],
+    "givenname": [
+      "Enrique"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "enzo.sanchez"
+    ],
+    "cn": [
+      "Enzo Sanchez"
+    ],
+    "mail": [
+      "enzo.sanchez@example.com"
+    ],
+    "sn": [
+      "Sanchez"
+    ],
+    "givenname": [
+      "Enzo"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "ernest.williamson"
+    ],
+    "cn": [
+      "Ernest Williamson"
+    ],
+    "mail": [
+      "ernest.williamson@example.com"
+    ],
+    "sn": [
+      "Williamson"
+    ],
+    "givenname": [
+      "Ernest"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "esat.hamzao\u011flu"
+    ],
+    "cn": [
+      "Esat Hamzao\u011flu"
+    ],
+    "mail": [
+      "esat.hamzao\u011flu@example.com"
+    ],
+    "sn": [
+      "Hamzao\u011flu"
+    ],
+    "givenname": [
+      "Esat"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "fabio.dupont"
+    ],
+    "cn": [
+      "Fabio Dupont"
+    ],
+    "mail": [
+      "fabio.dupont@example.com"
+    ],
+    "sn": [
+      "Dupont"
+    ],
+    "givenname": [
+      "Fabio"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "femia.pruijssers"
+    ],
+    "cn": [
+      "Femia Pruijssers"
+    ],
+    "mail": [
+      "femia.pruijssers@example.com"
+    ],
+    "sn": [
+      "Pruijssers"
+    ],
+    "givenname": [
+      "Femia"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "florence.newman"
+    ],
+    "cn": [
+      "Florence Newman"
+    ],
+    "mail": [
+      "florence.newman@example.com"
+    ],
+    "sn": [
+      "Newman"
+    ],
+    "givenname": [
+      "Florence"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "florian.hahn"
+    ],
+    "cn": [
+      "Florian Hahn"
+    ],
+    "mail": [
+      "florian.hahn@example.com"
+    ],
+    "sn": [
+      "Hahn"
+    ],
+    "givenname": [
+      "Florian"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "gilbert.willis"
+    ],
+    "cn": [
+      "Gilbert Willis"
+    ],
+    "mail": [
+      "gilbert.willis@example.com"
+    ],
+    "sn": [
+      "Willis"
+    ],
+    "givenname": [
+      "Gilbert"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "giselle.monteiro"
+    ],
+    "cn": [
+      "Giselle Monteiro"
+    ],
+    "mail": [
+      "giselle.monteiro@example.com"
+    ],
+    "sn": [
+      "Monteiro"
+    ],
+    "givenname": [
+      "Giselle"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "gregory.fleming"
+    ],
+    "cn": [
+      "Gregory Fleming"
+    ],
+    "mail": [
+      "gregory.fleming@example.com"
+    ],
+    "sn": [
+      "Fleming"
+    ],
+    "givenname": [
+      "Gregory"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "greta.vanlimpt"
+    ],
+    "cn": [
+      "Greta Van Limpt"
+    ],
+    "mail": [
+      "greta.vanlimpt@example.com"
+    ],
+    "sn": [
+      "Van Limpt"
+    ],
+    "givenname": [
+      "Greta"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "guillermo.saez"
+    ],
+    "cn": [
+      "Guillermo Saez"
+    ],
+    "mail": [
+      "guillermo.saez@example.com"
+    ],
+    "sn": [
+      "Saez"
+    ],
+    "givenname": [
+      "Guillermo"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "harold.simpson"
+    ],
+    "cn": [
+      "Harold Simpson"
+    ],
+    "mail": [
+      "harold.simpson@example.com"
+    ],
+    "sn": [
+      "Simpson"
+    ],
+    "givenname": [
+      "Harold"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "hector.guerrero"
+    ],
+    "cn": [
+      "Hector Guerrero"
+    ],
+    "mail": [
+      "hector.guerrero@example.com"
+    ],
+    "sn": [
+      "Guerrero"
+    ],
+    "givenname": [
+      "Hector"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "helena.wirth"
+    ],
+    "cn": [
+      "Helena Wirth"
+    ],
+    "mail": [
+      "helena.wirth@example.com"
+    ],
+    "sn": [
+      "Wirth"
+    ],
+    "givenname": [
+      "Helena"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "irene.morales"
+    ],
+    "cn": [
+      "Irene Morales"
+    ],
+    "mail": [
+      "irene.morales@example.com"
+    ],
+    "sn": [
+      "Morales"
+    ],
+    "givenname": [
+      "Irene"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "isabel.jackson"
+    ],
+    "cn": [
+      "Isabel Jackson"
+    ],
+    "mail": [
+      "isabel.jackson@example.com"
+    ],
+    "sn": [
+      "Jackson"
+    ],
+    "givenname": [
+      "Isabel"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "isaltino.rocha"
+    ],
+    "cn": [
+      "Isaltino Rocha"
+    ],
+    "mail": [
+      "isaltino.rocha@example.com"
+    ],
+    "sn": [
+      "Rocha"
+    ],
+    "givenname": [
+      "Isaltino"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "jake.brown"
+    ],
+    "cn": [
+      "Jake Brown"
+    ],
+    "mail": [
+      "jake.brown@example.com"
+    ],
+    "sn": [
+      "Brown"
+    ],
+    "givenname": [
+      "Jake"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "jalisa.k\u00f6hler"
+    ],
+    "cn": [
+      "Jalisa K\u00f6hler"
+    ],
+    "mail": [
+      "jalisa.k\u00f6hler@example.com"
+    ],
+    "sn": [
+      "K\u00f6hler"
+    ],
+    "givenname": [
+      "Jalisa"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "james.l\u00e9vesque"
+    ],
+    "cn": [
+      "James L\u00e9vesque"
+    ],
+    "mail": [
+      "james.l\u00e9vesque@example.com"
+    ],
+    "sn": [
+      "L\u00e9vesque"
+    ],
+    "givenname": [
+      "James"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "james.warren"
+    ],
+    "cn": [
+      "James Warren"
+    ],
+    "mail": [
+      "james.warren@example.com"
+    ],
+    "sn": [
+      "Warren"
+    ],
+    "givenname": [
+      "James"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "jeanne.nelson"
+    ],
+    "cn": [
+      "Jeanne Nelson"
+    ],
+    "mail": [
+      "jeanne.nelson@example.com"
+    ],
+    "sn": [
+      "Nelson"
+    ],
+    "givenname": [
+      "Jeanne"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "jeffrey.myers"
+    ],
+    "cn": [
+      "Jeffrey Myers"
+    ],
+    "mail": [
+      "jeffrey.myers@example.com"
+    ],
+    "sn": [
+      "Myers"
+    ],
+    "givenname": [
+      "Jeffrey"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "jeremiah.graham"
+    ],
+    "cn": [
+      "Jeremiah Graham"
+    ],
+    "mail": [
+      "jeremiah.graham@example.com"
+    ],
+    "sn": [
+      "Graham"
+    ],
+    "givenname": [
+      "Jeremiah"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "jeremy.weiss"
+    ],
+    "cn": [
+      "Jeremy Weiss"
+    ],
+    "mail": [
+      "jeremy.weiss@example.com"
+    ],
+    "sn": [
+      "Weiss"
+    ],
+    "givenname": [
+      "Jeremy"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "jimmie.simmons"
+    ],
+    "cn": [
+      "Jimmie Simmons"
+    ],
+    "mail": [
+      "jimmie.simmons@example.com"
+    ],
+    "sn": [
+      "Simmons"
+    ],
+    "givenname": [
+      "Jimmie"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "joan.vega"
+    ],
+    "cn": [
+      "Joan Vega"
+    ],
+    "mail": [
+      "joan.vega@example.com"
+    ],
+    "sn": [
+      "Vega"
+    ],
+    "givenname": [
+      "Joan"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "joaquin.hidalgo"
+    ],
+    "cn": [
+      "Joaquin Hidalgo"
+    ],
+    "mail": [
+      "joaquin.hidalgo@example.com"
+    ],
+    "sn": [
+      "Hidalgo"
+    ],
+    "givenname": [
+      "Joaquin"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "johanne.christiansen"
+    ],
+    "cn": [
+      "Johanne Christiansen"
+    ],
+    "mail": [
+      "johanne.christiansen@example.com"
+    ],
+    "sn": [
+      "Christiansen"
+    ],
+    "givenname": [
+      "Johanne"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "judith.schmitz"
+    ],
+    "cn": [
+      "Judith Schmitz"
+    ],
+    "mail": [
+      "judith.schmitz@example.com"
+    ],
+    "sn": [
+      "Schmitz"
+    ],
+    "givenname": [
+      "Judith"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "julia.cano"
+    ],
+    "cn": [
+      "Julia Cano"
+    ],
+    "mail": [
+      "julia.cano@example.com"
+    ],
+    "sn": [
+      "Cano"
+    ],
+    "givenname": [
+      "Julia"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "julie.cole"
+    ],
+    "cn": [
+      "Julie Cole"
+    ],
+    "mail": [
+      "julie.cole@example.com"
+    ],
+    "sn": [
+      "Cole"
+    ],
+    "givenname": [
+      "Julie"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "julienne.lelieveld"
+    ],
+    "cn": [
+      "Julienne Lelieveld"
+    ],
+    "mail": [
+      "julienne.lelieveld@example.com"
+    ],
+    "sn": [
+      "Lelieveld"
+    ],
+    "givenname": [
+      "Julienne"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "justin.harcourt"
+    ],
+    "cn": [
+      "Justin Harcourt"
+    ],
+    "mail": [
+      "justin.harcourt@example.com"
+    ],
+    "sn": [
+      "Harcourt"
+    ],
+    "givenname": [
+      "Justin"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "karen.stanley"
+    ],
+    "cn": [
+      "Karen Stanley"
+    ],
+    "mail": [
+      "karen.stanley@example.com"
+    ],
+    "sn": [
+      "Stanley"
+    ],
+    "givenname": [
+      "Karen"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "kasper.klessens"
+    ],
+    "cn": [
+      "Kasper Klessens"
+    ],
+    "mail": [
+      "kasper.klessens@example.com"
+    ],
+    "sn": [
+      "Klessens"
+    ],
+    "givenname": [
+      "Kasper"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "kayla.hall"
+    ],
+    "cn": [
+      "Kayla Hall"
+    ],
+    "mail": [
+      "kayla.hall@example.com"
+    ],
+    "sn": [
+      "Hall"
+    ],
+    "givenname": [
+      "Kayla"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "konrad.siebert"
+    ],
+    "cn": [
+      "Konrad Siebert"
+    ],
+    "mail": [
+      "konrad.siebert@example.com"
+    ],
+    "sn": [
+      "Siebert"
+    ],
+    "givenname": [
+      "Konrad"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "laly.dasilva"
+    ],
+    "cn": [
+      "Laly Da Silva"
+    ],
+    "mail": [
+      "laly.dasilva@example.com"
+    ],
+    "sn": [
+      "Da Silva"
+    ],
+    "givenname": [
+      "Laly"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "lara.metzger"
+    ],
+    "cn": [
+      "Lara Metzger"
+    ],
+    "mail": [
+      "lara.metzger@example.com"
+    ],
+    "sn": [
+      "Metzger"
+    ],
+    "givenname": [
+      "Lara"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "laurie.bouchard"
+    ],
+    "cn": [
+      "Laurie Bouchard"
+    ],
+    "mail": [
+      "laurie.bouchard@example.com"
+    ],
+    "sn": [
+      "Bouchard"
+    ],
+    "givenname": [
+      "Laurie"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "leevi.wiitala"
+    ],
+    "cn": [
+      "Leevi Wiitala"
+    ],
+    "mail": [
+      "leevi.wiitala@example.com"
+    ],
+    "sn": [
+      "Wiitala"
+    ],
+    "givenname": [
+      "Leevi"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "leo.abraham"
+    ],
+    "cn": [
+      "Leo Abraham"
+    ],
+    "mail": [
+      "leo.abraham@example.com"
+    ],
+    "sn": [
+      "Abraham"
+    ],
+    "givenname": [
+      "Leo"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "leo.honkala"
+    ],
+    "cn": [
+      "Leo Honkala"
+    ],
+    "mail": [
+      "leo.honkala@example.com"
+    ],
+    "sn": [
+      "Honkala"
+    ],
+    "givenname": [
+      "Leo"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "leo.pierce"
+    ],
+    "cn": [
+      "Leo Pierce"
+    ],
+    "mail": [
+      "leo.pierce@example.com"
+    ],
+    "sn": [
+      "Pierce"
+    ],
+    "givenname": [
+      "Leo"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "liam.walters"
+    ],
+    "cn": [
+      "Liam Walters"
+    ],
+    "mail": [
+      "liam.walters@example.com"
+    ],
+    "sn": [
+      "Walters"
+    ],
+    "givenname": [
+      "Liam"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "lino.lucas"
+    ],
+    "cn": [
+      "Lino Lucas"
+    ],
+    "mail": [
+      "lino.lucas@example.com"
+    ],
+    "sn": [
+      "Lucas"
+    ],
+    "givenname": [
+      "Lino"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "lucas.harris"
+    ],
+    "cn": [
+      "Lucas Harris"
+    ],
+    "mail": [
+      "lucas.harris@example.com"
+    ],
+    "sn": [
+      "Harris"
+    ],
+    "givenname": [
+      "Lucas"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "l\u00e9onard.arnaud"
+    ],
+    "cn": [
+      "L\u00e9onard Arnaud"
+    ],
+    "mail": [
+      "l\u00e9onard.arnaud@example.com"
+    ],
+    "sn": [
+      "Arnaud"
+    ],
+    "givenname": [
+      "L\u00e9onard"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "malthe.andersen"
+    ],
+    "cn": [
+      "Malthe Andersen"
+    ],
+    "mail": [
+      "malthe.andersen@example.com"
+    ],
+    "sn": [
+      "Andersen"
+    ],
+    "givenname": [
+      "Malthe"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "marcos.soto"
+    ],
+    "cn": [
+      "Marcos Soto"
+    ],
+    "mail": [
+      "marcos.soto@example.com"
+    ],
+    "sn": [
+      "Soto"
+    ],
+    "givenname": [
+      "Marcos"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "marcus.andersen"
+    ],
+    "cn": [
+      "Marcus Andersen"
+    ],
+    "mail": [
+      "marcus.andersen@example.com"
+    ],
+    "sn": [
+      "Andersen"
+    ],
+    "givenname": [
+      "Marcus"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "marcus.rasmussen"
+    ],
+    "cn": [
+      "Marcus Rasmussen"
+    ],
+    "mail": [
+      "marcus.rasmussen@example.com"
+    ],
+    "sn": [
+      "Rasmussen"
+    ],
+    "givenname": [
+      "Marcus"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "marcus.walker"
+    ],
+    "cn": [
+      "Marcus Walker"
+    ],
+    "mail": [
+      "marcus.walker@example.com"
+    ],
+    "sn": [
+      "Walker"
+    ],
+    "givenname": [
+      "Marcus"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "marjorie.steward"
+    ],
+    "cn": [
+      "Marjorie Steward"
+    ],
+    "mail": [
+      "marjorie.steward@example.com"
+    ],
+    "sn": [
+      "Steward"
+    ],
+    "givenname": [
+      "Marjorie"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "mason.abraham"
+    ],
+    "cn": [
+      "Mason Abraham"
+    ],
+    "mail": [
+      "mason.abraham@example.com"
+    ],
+    "sn": [
+      "Abraham"
+    ],
+    "givenname": [
+      "Mason"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "mathew.richards"
+    ],
+    "cn": [
+      "Mathew Richards"
+    ],
+    "mail": [
+      "mathew.richards@example.com"
+    ],
+    "sn": [
+      "Richards"
+    ],
+    "givenname": [
+      "Mathew"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "mathias.nielsen"
+    ],
+    "cn": [
+      "Mathias Nielsen"
+    ],
+    "mail": [
+      "mathias.nielsen@example.com"
+    ],
+    "sn": [
+      "Nielsen"
+    ],
+    "givenname": [
+      "Mathias"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "maureen.ramos"
+    ],
+    "cn": [
+      "Maureen Ramos"
+    ],
+    "mail": [
+      "maureen.ramos@example.com"
+    ],
+    "sn": [
+      "Ramos"
+    ],
+    "givenname": [
+      "Maureen"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "melany.wijngaard"
+    ],
+    "cn": [
+      "Melany Wijngaard"
+    ],
+    "mail": [
+      "melany.wijngaard@example.com"
+    ],
+    "sn": [
+      "Wijngaard"
+    ],
+    "givenname": [
+      "Melany"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "melinda.hughes"
+    ],
+    "cn": [
+      "Melinda Hughes"
+    ],
+    "mail": [
+      "melinda.hughes@example.com"
+    ],
+    "sn": [
+      "Hughes"
+    ],
+    "givenname": [
+      "Melinda"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "melissa.fleming"
+    ],
+    "cn": [
+      "Melissa Fleming"
+    ],
+    "mail": [
+      "melissa.fleming@example.com"
+    ],
+    "sn": [
+      "Fleming"
+    ],
+    "givenname": [
+      "Melissa"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "melissa.fritz"
+    ],
+    "cn": [
+      "Melissa Fritz"
+    ],
+    "mail": [
+      "melissa.fritz@example.com"
+    ],
+    "sn": [
+      "Fritz"
+    ],
+    "givenname": [
+      "Melissa"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "mia.li"
+    ],
+    "cn": [
+      "Mia Li"
+    ],
+    "mail": [
+      "mia.li@example.com"
+    ],
+    "sn": [
+      "Li"
+    ],
+    "givenname": [
+      "Mia"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "mia.sanchez"
+    ],
+    "cn": [
+      "Mia Sanchez"
+    ],
+    "mail": [
+      "mia.sanchez@example.com"
+    ],
+    "sn": [
+      "Sanchez"
+    ],
+    "givenname": [
+      "Mia"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "miguel.sanz"
+    ],
+    "cn": [
+      "Miguel Sanz"
+    ],
+    "mail": [
+      "miguel.sanz@example.com"
+    ],
+    "sn": [
+      "Sanz"
+    ],
+    "givenname": [
+      "Miguel"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "morgan.riviere"
+    ],
+    "cn": [
+      "Morgan Riviere"
+    ],
+    "mail": [
+      "morgan.riviere@example.com"
+    ],
+    "sn": [
+      "Riviere"
+    ],
+    "givenname": [
+      "Morgan"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "mustafa.hamzao\u011flu"
+    ],
+    "cn": [
+      "Mustafa Hamzao\u011flu"
+    ],
+    "mail": [
+      "mustafa.hamzao\u011flu@example.com"
+    ],
+    "sn": [
+      "Hamzao\u011flu"
+    ],
+    "givenname": [
+      "Mustafa"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "naja.larsen"
+    ],
+    "cn": [
+      "Naja Larsen"
+    ],
+    "mail": [
+      "naja.larsen@example.com"
+    ],
+    "sn": [
+      "Larsen"
+    ],
+    "givenname": [
+      "Naja"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "nanna.pedersen"
+    ],
+    "cn": [
+      "Nanna Pedersen"
+    ],
+    "mail": [
+      "nanna.pedersen@example.com"
+    ],
+    "sn": [
+      "Pedersen"
+    ],
+    "givenname": [
+      "Nanna"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "naomi.white"
+    ],
+    "cn": [
+      "Naomi White"
+    ],
+    "mail": [
+      "naomi.white@example.com"
+    ],
+    "sn": [
+      "White"
+    ],
+    "givenname": [
+      "Naomi"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "nat\u00e9rcio.castro"
+    ],
+    "cn": [
+      "Nat\u00e9rcio Castro"
+    ],
+    "mail": [
+      "nat\u00e9rcio.castro@example.com"
+    ],
+    "sn": [
+      "Castro"
+    ],
+    "givenname": [
+      "Nat\u00e9rcio"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "necati.nalbanto\u011flu"
+    ],
+    "cn": [
+      "Necati Nalbanto\u011flu"
+    ],
+    "mail": [
+      "necati.nalbanto\u011flu@example.com"
+    ],
+    "sn": [
+      "Nalbanto\u011flu"
+    ],
+    "givenname": [
+      "Necati"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "nella.kangas"
+    ],
+    "cn": [
+      "Nella Kangas"
+    ],
+    "mail": [
+      "nella.kangas@example.com"
+    ],
+    "sn": [
+      "Kangas"
+    ],
+    "givenname": [
+      "Nella"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "nerea.mendez"
+    ],
+    "cn": [
+      "Nerea Mendez"
+    ],
+    "mail": [
+      "nerea.mendez@example.com"
+    ],
+    "sn": [
+      "Mendez"
+    ],
+    "givenname": [
+      "Nerea"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "nicole.curtis"
+    ],
+    "cn": [
+      "Nicole Curtis"
+    ],
+    "mail": [
+      "nicole.curtis@example.com"
+    ],
+    "sn": [
+      "Curtis"
+    ],
+    "givenname": [
+      "Nicole"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "noah.bonnet"
+    ],
+    "cn": [
+      "Noah Bonnet"
+    ],
+    "mail": [
+      "noah.bonnet@example.com"
+    ],
+    "sn": [
+      "Bonnet"
+    ],
+    "givenname": [
+      "Noah"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "noah.dupont"
+    ],
+    "cn": [
+      "Noah Dupont"
+    ],
+    "mail": [
+      "noah.dupont@example.com"
+    ],
+    "sn": [
+      "Dupont"
+    ],
+    "givenname": [
+      "Noah"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "noah.poulsen"
+    ],
+    "cn": [
+      "Noah Poulsen"
+    ],
+    "mail": [
+      "noah.poulsen@example.com"
+    ],
+    "sn": [
+      "Poulsen"
+    ],
+    "givenname": [
+      "Noah"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "noah.smith"
+    ],
+    "cn": [
+      "Noah Smith"
+    ],
+    "mail": [
+      "noah.smith@example.com"
+    ],
+    "sn": [
+      "Smith"
+    ],
+    "givenname": [
+      "Noah"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "nonato.pires"
+    ],
+    "cn": [
+      "Nonato Pires"
+    ],
+    "mail": [
+      "nonato.pires@example.com"
+    ],
+    "sn": [
+      "Pires"
+    ],
+    "givenname": [
+      "Nonato"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "no\u00e9lie.roux"
+    ],
+    "cn": [
+      "No\u00e9lie Roux"
+    ],
+    "mail": [
+      "no\u00e9lie.roux@example.com"
+    ],
+    "sn": [
+      "Roux"
+    ],
+    "givenname": [
+      "No\u00e9lie"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "n\u00edvia.cardoso"
+    ],
+    "cn": [
+      "N\u00edvia Cardoso"
+    ],
+    "mail": [
+      "n\u00edvia.cardoso@example.com"
+    ],
+    "sn": [
+      "Cardoso"
+    ],
+    "givenname": [
+      "N\u00edvia"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "oona.latvala"
+    ],
+    "cn": [
+      "Oona Latvala"
+    ],
+    "mail": [
+      "oona.latvala@example.com"
+    ],
+    "sn": [
+      "Latvala"
+    ],
+    "givenname": [
+      "Oona"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "oscar.christiansen"
+    ],
+    "cn": [
+      "Oscar Christiansen"
+    ],
+    "mail": [
+      "oscar.christiansen@example.com"
+    ],
+    "sn": [
+      "Christiansen"
+    ],
+    "givenname": [
+      "Oscar"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "pauline.perez"
+    ],
+    "cn": [
+      "Pauline Perez"
+    ],
+    "mail": [
+      "pauline.perez@example.com"
+    ],
+    "sn": [
+      "Perez"
+    ],
+    "givenname": [
+      "Pauline"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "pearl.wilson"
+    ],
+    "cn": [
+      "Pearl Wilson"
+    ],
+    "mail": [
+      "pearl.wilson@example.com"
+    ],
+    "sn": [
+      "Wilson"
+    ],
+    "givenname": [
+      "Pearl"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "peter.bell"
+    ],
+    "cn": [
+      "Peter Bell"
+    ],
+    "mail": [
+      "peter.bell@example.com"
+    ],
+    "sn": [
+      "Bell"
+    ],
+    "givenname": [
+      "Peter"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "phillip.torres"
+    ],
+    "cn": [
+      "Phillip Torres"
+    ],
+    "mail": [
+      "phillip.torres@example.com"
+    ],
+    "sn": [
+      "Torres"
+    ],
+    "givenname": [
+      "Phillip"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "priteche.foga\u00e7a"
+    ],
+    "cn": [
+      "Priteche Foga\u00e7a"
+    ],
+    "mail": [
+      "priteche.foga\u00e7a@example.com"
+    ],
+    "sn": [
+      "Foga\u00e7a"
+    ],
+    "givenname": [
+      "Priteche"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "rachel.lambert"
+    ],
+    "cn": [
+      "Rachel Lambert"
+    ],
+    "mail": [
+      "rachel.lambert@example.com"
+    ],
+    "sn": [
+      "Lambert"
+    ],
+    "givenname": [
+      "Rachel"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "rinesh.tielen"
+    ],
+    "cn": [
+      "Rinesh Tielen"
+    ],
+    "mail": [
+      "rinesh.tielen@example.com"
+    ],
+    "sn": [
+      "Tielen"
+    ],
+    "givenname": [
+      "Rinesh"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "rita.rezende"
+    ],
+    "cn": [
+      "Rita Rezende"
+    ],
+    "mail": [
+      "rita.rezende@example.com"
+    ],
+    "sn": [
+      "Rezende"
+    ],
+    "givenname": [
+      "Rita"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "roberto.delgado"
+    ],
+    "cn": [
+      "Roberto Delgado"
+    ],
+    "mail": [
+      "roberto.delgado@example.com"
+    ],
+    "sn": [
+      "Delgado"
+    ],
+    "givenname": [
+      "Roberto"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "romain.noel"
+    ],
+    "cn": [
+      "Romain Noel"
+    ],
+    "mail": [
+      "romain.noel@example.com"
+    ],
+    "sn": [
+      "Noel"
+    ],
+    "givenname": [
+      "Romain"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "rosemary.robinson"
+    ],
+    "cn": [
+      "Rosemary Robinson"
+    ],
+    "mail": [
+      "rosemary.robinson@example.com"
+    ],
+    "sn": [
+      "Robinson"
+    ],
+    "givenname": [
+      "Rosemary"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "ross.nichols"
+    ],
+    "cn": [
+      "Ross Nichols"
+    ],
+    "mail": [
+      "ross.nichols@example.com"
+    ],
+    "sn": [
+      "Nichols"
+    ],
+    "givenname": [
+      "Ross"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "sammy.gregory"
+    ],
+    "cn": [
+      "Sammy Gregory"
+    ],
+    "mail": [
+      "sammy.gregory@example.com"
+    ],
+    "sn": [
+      "Gregory"
+    ],
+    "givenname": [
+      "Sammy"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "sandra.lucas"
+    ],
+    "cn": [
+      "Sandra Lucas"
+    ],
+    "mail": [
+      "sandra.lucas@example.com"
+    ],
+    "sn": [
+      "Lucas"
+    ],
+    "givenname": [
+      "Sandra"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "sara.johansen"
+    ],
+    "cn": [
+      "Sara Johansen"
+    ],
+    "mail": [
+      "sara.johansen@example.com"
+    ],
+    "sn": [
+      "Johansen"
+    ],
+    "givenname": [
+      "Sara"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "sarah.oliver"
+    ],
+    "cn": [
+      "Sarah Oliver"
+    ],
+    "mail": [
+      "sarah.oliver@example.com"
+    ],
+    "sn": [
+      "Oliver"
+    ],
+    "givenname": [
+      "Sarah"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "selma.andersen"
+    ],
+    "cn": [
+      "Selma Andersen"
+    ],
+    "mail": [
+      "selma.andersen@example.com"
+    ],
+    "sn": [
+      "Andersen"
+    ],
+    "givenname": [
+      "Selma"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "serena.moraes"
+    ],
+    "cn": [
+      "Serena Moraes"
+    ],
+    "mail": [
+      "serena.moraes@example.com"
+    ],
+    "sn": [
+      "Moraes"
+    ],
+    "givenname": [
+      "Serena"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "sharon.jimenez"
+    ],
+    "cn": [
+      "Sharon Jimenez"
+    ],
+    "mail": [
+      "sharon.jimenez@example.com"
+    ],
+    "sn": [
+      "Jimenez"
+    ],
+    "givenname": [
+      "Sharon"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "sheryl.carr"
+    ],
+    "cn": [
+      "Sheryl Carr"
+    ],
+    "mail": [
+      "sheryl.carr@example.com"
+    ],
+    "sn": [
+      "Carr"
+    ],
+    "givenname": [
+      "Sheryl"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "signe.olsen"
+    ],
+    "cn": [
+      "Signe Olsen"
+    ],
+    "mail": [
+      "signe.olsen@example.com"
+    ],
+    "sn": [
+      "Olsen"
+    ],
+    "givenname": [
+      "Signe"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "siiri.ojala"
+    ],
+    "cn": [
+      "Siiri Ojala"
+    ],
+    "mail": [
+      "siiri.ojala@example.com"
+    ],
+    "sn": [
+      "Ojala"
+    ],
+    "givenname": [
+      "Siiri"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "sofia.sales"
+    ],
+    "cn": [
+      "Sofia Sales"
+    ],
+    "mail": [
+      "sofia.sales@example.com"
+    ],
+    "sn": [
+      "Sales"
+    ],
+    "givenname": [
+      "Sofia"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "sofie.s\u00f8rensen"
+    ],
+    "cn": [
+      "Sofie S\u00f8rensen"
+    ],
+    "mail": [
+      "sofie.s\u00f8rensen@example.com"
+    ],
+    "sn": [
+      "S\u00f8rensen"
+    ],
+    "givenname": [
+      "Sofie"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "sol\u00e8ne.lemaire"
+    ],
+    "cn": [
+      "Sol\u00e8ne Lemaire"
+    ],
+    "mail": [
+      "sol\u00e8ne.lemaire@example.com"
+    ],
+    "sn": [
+      "Lemaire"
+    ],
+    "givenname": [
+      "Sol\u00e8ne"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "soren.guillaume"
+    ],
+    "cn": [
+      "Soren Guillaume"
+    ],
+    "mail": [
+      "soren.guillaume@example.com"
+    ],
+    "sn": [
+      "Guillaume"
+    ],
+    "givenname": [
+      "Soren"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "stefan.siebert"
+    ],
+    "cn": [
+      "Stefan Siebert"
+    ],
+    "mail": [
+      "stefan.siebert@example.com"
+    ],
+    "sn": [
+      "Siebert"
+    ],
+    "givenname": [
+      "Stefan"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "stella.guillot"
+    ],
+    "cn": [
+      "Stella Guillot"
+    ],
+    "mail": [
+      "stella.guillot@example.com"
+    ],
+    "sn": [
+      "Guillot"
+    ],
+    "givenname": [
+      "Stella"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "stephanie.lawson"
+    ],
+    "cn": [
+      "Stephanie Lawson"
+    ],
+    "mail": [
+      "stephanie.lawson@example.com"
+    ],
+    "sn": [
+      "Lawson"
+    ],
+    "givenname": [
+      "Stephanie"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "summer.wood"
+    ],
+    "cn": [
+      "Summer Wood"
+    ],
+    "mail": [
+      "summer.wood@example.com"
+    ],
+    "sn": [
+      "Wood"
+    ],
+    "givenname": [
+      "Summer"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "tammy.bowman"
+    ],
+    "cn": [
+      "Tammy Bowman"
+    ],
+    "mail": [
+      "tammy.bowman@example.com"
+    ],
+    "sn": [
+      "Bowman"
+    ],
+    "givenname": [
+      "Tammy"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "tammy.hayes"
+    ],
+    "cn": [
+      "Tammy Hayes"
+    ],
+    "mail": [
+      "tammy.hayes@example.com"
+    ],
+    "sn": [
+      "Hayes"
+    ],
+    "givenname": [
+      "Tammy"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=HR_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "terrence.king"
+    ],
+    "cn": [
+      "Terrence King"
+    ],
+    "mail": [
+      "terrence.king@example.com"
+    ],
+    "sn": [
+      "King"
+    ],
+    "givenname": [
+      "Terrence"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "theo.bader"
+    ],
+    "cn": [
+      "Theo Bader"
+    ],
+    "mail": [
+      "theo.bader@example.com"
+    ],
+    "sn": [
+      "Bader"
+    ],
+    "givenname": [
+      "Theo"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "todd.beck"
+    ],
+    "cn": [
+      "Todd Beck"
+    ],
+    "mail": [
+      "todd.beck@example.com"
+    ],
+    "sn": [
+      "Beck"
+    ],
+    "givenname": [
+      "Todd"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "tom.wolff"
+    ],
+    "cn": [
+      "Tom Wolff"
+    ],
+    "mail": [
+      "tom.wolff@example.com"
+    ],
+    "sn": [
+      "Wolff"
+    ],
+    "givenname": [
+      "Tom"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "valdemar.nielsen"
+    ],
+    "cn": [
+      "Valdemar Nielsen"
+    ],
+    "mail": [
+      "valdemar.nielsen@example.com"
+    ],
+    "sn": [
+      "Nielsen"
+    ],
+    "givenname": [
+      "Valdemar"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "valtteri.mikkola"
+    ],
+    "cn": [
+      "Valtteri Mikkola"
+    ],
+    "mail": [
+      "valtteri.mikkola@example.com"
+    ],
+    "sn": [
+      "Mikkola"
+    ],
+    "givenname": [
+      "Valtteri"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "valtteri.pulkkinen"
+    ],
+    "cn": [
+      "Valtteri Pulkkinen"
+    ],
+    "mail": [
+      "valtteri.pulkkinen@example.com"
+    ],
+    "sn": [
+      "Pulkkinen"
+    ],
+    "givenname": [
+      "Valtteri"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "volkan.tazeg\u00fcl"
+    ],
+    "cn": [
+      "Volkan Tazeg\u00fcl"
+    ],
+    "mail": [
+      "volkan.tazeg\u00fcl@example.com"
+    ],
+    "sn": [
+      "Tazeg\u00fcl"
+    ],
+    "givenname": [
+      "Volkan"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "v\u00e4in\u00f6.huotari"
+    ],
+    "cn": [
+      "V\u00e4in\u00f6 Huotari"
+    ],
+    "mail": [
+      "v\u00e4in\u00f6.huotari@example.com"
+    ],
+    "sn": [
+      "Huotari"
+    ],
+    "givenname": [
+      "V\u00e4in\u00f6"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=SALES_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "william.david"
+    ],
+    "cn": [
+      "William David"
+    ],
+    "mail": [
+      "william.david@example.com"
+    ],
+    "sn": [
+      "David"
+    ],
+    "givenname": [
+      "William"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "wyatt.rhodes"
+    ],
+    "cn": [
+      "Wyatt Rhodes"
+    ],
+    "mail": [
+      "wyatt.rhodes@example.com"
+    ],
+    "sn": [
+      "Rhodes"
+    ],
+    "givenname": [
+      "Wyatt"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=IT_ANALYSTS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "\u00e7etin.oralo\u011flu"
+    ],
+    "cn": [
+      "\u00c7etin Oralo\u011flu"
+    ],
+    "mail": [
+      "\u00e7etin.oralo\u011flu@example.com"
+    ],
+    "sn": [
+      "Oralo\u011flu"
+    ],
+    "givenname": [
+      "\u00c7etin"
+    ]
+  },
+  {
+    "memberOf": [
+      "cn=MARKETING_SUPERVISORS_GL,ou=groups,dc=example,dc=com"
+    ],
+    "uid": [
+      "\u00f6zkan.tekelio\u011flu"
+    ],
+    "cn": [
+      "\u00d6zkan Tekelio\u011flu"
+    ],
+    "mail": [
+      "\u00f6zkan.tekelio\u011flu@example.com"
+    ],
+    "sn": [
+      "Tekelio\u011flu"
+    ],
+    "givenname": [
+      "\u00d6zkan"
+    ]
+  }
+]

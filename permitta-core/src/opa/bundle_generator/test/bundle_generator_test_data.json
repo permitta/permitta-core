@@ -1,0 +1,282 @@
+{
+  "data_objects": [
+    {
+      "object": {
+        "database": "datalake",
+        "schema": "hr",
+        "table": "employees"
+      },
+      "attributes": [
+        {
+          "key": "HR",
+          "value": "Commercial"
+        }
+      ],
+      "columns": [
+        {
+          "name": "phonenumber",
+          "attributes": [
+            {
+              "key": "HR",
+              "value": "Privacy"
+            }
+          ],
+          "mask": "'XXXX'"
+        }
+      ]
+    },
+    {
+      "object": {
+        "database": "datalake",
+        "schema": "hr",
+        "table": "employee_territories"
+      },
+      "attributes": [
+        {
+          "key": "HR",
+          "value": "Commercial"
+        }
+      ]
+    },
+    {
+      "object": {
+        "database": "datalake",
+        "schema": "logistics",
+        "table": "shippers"
+      },
+      "attributes": [
+        {
+          "key": "Sales",
+          "value": "Commercial"
+        }
+      ],
+      "columns": [
+        {
+          "name": "phone",
+          "attributes": [
+            {
+              "key": "Sales",
+              "value": "Privacy"
+            }
+          ],
+          "mask": "NULL"
+        }
+      ]
+    },
+    {
+      "object": {
+        "database": "datalake",
+        "schema": "logistics",
+        "table": "territories"
+      },
+      "attributes": [
+        {
+          "key": "Sales",
+          "value": "Commercial"
+        }
+      ]
+    },
+    {
+      "object": {
+        "database": "datalake",
+        "schema": "logistics",
+        "table": "regions"
+      },
+      "attributes": [
+        {
+          "key": "Marketing",
+          "value": "Commercial"
+        }
+      ]
+    },
+    {
+      "object": {
+        "database": "datalake",
+        "schema": "logistics",
+        "table": "suppliers"
+      },
+      "attributes": [
+        {
+          "key": "Marketing",
+          "value": "Restricted"
+        }
+      ]
+    },
+    {
+      "object": {
+        "database": "datalake",
+        "schema": "sales",
+        "table": "orders"
+      },
+      "attributes": [
+        {
+          "key": "Marketing",
+          "value": "Privacy"
+        }
+      ]
+    },
+    {
+      "object": {
+        "database": "datalake",
+        "schema": "sales",
+        "table": "products"
+      },
+      "attributes": [
+        {
+          "key": "Sales",
+          "value": "Commercial"
+        }
+      ]
+    },
+    {
+      "object": {
+        "database": "datalake",
+        "schema": "sales",
+        "table": "customers"
+      },
+      "attributes": [
+        {
+          "key": "Sales",
+          "value": "Restricted"
+        }
+      ]
+    },
+    {
+      "object": {
+        "database": "datalake",
+        "schema": "sales",
+        "table": "customer_demographics"
+      },
+      "attributes": [
+        {
+          "key": "Sales",
+          "value": "Privacy"
+        }
+      ]
+    },
+    {
+      "attributes": [
+        {
+          "key": "Sales",
+          "value": "Privacy"
+        },
+        {
+          "key": "Marketing",
+          "value": "Privacy"
+        }
+      ],
+      "columns": [
+        {
+          "attributes": [
+            {
+              "key": "IT",
+              "value": "Restricted"
+            }
+          ],
+          "mask": "substring(type_name,1,3)",
+          "name": "type_name"
+        }
+      ],
+      "object": {
+        "database": "datalake",
+        "schema": "sales",
+        "table": "customer_markets"
+      }
+    }
+  ],
+  "principals": [
+    {
+      "attributes": [
+        {
+          "key": "ad_group",
+          "value": "ADMINISTRATORS"
+        }
+      ],
+      "name": "admin"
+    },
+    {
+      "attributes": [
+        {
+          "key": "ad_group",
+          "value": "SALES_ANALYSTS_GL"
+        },
+        {
+          "key": "ad_group",
+          "value": "MARKETING_DIRECTORS_GL"
+        },
+        {
+          "key": "ad_group",
+          "value": "IT_SUPERVISORS_GL"
+        },
+        {
+          "key": "ad_group",
+          "value": "DEVELOPERS"
+        }
+      ],
+      "name": "alice"
+    },
+    {
+      "attributes": [
+        {
+          "key": "ad_group",
+          "value": "MARKETING_SUPERVISORS_GL"
+        },
+        {
+          "key": "ad_group",
+          "value": "HR_ANALYSTS_GL"
+        },
+        {
+          "key": "ad_group",
+          "value": "IT_DIRECTORS_GL"
+        }
+      ],
+      "name": "anne"
+    },
+    {
+      "attributes": [
+        {
+          "key": "ad_group",
+          "value": "SALES_DIRECTORS_GL"
+        },
+        {
+          "key": "ad_group",
+          "value": "HR_SUPERVISORS_GL"
+        },
+        {
+          "key": "ad_group",
+          "value": "IT_ANALYSTS_GL"
+        }
+      ],
+      "name": "bob"
+    },
+    {
+      "attributes": [
+        {
+          "key": "ad_group",
+          "value": "SALES_SUPERVISORS_GL"
+        },
+        {
+          "key": "ad_group",
+          "value": "MARKETING_ANALYSTS_GL"
+        },
+        {
+          "key": "ad_group",
+          "value": "HR_DIRECTORS_GL"
+        }
+      ],
+      "name": "frank"
+    }
+  ],
+  "actions": {
+    "read": [
+      "ExecuteQuery",
+      "AccessCatalog",
+      "SelectFromColumns",
+      "FilterCatalogs",
+      "FilterSchemas"
+    ],
+    "write": [
+      "InsertIntoTable"
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "object_type": "table",
+    "platform":"trino",
+    "fq_name": "datalake.hr.employees"
+  },
+  {
+    "object_type": "column",
+    "platform":"trino",
+    "fq_name": "datalake.hr.employees.phonenumber"
+  },
+  {
+    "object_type": "table",
+    "platform":"trino",
+    "fq_name": "datalake.hr.employee_territories"
+  },
+  {
+    "object_type": "table",
+    "platform":"trino",
+    "fq_name": "datalake.logistics.shippers"
+  },
+  {
+    "object_type": "column",
+    "platform":"trino",
+    "fq_name": "datalake.logistics.shippers.phone"
+  },
+  {
+    "object_type": "table",
+    "platform":"trino",
+    "fq_name": "datalake.logistics.territories"
+  },
+  {
+    "object_type": "table",
+    "platform":"trino",
+    "fq_name": "datalake.logistics.regions"
+  },
+  {
+    "object_type": "table",
+    "platform":"trino",
+    "fq_name": "datalake.logistics.suppliers"
+  },
+  {
+    "object_type": "table",
+    "platform":"trino",
+    "fq_name": "datalake.sales.orders"
+  },
+  {
+    "object_type": "table",
+    "platform":"trino",
+    "fq_name": "datalake.sales.products"
+  },
+  {
+    "object_type": "table",
+    "platform":"trino",
+    "fq_name": "datalake.sales.customers"
+  },
+  {
+    "object_type": "table",
+    "platform":"trino",
+    "fq_name": "datalake.sales.customer_demographics"
+  },
+  {
+    "object_type": "table",
+    "platform":"trino",
+    "fq_name": "datalake.sales.customer_markets"
+  },
+  {
+    "object_type": "column",
+    "platform":"trino",
+    "fq_name": "datalake.sales.customer_markets.type_name"
+  }
+]

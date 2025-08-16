@@ -1,0 +1,149 @@
+{
+  "id": "permitta",
+  "realm": "permitta",
+  "sslRequired": "none",
+  "enabled": true,
+  "eventsEnabled": true,
+  "eventsExpiration": 900,
+  "adminEventsEnabled": true,
+  "adminEventsDetailsEnabled": true,
+  "attributes": {
+    "adminEventsExpiration": "900"
+  },
+  "clients": [
+    {
+      "id" : "permitta-client",
+      "clientId" : "permitta-client",
+      "name" : "permitta-client",
+      "description" : "",
+      "rootUrl" : "http://localhost:8000",
+      "adminUrl" : "http://localhost:8000",
+      "baseUrl" : "http://localhost:8000",
+      "surrogateAuthRequired" : false,
+      "enabled" : true,
+      "alwaysDisplayInConsole" : false,
+      "clientAuthenticatorType" : "client-secret",
+      "secret" : "v7Yku3CSBSVfZOxTetGmA5tCRhzDXZeY",
+      "redirectUris" : [ "http://127.0.0.1:8000/oidccallback" ],
+      "webOrigins" : [ "http://localhost:8000/*" ],
+      "notBefore" : 0,
+      "bearerOnly" : false,
+      "consentRequired" : false,
+      "standardFlowEnabled" : true,
+      "implicitFlowEnabled" : false,
+      "directAccessGrantsEnabled" : false,
+      "serviceAccountsEnabled" : false,
+      "publicClient" : false,
+      "frontchannelLogout" : false,
+      "protocol" : "openid-connect",
+      "attributes" : {
+        "oidc.ciba.grant.enabled" : "false",
+        "client.secret.creation.time" : "1716872965",
+        "backchannel.logout.session.required" : "true",
+        "post.logout.redirect.uris" : "http://127.0.0.1:8000/*",
+        "display.on.consent.screen" : "false",
+        "oauth2.device.authorization.grant.enabled" : "false",
+        "backchannel.logout.revoke.offline.tokens" : "false"
+      },
+      "fullScopeAllowed" : true
+    }
+  ],
+  "users": [
+    {
+      "id": "demo",
+      "email": "demo@permitta",
+      "username": "demo",
+      "firstName": "demo",
+      "lastName": "demo",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "temporary": false,
+          "type": "password",
+          "value": "demo"
+        }
+      ]
+    },
+    {
+      "id":"alice",
+      "email": "alice@permitta.co",
+      "username": "alice",
+      "firstName": "Alice",
+      "lastName": "Cooper",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "temporary": false,
+          "type": "password",
+          "value": "admin"
+        }
+      ]
+    },
+    {
+      "id":"anne",
+      "email": "anne@permitta.co",
+      "username": "anne",
+      "firstName": "Anne",
+      "lastName": "Murray",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "temporary": false,
+          "type": "password",
+          "value": "admin"
+        }
+      ]
+    },
+    {
+      "id":"bob",
+      "email": "bob@permitta.co",
+      "username": "bob",
+      "firstName": "Bob",
+      "lastName": "Dylan",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "temporary": false,
+          "type": "password",
+          "value": "admin"
+        }
+      ]
+    },
+    {
+      "id":"frank",
+      "email": "frank@permitta.co",
+      "username": "frank",
+      "firstName": "Frank",
+      "lastName": "Zappa",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "temporary": false,
+          "type": "password",
+          "value": "admin"
+        }
+      ]
+    },
+    {
+      "id":"janis",
+      "email": "janis@permitta.co",
+      "username": "janis",
+      "firstName": "Janis",
+      "lastName": "Joplin",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "temporary": false,
+          "type": "password",
+          "value": "admin"
+        }
+      ]
+    }
+  ]
+}

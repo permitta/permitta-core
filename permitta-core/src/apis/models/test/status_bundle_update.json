@@ -1,0 +1,24 @@
+{
+  "labels": {
+    "id": "ea6d177f-66fe-4669-9177-2c6bfa5f899c",
+    "version": "0.64.1"
+  },
+  "bundles": {
+    "trino": {
+      "name": "trino",
+      "last_successful_activation": "2024-06-17T09:33:01.003648626Z",
+      "type": "snapshot",
+      "size": 2797,
+      "last_successful_download": "2024-06-17T09:33:00.986775001Z",
+      "last_successful_request": "2024-06-17T09:33:00.986775001Z",
+      "last_request": "2024-06-17T09:33:00.986775001Z",
+      "metrics": {
+        "timer_bundle_request_ns": 1809537542,
+        "timer_rego_load_bundles_ns": 23594792,
+        "timer_rego_module_compile_ns": 10438750,
+        "timer_rego_module_parse_ns": 6063459
+      }
+    }
+  },
+  "decision_logs": {}
+}

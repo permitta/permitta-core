@@ -1,0 +1,48 @@
+from database import BaseModel
+from sqlalchemy import Column, DateTime, Integer, String
+from sqlalchemy.orm import Mapped, relationship
+from sqlalchemy.sql.functions import current_timestamp
+from .common_mixin_dbo import IngestionDboMixin
+
+
+class PrincipalDbo(IngestionDboMixin, BaseModel):
+    __tablename__ = "principals"
+
+    principal_id: int = Column(Integer, primary_key=True, autoincrement=True)
+    fq_name: str = Column(String)
+    first_name: str = Column(String)
+    last_name: str = Column(String)
+    user_name: str = Column(String)
+    email: str = Column(String)
+
+    record_updated_date: str = Column(
+        DateTime(timezone=True), server_default=current_timestamp()
+    )
+    record_updated_by: str = Column(String)
+
+    attributes: Mapped[list["PrincipalAttributeDbo"]] = relationship(
+        "PrincipalAttributeDbo",
+        # back_populates="principal",
+        primaryjoin="PrincipalAttributeDbo.fq_name == PrincipalDbo.fq_name",
+        foreign_keys=fq_name,
+        remote_side="PrincipalAttributeDbo.fq_name",
+        uselist=True,
+    )
+
+
+#
+# class PrincipalGroupDbo(IngestionDboMixin, BaseModel):
+#     __tablename__ = "principal_groups"
+#
+#     principal_group_id = Column(Integer, primary_key=True, autoincrement=True)
+#     fq_name = Column(String())
+#     principal_fq_name = Column(String())
+
+
+class PrincipalAttributeDbo(IngestionDboMixin, BaseModel):
+    __tablename__ = "principal_attributes"
+
+    principal_attribute_id: int = Column(Integer, primary_key=True, autoincrement=True)
+    fq_name: str = Column(String)
+    attribute_key: str = Column(String)
+    attribute_value: str = Column(String)

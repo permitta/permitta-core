@@ -1,0 +1,23 @@
+logger.root_level: "INFO"
+
+flask.secret_key: "$FLASK_SECRET_KEY"
+
+database.protocol: "postgresql+psycopg"
+database.user: "test_user"
+database.password: "test_password"
+database.host: "localhost"
+database.port: "5432"
+database.database: "permitta"
+database.seed_data_path: "permitta/seed_data"
+
+oidc_auth_provider.issuer: "http://localhost:8080/realms/permitta"
+oidc_auth_provider.client_id: "permitta-client"
+oidc_auth_provider.client_secret: "$OIDC_AUTH_PROVIDER_CLIENT_SECRET"
+
+opa_client.timeout_seconds: "0.1"
+
+opa_authz_provider.policy_name: "permitta/authz"
+opa_authz_provider.policy_file_path: "opa/permitta/authz.rego"
+
+
+bundle_generator.temp_directory: /tmp
