@@ -49,7 +49,7 @@ class BundleGenerator:
                 os.path.join(self.static_rego_file_path, file), self.bundle_directory
             )
             for file in os.listdir(self.static_rego_file_path)
-            if re.match(f"(?!.*_test.rego).*\.rego", file)
+            if re.match(rf"(?!.*_test.rego).*\.rego", file)
         ]
 
         # write the data file
@@ -140,7 +140,6 @@ class BundleGenerator:
                             "schema": schema,
                             "table": table,
                         },
-                        "columns": [],
                         "attributes": [
                             {"key": a.attribute_key, "value": a.attribute_value}
                             for a in resource.attributes
@@ -149,9 +148,21 @@ class BundleGenerator:
                 )
 
             if resource.object_type == "column":
+                # the last one will be the one we want to append to, due to ordering
+                data_object: dict = data_objects[-1]
                 column_name: str = re.search(r"([^.]*$)", resource.fq_name).group(1)
 
-                # the last one will be the one we want to append to, due to ordering
-                data_objects[-1]["columns"].append({"name": column_name})
+                if not data_object.get("columns"):
+                    data_object["columns"] = []
+
+                data_object["columns"].append(
+                    {
+                        "name": column_name,
+                        "attributes": [
+                            {"key": a.attribute_key, "value": a.attribute_value}
+                            for a in resource.attributes
+                        ],
+                    }
+                )
 
         return data_objects

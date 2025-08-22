@@ -14,6 +14,13 @@ trino_client.username: admin
 
 dbapi_connector.client_type: trino
 dbapi_connector.data_object_table_column_query: |-
-  select table_catalog || '.' || table_schema || '.' || table_name as fq_table_name
-  from datalake.information_schema.tables
-dbapi_connector.table_key: fq_table_name
+  select fq_name, object_type from (
+      select table_catalog || '.' || table_schema || '.' || table_name as fq_name, 'table' as object_type
+      from datalake.information_schema.tables
+      where table_schema <> 'information_schema'
+      union all
+      select table_catalog || '.' || table_schema || '.' || table_name || '.' || column_name as fq_name, 'column' as object_type
+      from datalake.information_schema.columns
+      where table_schema <> 'information_schema'
+  )
+  order by fq_name

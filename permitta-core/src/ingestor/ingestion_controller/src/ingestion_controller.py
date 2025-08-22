@@ -5,23 +5,13 @@ from database import Database
 from ingestor.connectors import ConnectorBase, ConnectorFactory
 from ingestor.models import (
     BaseDio,
-    PrincipalAttributeDio,
-    PrincipalDio,
-    ResourceAttributeDio,
-    ResourceDio,
 )
 from models import (
-    IngestionProcessDbo,
     ObjectTypeEnum,
-    PrincipalAttributeStagingDbo,
-    PrincipalStagingDbo,
-    ResourceAttributeStagingDbo,
-    ResourceStagingDbo,
 )
 from repositories import (
     IngestionProcessRepository,
     PrincipalRepository,
-    RepositoryBase,
     ResourceRepository,
 )
 from .base_ingestion_controller import BaseIngestionController
@@ -96,6 +86,7 @@ class IngestionController:
         self,
         connector_name: str,
         object_type: ObjectTypeEnum,
+        platform: str,
         deactivate_omitted: bool = True,
     ) -> None:
         logger.info("Starting ingestion process")
@@ -112,7 +103,7 @@ class IngestionController:
         controller = self._get_controller(object_type=object_type)
 
         # load data into connector
-        connector.acquire_data()
+        connector.acquire_data(platform=platform)
 
         # create the process id & truncate staging
         process_id: int = self._initialise_ingestion_process(

@@ -16,7 +16,7 @@ with open(
 @mock.patch.object(LdapClient, "list_users", return_value=ldap_users)
 def test_acquire_data(mock_list_users: mock.MagicMock, mock_connect: mock.MagicMock):
     ldap_connector: LdapConnector = LdapConnector()
-    ldap_connector.acquire_data()
+    ldap_connector.acquire_data(platform="ad")
 
     mock_list_users.assert_called_with(
         user_search_base="ou=people,dc=example,dc=com",

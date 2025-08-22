@@ -1,17 +1,13 @@
 from typing import Tuple
 
-from database import Database
 from models import (
-    AttributeDto,
     PrincipalAttributeDbo,
     PrincipalAttributeStagingDbo,
     PrincipalDbo,
     PrincipalStagingDbo,
 )
-from sqlalchemy import Row, and_, func, or_
 from sqlalchemy.orm import Query
-from sqlalchemy.sql import Subquery, text
-from sqlalchemy.sql.elements import NamedColumn
+from sqlalchemy.sql import text
 
 from .repository_base import RepositoryBase
 

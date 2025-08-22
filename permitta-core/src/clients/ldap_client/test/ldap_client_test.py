@@ -1,5 +1,4 @@
 
-from ..src.ldap_client import LdapClient
 
 
 def test_list_users_with_groups():

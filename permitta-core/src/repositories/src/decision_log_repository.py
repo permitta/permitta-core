@@ -3,7 +3,6 @@ from typing import Tuple
 
 from app_logger import Logger, get_logger
 from models import DecisionLogDbo
-from sqlalchemy import Row, and_, or_
 
 from .repository_base import RepositoryBase
 

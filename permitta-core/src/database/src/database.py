@@ -2,7 +2,6 @@
 from sqlalchemy import Engine, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.sql import text
 
 from .database_config import DatabaseConfig
 

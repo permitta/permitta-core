@@ -1,5 +1,5 @@
 from database import BaseModel
-from sqlalchemy import Column, Integer, String, select
+from sqlalchemy import Column, Integer, String
 
 
 class PrincipalStagingDbo(BaseModel):

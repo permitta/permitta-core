@@ -1,5 +1,5 @@
 
-from sqlalchemy import Boolean, Column, DateTime, Integer, String
+from sqlalchemy import Boolean, Column, Integer
 from sqlalchemy.orm import declared_attr
 
 

@@ -1,7 +1,6 @@
 from datetime import datetime, timezone
 
 import pytest
-from database import Database
 from models import DecisionLogDbo
 
 from ..src.decision_log_repository import DecisionLogRepository

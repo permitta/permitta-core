@@ -29,13 +29,14 @@ class ConnectorBase:
 
     def __init__(self):
         self.errors: list[str] = []
+        self.platform: str = ""
 
     def _log_error(self, error: str) -> None:
         self.errors.append(error)
         logger.error(f"Connector error: {error}")
 
-    def acquire_data(self) -> None:
-        pass
+    def acquire_data(self, platform: str) -> None:
+        self.platform = platform
 
     def get_principals(self) -> list[PrincipalDio]:
         logger.info("Skipping ingestion of principals")

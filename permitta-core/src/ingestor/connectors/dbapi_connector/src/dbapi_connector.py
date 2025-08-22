@@ -22,9 +22,6 @@ class DBAPIConnector(ConnectorBase):
 
         self.trino_client: TrinoClient = TrinoClient()
 
-    def acquire_data(self) -> None:
-        pass
-
     def get_resources(self) -> list[ResourceDio]:
         """
         The get tables function brings in all table objects from the source system e.g trino regardless of applied auth rules
@@ -34,17 +31,26 @@ class DBAPIConnector(ConnectorBase):
         query = self.config.data_object_table_column_query
 
         # Execute the query and process the results
-        tables: list[str] = []
+        tables: list[dict[str, str] | None] = []
         try:
             for batch in self.trino_client.select_async(query=query):
-                tables.extend([record.get(self.config.table_key) for record in batch])
+                tables.extend(
+                    [
+                        {
+                            "fq_name": record.get(self.config.fq_name_key),
+                            "object_type": record.get(self.config.object_type_key),
+                            "platform": self.platform,
+                        }
+                        for record in batch
+                    ]
+                )
 
             logger.info(f"Ingested {len(tables)} table records")
         except Exception as e:
             self._log_error(str(e))
             raise
 
-        return [ResourceDio(fq_name=fq_name, object_type="table") for fq_name in tables]
+        return [ResourceDio(**t) for t in tables]
 
     def get_resource_attributes(self) -> list[ResourceAttributeDio]:
         """
@@ -58,7 +64,19 @@ class DBAPIConnector(ConnectorBase):
         query = self.config.data_object_table_column_query
         try:
             for batch in self.trino_client.select_async(query=query):
-                resource_attrs.extend(batch)
+                resource_attrs.extend(
+                    [
+                        {
+                            "fq_name": record.get(self.config.fq_name_key),
+                            "attribute_key": record.get(self.config.attribute_key_key),
+                            "attribute_value": record.get(
+                                self.config.attribute_value_key
+                            ),
+                            "platform": self.platform,
+                        }
+                        for record in batch
+                    ]
+                )
 
             logger.info(f"Ingested {len(resource_attrs)} table records")
         except Exception as e:

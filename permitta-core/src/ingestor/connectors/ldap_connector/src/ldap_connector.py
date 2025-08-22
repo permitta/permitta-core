@@ -20,7 +20,9 @@ class LdapConnector(ConnectorBase):
         self.config: LdapConnectorConfig = LdapConnectorConfig.load()
         logger.info("Created LDAP connector")
 
-    def acquire_data(self) -> None:
+    def acquire_data(self, platform: str) -> None:
+        self.platform = platform
+
         ldap_client: LdapClient = LdapClient()
         ldap_client.connect()
         self.ldap_users: list[dict] = ldap_client.list_users(
@@ -43,6 +45,7 @@ class LdapConnector(ConnectorBase):
                     last_name=ldap_user.get(self.config.attr_last_name)[0],
                     user_name=ldap_user.get(self.config.attr_user_name)[0],
                     email=ldap_user.get(self.config.attr_email)[0],
+                    platform=self.platform,
                 )
                 principals.append(principal)
             except (KeyError, IndexError):
@@ -66,8 +69,9 @@ class LdapConnector(ConnectorBase):
                         fq_name=fq_name,
                         attribute_key=self.AD_GROUP_ATTRIBUTE_KEY,
                         attribute_value=group_cn,
+                        platform=self.platform,
                     )
                     attributes.append(attribute)
-            except KeyError:
-                self._log_error(f"Error ingesting LDAP user: {ldap_user}")
+            except Exception as e:
+                self._log_error(f"Error ingesting LDAP user: {ldap_user}, {str(e)}")
         return attributes

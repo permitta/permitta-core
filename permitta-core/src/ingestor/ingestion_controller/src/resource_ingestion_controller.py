@@ -1,27 +1,13 @@
-from app_config import AppConfigModelBase
 from app_logger import Logger, get_logger
-from ingestor.connectors import DBAPIConnector, DBAPIConnectorConfig
-from database import Database
-from ingestor.connectors import ConnectorBase, ConnectorFactory
+from ingestor.connectors import ConnectorBase
 from ingestor.models import (
     BaseDio,
-    PrincipalAttributeDio,
-    PrincipalDio,
-    ResourceAttributeDio,
     ResourceDio,
 )
 from models import (
-    IngestionProcessDbo,
-    ObjectTypeEnum,
-    PrincipalAttributeStagingDbo,
-    PrincipalStagingDbo,
-    ResourceAttributeStagingDbo,
     ResourceStagingDbo,
 )
 from repositories import (
-    IngestionProcessRepository,
-    PrincipalRepository,
-    RepositoryBase,
     ResourceRepository,
 )
 
@@ -42,7 +28,9 @@ class ResourceIngestionController(BaseIngestionController):
 
         for resource_dio in dios:
             do_stg: ResourceStagingDbo = ResourceStagingDbo(
-                fq_name=resource_dio.fq_name, platform="trino", object_type="table"
+                fq_name=resource_dio.fq_name,
+                platform=resource_dio.platform,
+                object_type=resource_dio.object_type,
             )
             resource_stgs.append(do_stg)
         session.add_all(resource_stgs)

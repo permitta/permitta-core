@@ -1,6 +1,5 @@
 from database import Database
 from models import (
-    AttributeDto,
     PrincipalAttributeStagingDbo,
     PrincipalDbo,
     PrincipalStagingDbo,

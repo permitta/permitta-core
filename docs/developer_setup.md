@@ -1,7 +1,7 @@
 # Developer Setup
 ## Install Dependencies
-* `venv` and `node_modules` should both be at the project root
-* requires local installation of OPA, python 3.12 and a recent version of nodejs
+* `venv` should be at the project root
+* requires local installation of OPA, python 3.12
 * supporting apps run under docker-compose
 * an SQL client (e.g: dbeaver) is also required
 

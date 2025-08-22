@@ -1,9 +1,9 @@
 from textwrap import dedent
 from typing import Tuple, Type
 
-from database import BaseModel, Database
+from database import BaseModel
 from models import AttributeDto
-from sqlalchemy import and_, desc, func, or_
+from sqlalchemy import desc, or_
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.inspection import inspect as sa_inspect
 from sqlalchemy.orm import ColumnProperty, Query, class_mapper

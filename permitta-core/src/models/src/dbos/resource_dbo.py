@@ -1,7 +1,7 @@
 from database import BaseModel
 from models.src.dbos.common_mixin_dbo import IngestionDboMixin
-from sqlalchemy import Column, ForeignKey, Integer, String
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import Mapped, relationship
 
 
 class ResourceDbo(IngestionDboMixin, BaseModel):

@@ -1,26 +1,13 @@
 
 from app_logger import Logger, get_logger
-from database import Database
-from ingestor.connectors import ConnectorBase, ConnectorFactory
+from ingestor.connectors import ConnectorBase
 from ingestor.models import (
-    BaseDio,
-    PrincipalAttributeDio,
-    PrincipalDio,
     ResourceAttributeDio,
-    ResourceDio,
 )
 from models import (
-    IngestionProcessDbo,
-    ObjectTypeEnum,
-    PrincipalAttributeStagingDbo,
-    PrincipalStagingDbo,
     ResourceAttributeStagingDbo,
-    ResourceStagingDbo,
 )
 from repositories import (
-    IngestionProcessRepository,
-    PrincipalRepository,
-    RepositoryBase,
     ResourceRepository,
 )
 

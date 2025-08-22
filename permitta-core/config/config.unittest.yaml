@@ -49,7 +49,6 @@ dbapi_connector.client_type: trino
 dbapi_connector.data_object_table_column_query: |-
   select table_catalog || '.' || table_schema || '.' || table_name as fq_table_name
   from datalake.information_schema.tables
-dbapi_connector.table_key: fq_name
 
 bundle_generator.temp_directory: /tmp
 bundle_generator.static_rego_file_path: permitta-core/test/test_data/rego

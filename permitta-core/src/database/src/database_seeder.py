@@ -2,10 +2,8 @@ import json
 import os
 import uuid
 from datetime import datetime
-from typing import Type
 
-import yaml
-from database import BaseModel, Database
+from database import Database
 from models import (
     IngestionProcessDbo,
     PrincipalAttributeDbo,
@@ -51,18 +49,6 @@ class DatabaseSeeder:
             return principals
 
     @staticmethod
-    def _get_attributes(
-        object_type: Type[BaseModel], raw_attrs: list[dict]
-    ) -> list[BaseModel]:
-        attributes: list[object_type] = []
-        for raw_attr in raw_attrs:
-            attribute = object_type()
-            attribute.attribute_key = raw_attr["key"]
-            attribute.attribute_value = raw_attr["value"]
-            attributes.append(attribute)
-        return attributes
-
-    @staticmethod
     def _get_resources() -> list[ResourceDbo]:
         with open(
             os.path.join(DatabaseConfig.load().seed_data_path, "resources.json")
@@ -76,22 +62,18 @@ class DatabaseSeeder:
                 resource_dbo.platform = resource_data.get("platform")
                 resource_dbo.object_type = resource_data.get("object_type")
 
-                # # If there are attributes in the resource data, add them
-                # if "attributes" in resource_data:
-                #     for attr in resource_data.get("attributes", []):
-                #         resource_attr_dbo = ResourceAttributeDbo()
-                #         resource_attr_dbo.attribute_key = attr.get("key")
-                #         resource_attr_dbo.attribute_value = attr.get("value")
-                #         resource_dbo.attributes.append(resource_attr_dbo)
-                #
+                # If there are attributes in the resource data, add them
+                if "attributes" in resource_data:
+                    for attr in resource_data.get("attributes", []):
+                        resource_attr_dbo = ResourceAttributeDbo()
+                        resource_attr_dbo.fq_name = resource_dbo.fq_name
+                        resource_attr_dbo.attribute_key = attr.get("key")
+                        resource_attr_dbo.attribute_value = attr.get("value")
+                        resource_dbo.attributes.append(resource_attr_dbo)
+
                 resources.append(resource_dbo)
 
             return resources
-
-    def _ingest_resources(self):
-        with self.db.Session.begin() as session:
-            session.add_all(self._get_resources())
-            session.commit()
 
     def _get_process_id(self, object_type: str) -> int:
         # create the process id

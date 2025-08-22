@@ -3,4 +3,5 @@ from dataclasses import dataclass
 
 @dataclass
 class BaseDio:
-    pass
+    fq_name: str
+    platform: str

@@ -1,7 +1,6 @@
 from typing import Any, Generator
 
 from app_logger import Logger, get_logger
-from trino.auth import BasicAuthentication
 from trino.dbapi import Cursor, connect
 
 from .trino_client_config import TrinoClientConfig

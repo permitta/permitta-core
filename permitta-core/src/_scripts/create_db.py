@@ -1,5 +1,4 @@
 from database import Database
-from models import *
 
 
 def create_db():

@@ -23,4 +23,4 @@ class LdapConnectorConfig(AppConfigModelBase):
     attr_last_name: str = None
     attr_email: str = None
     attr_groups: str = None
-    group_name_regex: str = r".*"
+    group_name_regex: str = r"(.*)"
