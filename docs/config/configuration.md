@@ -1,4 +1,4 @@
-# Configuration File
+# Configuration File Syntax
 All configuration items are defined in a yaml file provided to the application.
 The location of this file is defined by an environment variable called 
 `CONFIG_FILE_PATH`. The value of this variable should be an absolute path.
@@ -11,6 +11,8 @@ ldap_client.port: "3890"
 ldap_client.base_dn: dc=example,dc=com
 ldap_client.user_dn: uid=admin,ou=people,dc=example,dc=com
 ```
+
+For a complete list of all available configuration properties, see [Properties](properties.md).
 
 ## Environment Variables
 If environment variables are preferred for some configuration items (e.g secrets)

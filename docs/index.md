@@ -1,5 +1,4 @@
 # Overview
-
 ## Permitta makes using OPA with Trino simple and fun
 
 OPA and Trino are an awesome combination, but maintaining the policy documents and required data object
@@ -10,11 +9,12 @@ Permitta-core provides an API to serve bundles to OPA, including:
 
 * Data objects and attributes ingested from various sources (SQL DBs,data catalogs etc)
 * Principals and attributes/groups ingested from identity providers (SQL DB, LDAP, etc)
-* `Rego` policy documents
+* Pre-built `rego` policy documents to support common use cases (e.g. RBAC) 
 
 ## Architecture
 
 Drawing TBA
+
 
 ## Motivation
 In late 2023 [Open Policy Agent (OPA)](https://www.openpolicyagent.org/) was introduced into Trino as an [authentication method](https://trino.io/docs/current/security/opa-access-control.html).
@@ -38,11 +38,11 @@ While extremely powerful, OPA is hard to use for non-developers, and has a signi
 * Aggregating metadata from sources such as `Active Directory`
 * Delivering bundles of policy and context metadata to instances of OPA
 
-## Trino / OPA Operation
+## How Trino and OPA work together
 
 When an SQL statement is supplied to Trino for execution, it executes a (potentially) large number of authorisation 
 checks. Each of these authorisation checks includes an action, a subject and an object. The subject is the user executing
-the query, and the object is the catalog, schema or table. 
+the query, and the object is the catalog, schema, table or column. 
 
 Upon receiving an authorisation request OPA executes tests defined in the policy document using an input variable 
 provided by Trino, against the data in the context data object.
@@ -76,7 +76,7 @@ is allowed to select these columns:
 ```
 
 ### Policy Implementation
-To implement ABAC policies with OPA, we require a `data` object containing the `principals` 
+To implement ABAC/RBAC policies with OPA, we require a `data` object containing the `principals` 
 and `data-objects` (schemas, tables, columns etc) as well at attributes or groups for each. 
 OPA uses the information in the `data` object, along with `input` object to enforce the rules
 defined in the rego policy document.

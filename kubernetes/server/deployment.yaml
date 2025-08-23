@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: permitta-api
+  labels:
+    app: permitta-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: permitta-api
+  template:
+    metadata:
+      labels:
+        app: permitta-api
+    spec:
+      containers:
+      - name: permitta-api
+        image: permitta-core:latest
+        imagePullPolicy: IfNotPresent
+        args: ["start-server"]
+        ports:
+        - containerPort: 8000
+        env:
+        - name: CONFIG_FILE_PATH
+          value: "/app/permitta-core/config/config.yaml"
+        volumeMounts:
+        - name: rego-config
+          mountPath: /app/opa/permitta
+      volumes:
+      - name: rego-config
+        configMap:
+          name: permitta-rego-config

@@ -11,16 +11,10 @@ dev_addr: localhost:8001
 
 nav:
   - Home: index.md
-  - Policies:
-    - Policy Management: policies/listing.md
-    - Visual Builder: policies/builder.md
-    - DSL Editor: policies/dsl_editor.md
   - Security:
       - Auth: security/auth.md
   - Configuration:
       - Configuration File: config/configuration.md
-      - Logging: config/properties_logging.md
-      - OIDC: config/properties_oidc.md
-      - OPA Authorisation: config/properties_opa_authz.md
-      - LDAP Client: config/properties_ldap_client.md
+      - Configuration Properties: config/properties.md
+  - Deployment: deployment.md
   - Developer Setup: developer_setup.md

@@ -1,13 +1,31 @@
 # Permitta-core
 OPA bundle manager for Trino
 
+## Documentation
+https://permitta.github.io/permitta-core/
+
+## Permitta makes using OPA with Trino simple and fun
+
+OPA and Trino are an awesome combination, but maintaining the policy documents and required data object
+can be painful. Permitta-core makes this easy with managed curation of principals and tables,
+as well as a predefined set of ABAC policies suitable for most uses
+
+Permitta-core provides an API to serve bundles to OPA, including:
+* Data objects and attributes ingested from various sources (SQL DBs,data catalogs etc)
+* Principals and attributes/groups ingested from identity providers (SQL DB, LDAP, etc)
+* Pre-built `rego` policy documents to support common use cases (e.g. RBAC) 
+
+Permitta-core itself is not involved in policy decisions at runtime, it  simply provides the information to the battle-hardened
+OPA. Therefore permitta-core is not required to have a high uptime, as downtime will not affect consumers of your trino instance.
+
+Permitta-core can serve bundles to any number of OPA/Trino installations. This makes it very convenient to manage permissions
+across a fleet of trino clusters as well as ephemeral clusters. Simply add an OPA container to the coordinator deployment and 
+point its bundle service to the permitta-core deployment
+
 ## Features
 * Bundle API for serving data and policy documents to OPA
 * Extensible ingestion framework to acquire tables and users from external sources (e.g trino, ldap)
 * Decision log capture
-
-## Documentation
-https://permitta.github.io/permitta-core/
 
 ## Development
 The Permitta dev environment relies on a postgres database, OPA, trino, hive-metastore, minio and lldap to run.
@@ -17,10 +35,6 @@ All of these dependencies are present in the `docker-compose` in the repo root
 
 It is recommended to run the dependencies under `docker-compose` and debug the python code in your favourite editor 
 
-### Architecture
-* Back end is running flask server to serve API
-* Unit tests are under `pytest`
-* ORM is SQLAlchemy with postgres16, unit tests use `DatabaseJanitor` with dockerised postgres
 
 #### Ingestion
 Data ingestion is treated as first-class ETL in Permitta

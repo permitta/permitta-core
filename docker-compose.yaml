@@ -6,7 +6,7 @@ x-logging: &logging
 
 services:
   opa:
-    image: openpolicyagent/opa:latest-static
+    image: openpolicyagent/opa:${OPA_VERSION:-0.62.1}-static
     ports:
       - 8181:8181
     command:

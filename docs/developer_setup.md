@@ -1,9 +1,15 @@
 # Developer Setup
-## Install Dependencies
-* `venv` should be at the project root
-* requires local installation of OPA, python 3.12
-* supporting apps run under docker-compose
-* an SQL client (e.g: dbeaver) is also required
+
+## Application Components
+* **API server** is very lightweight and is based on `flask`
+* **Unit tests** are under `pytest`
+* **ORM** is SQLAlchemy with postgres16, unit tests use `DatabaseJanitor` with dockerised postgres
+
+### Installation of dependencies
+* Virtual environment should be at the project root
+* Requires local installation of OPA and python 3.12
+* Supporting apps run under docker-compose
+* An SQL client (e.g: dbeaver) is also required
 
 ```bash
 brew install opa
@@ -15,21 +21,14 @@ pip install -r requirements.txt
 
 ```
 
-## Formatting
+## Code Formatting
 ```bash
 # in project root
 isort --profile black permitta/src
 black permitta/src
 ```
 ### Running the dev environment
-* Run flask on 8000, or it clashes with airplay
-* Set the following environment variables
-
-#### Webapp Environment Variables
-| Name                             | Purpose                                                                                           |
-|----------------------------------|---------------------------------------------------------------------------------------------------|
-| FLASK_SECRET_KEY                 | Encrypts the cookies - use a complex, cryptographically secure string                             |
-| OIDC_AUTH_PROVIDER_CLIENT_SECRET | The client secret provided by the OIDC server (keycloak) - in docker/keycloak/permitta_realm.json |
+* Run flask on 8000
 
 #### Starting the dev server
 ```bash
@@ -57,10 +56,32 @@ kill $(pgrep -f flask)
 rm -rf instance
 ```
 
+##### Running with Docker Compose
+To run the Permitta Core application along with its dependencies (OPA, PostgreSQL, etc.), you can add the following service to your `docker-compose.yaml` file:
+
+```yaml
+services:
+
+  permitta-core:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - FLASK_SECRET_KEY=your_secret_key
+      - OIDC_AUTH_PROVIDER_CLIENT_SECRET=your_client_secret
+    depends_on:
+      - opa
+      - postgres
+```
+
+
 ## Ingestion
 ```bash
 export CONFIG_FILE_PATH=permitta/config.principal_ingestion.yaml
 cli.py ingest --source=ldap --object-type=principal
+
+# or in the container
+docker run permitta-core ingest --connector-name=ldap --object-type=principal
 ```
 
 ## Documentation
