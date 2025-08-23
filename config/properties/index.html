@@ -1,0 +1,1740 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../configuration/">
+      
+      
+        <link rel="next" href="../../deployment/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>Configuration Properties - Permitta Core</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configuration-properties" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Permitta Core" class="md-header__button md-logo" aria-label="Permitta Core" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Permitta Core
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Configuration Properties
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/permitta/permitta-core" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Permitta Core" class="md-nav__button md-logo" aria-label="Permitta Core" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Permitta Core
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/permitta/permitta-core" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Auth
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration File
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Configuration Properties
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration Properties
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bundle_generatorstatic_rego_file_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      bundle_generator.static_rego_file_path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bundle_generatortemp_directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      bundle_generator.temp_directory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commondb_connection_string" class="md-nav__link">
+    <span class="md-ellipsis">
+      common.db_connection_string
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commonsuper_secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      common.super_secret
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connectorjson_fileprincipalsfile_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      connector.json_file.principals.file_path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#databasedatabase" class="md-nav__link">
+    <span class="md-ellipsis">
+      database.database
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#databasehost" class="md-nav__link">
+    <span class="md-ellipsis">
+      database.host
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#databasepassword" class="md-nav__link">
+    <span class="md-ellipsis">
+      database.password
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#databaseport" class="md-nav__link">
+    <span class="md-ellipsis">
+      database.port
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#databaseprotocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      database.protocol
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#databaseseed_data_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      database.seed_data_path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#databaseuser" class="md-nav__link">
+    <span class="md-ellipsis">
+      database.user
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dbapi_connectorattribute_key_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      dbapi_connector.attribute_key_key
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dbapi_connectorattribute_value_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      dbapi_connector.attribute_value_key
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dbapi_connectorclient_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      dbapi_connector.client_type
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dbapi_connectordata_object_table_column_query" class="md-nav__link">
+    <span class="md-ellipsis">
+      dbapi_connector.data_object_table_column_query
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dbapi_connectorfq_name_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      dbapi_connector.fq_name_key
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dbapi_connectorobject_type_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      dbapi_connector.object_type_key
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_clientbase_dn" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_client.base_dn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_clienthost" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_client.host
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_clientpassword" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_client.password
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_clientport" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_client.port
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_clientuser_base_dn" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_client.user_base_dn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_clientuser_dn" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_client.user_dn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_connectorattr_email" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_connector.attr_email
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_connectorattr_first_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_connector.attr_first_name
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_connectorattr_groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_connector.attr_groups
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_connectorattr_last_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_connector.attr_last_name
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_connectorattr_user_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_connector.attr_user_id
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_connectorattr_user_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_connector.attr_user_name
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_connectorgroup_name_regex" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_connector.group_name_regex
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_connectoruser_search_base" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_connector.user_search_base
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_connectoruser_search_filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_connector.user_search_filter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loggerroot_level" class="md-nav__link">
+    <span class="md-ellipsis">
+      logger.root_level
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loggername_level" class="md-nav__link">
+    <span class="md-ellipsis">
+      logger.&lt;name&gt;_level
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opa_authz_providerpolicy_file_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      opa_authz_provider.policy_file_path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opa_authz_providerpolicy_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      opa_authz_provider.policy_name
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opa_clienthostname" class="md-nav__link">
+    <span class="md-ellipsis">
+      opa_client.hostname
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opa_clientpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      opa_client.path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opa_clientport" class="md-nav__link">
+    <span class="md-ellipsis">
+      opa_client.port
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opa_clientscheme" class="md-nav__link">
+    <span class="md-ellipsis">
+      opa_client.scheme
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opa_clienttimeout_seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      opa_client.timeout_seconds
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trino_clienthost" class="md-nav__link">
+    <span class="md-ellipsis">
+      trino_client.host
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trino_clientpassword" class="md-nav__link">
+    <span class="md-ellipsis">
+      trino_client.password
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trino_clientport" class="md-nav__link">
+    <span class="md-ellipsis">
+      trino_client.port
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trino_clientusername" class="md-nav__link">
+    <span class="md-ellipsis">
+      trino_client.username
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Developer Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bundle_generatorstatic_rego_file_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      bundle_generator.static_rego_file_path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bundle_generatortemp_directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      bundle_generator.temp_directory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commondb_connection_string" class="md-nav__link">
+    <span class="md-ellipsis">
+      common.db_connection_string
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commonsuper_secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      common.super_secret
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connectorjson_fileprincipalsfile_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      connector.json_file.principals.file_path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#databasedatabase" class="md-nav__link">
+    <span class="md-ellipsis">
+      database.database
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#databasehost" class="md-nav__link">
+    <span class="md-ellipsis">
+      database.host
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#databasepassword" class="md-nav__link">
+    <span class="md-ellipsis">
+      database.password
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#databaseport" class="md-nav__link">
+    <span class="md-ellipsis">
+      database.port
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#databaseprotocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      database.protocol
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#databaseseed_data_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      database.seed_data_path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#databaseuser" class="md-nav__link">
+    <span class="md-ellipsis">
+      database.user
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dbapi_connectorattribute_key_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      dbapi_connector.attribute_key_key
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dbapi_connectorattribute_value_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      dbapi_connector.attribute_value_key
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dbapi_connectorclient_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      dbapi_connector.client_type
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dbapi_connectordata_object_table_column_query" class="md-nav__link">
+    <span class="md-ellipsis">
+      dbapi_connector.data_object_table_column_query
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dbapi_connectorfq_name_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      dbapi_connector.fq_name_key
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dbapi_connectorobject_type_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      dbapi_connector.object_type_key
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_clientbase_dn" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_client.base_dn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_clienthost" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_client.host
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_clientpassword" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_client.password
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_clientport" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_client.port
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_clientuser_base_dn" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_client.user_base_dn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_clientuser_dn" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_client.user_dn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_connectorattr_email" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_connector.attr_email
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_connectorattr_first_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_connector.attr_first_name
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_connectorattr_groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_connector.attr_groups
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_connectorattr_last_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_connector.attr_last_name
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_connectorattr_user_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_connector.attr_user_id
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_connectorattr_user_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_connector.attr_user_name
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_connectorgroup_name_regex" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_connector.group_name_regex
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_connectoruser_search_base" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_connector.user_search_base
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap_connectoruser_search_filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldap_connector.user_search_filter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loggerroot_level" class="md-nav__link">
+    <span class="md-ellipsis">
+      logger.root_level
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loggername_level" class="md-nav__link">
+    <span class="md-ellipsis">
+      logger.&lt;name&gt;_level
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opa_authz_providerpolicy_file_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      opa_authz_provider.policy_file_path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opa_authz_providerpolicy_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      opa_authz_provider.policy_name
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opa_clienthostname" class="md-nav__link">
+    <span class="md-ellipsis">
+      opa_client.hostname
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opa_clientpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      opa_client.path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opa_clientport" class="md-nav__link">
+    <span class="md-ellipsis">
+      opa_client.port
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opa_clientscheme" class="md-nav__link">
+    <span class="md-ellipsis">
+      opa_client.scheme
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opa_clienttimeout_seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      opa_client.timeout_seconds
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trino_clienthost" class="md-nav__link">
+    <span class="md-ellipsis">
+      trino_client.host
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trino_clientpassword" class="md-nav__link">
+    <span class="md-ellipsis">
+      trino_client.password
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trino_clientport" class="md-nav__link">
+    <span class="md-ellipsis">
+      trino_client.port
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trino_clientusername" class="md-nav__link">
+    <span class="md-ellipsis">
+      trino_client.username
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="configuration-properties">Configuration Properties</h1>
+<p>This document lists all available configuration properties for Permitta Core</p>
+<h2 id="bundle_generatorstatic_rego_file_path"><code>bundle_generator.static_rego_file_path</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>opa/trino</code></li>
+<li>Example: <code>opa/trino</code></li>
+</ul>
+<p>The path to static Rego files used for bundle generation.</p>
+<h2 id="bundle_generatortemp_directory"><code>bundle_generator.temp_directory</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>/tmp/permitta-bundles</code></li>
+</ul>
+<p>The temporary directory for bundle generation.</p>
+<h2 id="commondb_connection_string"><code>common.db_connection_string</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>postgresql://user:password@localhost:5432/permitta</code></li>
+</ul>
+<p>The database connection string for common operations.</p>
+<h2 id="commonsuper_secret"><code>common.super_secret</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>my-secret-key</code></li>
+</ul>
+<p>A secret value used for common operations.</p>
+<h2 id="connectorjson_fileprincipalsfile_path"><code>connector.json_file.principals.file_path</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>/data/principals.json</code></li>
+</ul>
+<p>The path to the JSON file containing principal data.</p>
+<h2 id="databasedatabase"><code>database.database</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>permitta</code></li>
+</ul>
+<p>The database name.</p>
+<h2 id="databasehost"><code>database.host</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>localhost</code></li>
+</ul>
+<p>The database host.</p>
+<h2 id="databasepassword"><code>database.password</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>password</code></li>
+</ul>
+<p>The database password.</p>
+<h2 id="databaseport"><code>database.port</code></h2>
+<ul>
+<li>Type: <code>integer</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>5432</code></li>
+</ul>
+<p>The database port.</p>
+<h2 id="databaseprotocol"><code>database.protocol</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>postgresql</code></li>
+</ul>
+<p>The database protocol.</p>
+<h2 id="databaseseed_data_path"><code>database.seed_data_path</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>/data/seed</code></li>
+</ul>
+<p>The path to seed data for the database.</p>
+<h2 id="databaseuser"><code>database.user</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>permitta</code></li>
+</ul>
+<p>The database user.</p>
+<h2 id="dbapi_connectorattribute_key_key"><code>dbapi_connector.attribute_key_key</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>attribute_key</code></li>
+<li>Example: <code>attribute_key</code></li>
+</ul>
+<p>The key for attribute key in DBAPI connector.</p>
+<h2 id="dbapi_connectorattribute_value_key"><code>dbapi_connector.attribute_value_key</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>attribute_value</code></li>
+<li>Example: <code>attribute_value</code></li>
+</ul>
+<p>The key for attribute value in DBAPI connector.</p>
+<h2 id="dbapi_connectorclient_type"><code>dbapi_connector.client_type</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>trino</code></li>
+</ul>
+<p>The type of DBAPI client.</p>
+<h2 id="dbapi_connectordata_object_table_column_query"><code>dbapi_connector.data_object_table_column_query</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>SELECT table_name, column_name FROM information_schema.columns</code></li>
+</ul>
+<p>The query to get data object table columns.</p>
+<h2 id="dbapi_connectorfq_name_key"><code>dbapi_connector.fq_name_key</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>fq_name</code></li>
+<li>Example: <code>fq_name</code></li>
+</ul>
+<p>The key for fully qualified name in DBAPI connector.</p>
+<h2 id="dbapi_connectorobject_type_key"><code>dbapi_connector.object_type_key</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>object_type</code></li>
+<li>Example: <code>object_type</code></li>
+</ul>
+<p>The key for object type in DBAPI connector.</p>
+<h2 id="ldap_clientbase_dn"><code>ldap_client.base_dn</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>dc=example,dc=com</code></li>
+</ul>
+<p>The LDAP base DN.</p>
+<h2 id="ldap_clienthost"><code>ldap_client.host</code></h2>
+<ul>
+<li>Type: <code>url</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>ldap.domain.com</code></li>
+</ul>
+<p>The LDAP server host.</p>
+<h2 id="ldap_clientpassword"><code>ldap_client.password</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>$LDAP_PASSWORD</code></li>
+</ul>
+<p>The LDAP password.</p>
+<h2 id="ldap_clientport"><code>ldap_client.port</code></h2>
+<ul>
+<li>Type: <code>integer</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>3890</code></li>
+</ul>
+<p>The LDAP server port.</p>
+<h2 id="ldap_clientuser_base_dn"><code>ldap_client.user_base_dn</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>ou=people,dc=example,dc=com</code></li>
+</ul>
+<p>The LDAP user base DN.</p>
+<h2 id="ldap_clientuser_dn"><code>ldap_client.user_dn</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>uid=admin,ou=people,dc=example,dc=com</code></li>
+</ul>
+<p>The LDAP user DN.</p>
+<h2 id="ldap_connectorattr_email"><code>ldap_connector.attr_email</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>mail</code></li>
+</ul>
+<p>The LDAP attribute for email.</p>
+<h2 id="ldap_connectorattr_first_name"><code>ldap_connector.attr_first_name</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>givenName</code></li>
+</ul>
+<p>The LDAP attribute for first name.</p>
+<h2 id="ldap_connectorattr_groups"><code>ldap_connector.attr_groups</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>memberOf</code></li>
+</ul>
+<p>The LDAP attribute for groups.</p>
+<h2 id="ldap_connectorattr_last_name"><code>ldap_connector.attr_last_name</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>sn</code></li>
+</ul>
+<p>The LDAP attribute for last name.</p>
+<h2 id="ldap_connectorattr_user_id"><code>ldap_connector.attr_user_id</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>uid</code></li>
+</ul>
+<p>The LDAP attribute for user ID.</p>
+<h2 id="ldap_connectorattr_user_name"><code>ldap_connector.attr_user_name</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>cn</code></li>
+</ul>
+<p>The LDAP attribute for user name.</p>
+<h2 id="ldap_connectorgroup_name_regex"><code>ldap_connector.group_name_regex</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>(.*)</code></li>
+<li>Example: <code>cn=(.*),ou=groups,dc=example,dc=com</code></li>
+</ul>
+<p>The regex to extract group names from LDAP group DNs.</p>
+<h2 id="ldap_connectoruser_search_base"><code>ldap_connector.user_search_base</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>ou=people,dc=example,dc=com</code></li>
+</ul>
+<p>The LDAP user search base.</p>
+<h2 id="ldap_connectoruser_search_filter"><code>ldap_connector.user_search_filter</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>(objectClass=person)</code></li>
+</ul>
+<p>The LDAP user search filter.</p>
+<h2 id="loggerroot_level"><code>logger.root_level</code></h2>
+<ul>
+<li>Type: <code>enum</code></li>
+<li>Values: <code>DEBUG</code>, <code>INFO</code>, <code>WARN</code>, <code>ERROR</code></li>
+<li>Default: <code>INFO</code></li>
+<li>Example: <code>DEBUG</code></li>
+</ul>
+<p>Sets the log level of the root logger. This applies to all loggers within Permitta as they all inherit from the root logger.</p>
+<h2 id="loggername_level"><code>logger.&lt;name&gt;_level</code></h2>
+<ul>
+<li>Type: <code>enum</code></li>
+<li>Values: <code>DEBUG</code>, <code>INFO</code>, <code>WARN</code>, <code>ERROR</code></li>
+<li>Default: <code>INFO</code></li>
+<li>Example: <code>DEBUG</code></li>
+</ul>
+<p>Sets the log level for a specific logger named <code>&lt;name&gt;</code>.</p>
+<h2 id="opa_authz_providerpolicy_file_path"><code>opa_authz_provider.policy_file_path</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>opa/permitta/authz.rego</code></li>
+</ul>
+<p>The path to the OPA policy file.</p>
+<h2 id="opa_authz_providerpolicy_name"><code>opa_authz_provider.policy_name</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>permitta/authz</code></li>
+<li>Example: <code>permitta/authz</code></li>
+</ul>
+<p>The name of the OPA policy.</p>
+<h2 id="opa_clienthostname"><code>opa_client.hostname</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>localhost</code></li>
+<li>Example: <code>opa.permitta.svc.cluster.local</code></li>
+</ul>
+<p>The hostname of the OPA instance that Permitta should connect to.</p>
+<h2 id="opa_clientpath"><code>opa_client.path</code></h2>
+<ul>
+<li>Type: <code>path</code></li>
+<li>Default: <code>/v1/data/permitta/authz/allow</code></li>
+<li>Example: <code>/v1/data/permitta/authz/allow</code></li>
+</ul>
+<p>The path to the OPA API endpoint.</p>
+<h2 id="opa_clientport"><code>opa_client.port</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>8181</code></li>
+<li>Example: <code>8181</code></li>
+</ul>
+<p>The port of the OPA instance.</p>
+<h2 id="opa_clientscheme"><code>opa_client.scheme</code></h2>
+<ul>
+<li>Type: <code>enum</code></li>
+<li>Values: <code>https</code>, <code>http</code></li>
+<li>Default: <code>http</code></li>
+<li>Example: <code>https</code></li>
+</ul>
+<p>The scheme to use when connecting to OPA. For production deployments, HTTPS should be used.</p>
+<h2 id="opa_clienttimeout_seconds"><code>opa_client.timeout_seconds</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>1</code></li>
+<li>Example: <code>10</code></li>
+</ul>
+<p>The timeout in seconds for OPA client requests.</p>
+<h2 id="trino_clienthost"><code>trino_client.host</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>trino.example.com</code></li>
+</ul>
+<p>The Trino server host.</p>
+<h2 id="trino_clientpassword"><code>trino_client.password</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>password</code></li>
+</ul>
+<p>The Trino password.</p>
+<h2 id="trino_clientport"><code>trino_client.port</code></h2>
+<ul>
+<li>Type: <code>integer</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>8080</code></li>
+</ul>
+<p>The Trino server port.</p>
+<h2 id="trino_clientusername"><code>trino_client.username</code></h2>
+<ul>
+<li>Type: <code>string</code></li>
+<li>Default: <code>&lt;none&gt;</code></li>
+<li>Example: <code>trino</code></li>
+</ul>
+<p>The Trino username.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.path"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>
