@@ -1,5 +1,4 @@
-# Overview
-## Permitta makes using OPA with Trino simple and fun
+# Trino + OPA is simple with Permitta
 
 OPA and Trino are an awesome combination, but maintaining the policy documents and required data object
 can be painful. Permitta-core makes this easy with managed curation of principals and tables,
