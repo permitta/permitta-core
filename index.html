@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#trino-opa-is-simple-with-permitta" class="md-skip">
+        <a href="#permitta-core" class="md-skip">
           Skip to content
         </a>
       
@@ -657,7 +657,8 @@
   
 
 
-<h1 id="trino-opa-is-simple-with-permitta">Trino + OPA is simple with Permitta</h1>
+<h1 id="permitta-core">Permitta-core</h1>
+<p><strong>Permitta-core makes OPA + Trino easy</strong></p>
 <p>OPA and Trino are an awesome combination, but maintaining the policy documents and required data object
 can be painful. Permitta-core makes this easy with managed curation of principals and tables,
 as well as a predefined set of ABAC policies suitable for most uses</p>
@@ -665,10 +666,10 @@ as well as a predefined set of ABAC policies suitable for most uses</p>
 <ul>
 <li>Data objects and attributes ingested from various sources (SQL DBs,data catalogs etc)</li>
 <li>Principals and attributes/groups ingested from identity providers (SQL DB, LDAP, etc)</li>
-<li>Pre-built <code>rego</code> policy documents to support common use cases (e.g. RBAC) </li>
+<li>Pre-built <code>rego</code> policy documents to support common use cases (e.g. RBAC/ABAC) </li>
 </ul>
 <h2 id="architecture">Architecture</h2>
-<p>Drawing TBA</p>
+<p><img alt="Architecture" src="images/architecture.png" /></p>
 <h2 id="motivation">Motivation</h2>
 <p>In late 2023 <a href="https://www.openpolicyagent.org/">Open Policy Agent (OPA)</a> was introduced into Trino as an <a href="https://trino.io/docs/current/security/opa-access-control.html">authentication method</a>.
 OPA is a very powerful policy enforcement engine which helps to solve many authorisation issues with the previously available 
