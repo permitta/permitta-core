@@ -3,10 +3,15 @@ FROM python:3.12-slim-bookworm
 # Set default OPA version (can be overridden at build time)
 ARG OPA_VERSION=1.7.1
 
-WORKDIR /app
+# Create non-root user with UID 1000
+RUN groupadd -g 1000 appuser && \
+    useradd -u 1000 -g appuser -s /bin/bash -m appuser
 
-# Install OPA
-RUN apt-get update && apt-get install -y curl && \
+RUN mkdir -p /app/permitta-core
+WORKDIR /app/permitta-core
+
+# Install Deps
+RUN apt-get update && apt-get install -y curl libexpat1 && \
     curl -L -o /usr/local/bin/opa https://github.com/open-policy-agent/opa/releases/download/v${OPA_VERSION}/opa_linux_amd64_static && \
     chmod 755 /usr/local/bin/opa && \
     apt-get clean && \
@@ -23,17 +28,11 @@ COPY permitta-core/ /app/permitta-core/
 COPY entrypoint.sh /app/
 RUN chmod +x /app/entrypoint.sh
 
-# Set environment variables
-ENV PYTHONPATH=/app/permitta-core/src
-ENV FLASK_APP=permitta-core.src.app
-
-# Set default values for required environment variables
-# These can be overridden when running the container
-ENV FLASK_SECRET_KEY=default_secret_key_change_me_in_production
-ENV OIDC_AUTH_PROVIDER_CLIENT_SECRET=default_client_secret_change_me_in_production
-
 # Expose the port the app runs on
 EXPOSE 8000
+
+# Switch to non-root user
+USER appuser
 
 # Set the entrypoint script
 ENTRYPOINT ["/app/entrypoint.sh"]

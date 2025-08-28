@@ -1,0 +1,81 @@
+name: Build, Test, and Push Docker Image
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build-test-push:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: unittest
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Get version
+      id: get_version
+      run: echo "VERSION=$(cat version.txt)" >> $GITHUB_OUTPUT
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+#    - name: Login to DockerHub
+#      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+#      uses: docker/login-action@v2
+#      with:
+#        username: ${{ secrets.DOCKERHUB_USERNAME }}
+#        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Build Docker image
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        load: true
+        push: false
+        tags: |
+          permitta/permitta-core:${{ steps.get_version.outputs.VERSION }}
+          permitta/permitta-core:latest
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+
+    - name: Run tests in Docker container
+      env:
+        CONFIG_FILE_PATH: "permitta-core/config/config.unittest.yaml"
+        FLASK_SECRET_KEY: "github-actions-test-key"
+        FLASK_TESTING: "true"
+      run: |
+        # Run OPA tests
+        docker run --rm -v $(pwd):/app -w /app permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} bash -c "./test.sh opa"
+
+        # Run unit tests
+        docker run --rm -v $(pwd):/app -w /app --network=host -e CONFIG_FILE_PATH -e FLASK_SECRET_KEY -e FLASK_TESTING permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} bash -c "./test.sh unit"
+
+        # Test CLI functionality
+        docker run --rm permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} --help
+
+#    - name: Push Docker image
+#      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+#      uses: docker/build-push-action@v4
+#      with:
+#        context: .
+#        push: true
+#        tags: |
+#          permitta/permitta-core:${{ steps.get_version.outputs.VERSION }}
+#          permitta/permitta-core:latest
+#        cache-from: type=gha
+#        cache-to: type=gha,mode=max

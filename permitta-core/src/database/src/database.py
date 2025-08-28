@@ -1,4 +1,3 @@
-
 from sqlalchemy import Engine, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -25,10 +24,10 @@ class Database:
     def __init__(self):
         self.config: DatabaseConfig = DatabaseConfig.load()
 
-    def connect(self) -> None:
+    def connect(self, echo_statements: bool = False) -> None:
         self.engine: Engine = create_engine(
             self.config.connection_string,
-            # echo=True,
+            echo=echo_statements,
             pool_pre_ping=True,
             pool_recycle=3600,
         )

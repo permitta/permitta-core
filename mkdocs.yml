@@ -11,8 +11,10 @@ dev_addr: localhost:8001
 
 nav:
   - Home: index.md
+  - Trino and OPA: trino_and_opa.md
+  - Extending Permitta-core: extensions.md
   - Security:
-      - Auth: security/auth.md
+      - API Authentication: security/auth.md
   - Configuration:
       - Configuration File: config/configuration.md
       - Configuration Properties: config/properties.md

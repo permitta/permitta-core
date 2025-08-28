@@ -9,17 +9,14 @@ def cli():
 
 
 @cli.command()
-@click.option("--connector-name", default="ldap", help="Connector type to ingest with")
+@click.option("--connector-name", help="Connector type to ingest with")
 @click.option(
     "--object-type",
     type=click.Choice([e.value for e in ObjectTypeEnum]),
-    default=ObjectTypeEnum.RESOURCE.value,
     help="Type of object to ingest",
 )
 @click.option(
     "--platform",
-    type=click.Choice([e.value for e in ObjectTypeEnum]),
-    default=ObjectTypeEnum.RESOURCE.value,
     help="Name of the source platform, in case of multiple sources for the same object type",
 )
 def ingest(connector_name: str, object_type: str, platform: str):

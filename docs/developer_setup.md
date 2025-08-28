@@ -27,10 +27,10 @@ pip install -r requirements.txt
 isort --profile black permitta/src
 black permitta/src
 ```
-### Running the dev environment
+## Running the dev environment
 * Run flask on 8000
 
-#### Starting the dev server
+### Starting the dev server
 ```bash
 # if using podman
 podman machine init
@@ -56,7 +56,7 @@ kill $(pgrep -f flask)
 rm -rf instance
 ```
 
-##### Running with Docker Compose
+### Running with Docker Compose
 To run the Permitta Core application along with its dependencies (OPA, PostgreSQL, etc.), you can add the following service to your `docker-compose.yaml` file:
 
 ```yaml
@@ -74,8 +74,12 @@ services:
       - postgres
 ```
 
+## Building the container image
+```bash
+docker build -t permitta/permitta-core
+```
 
-## Ingestion
+## Running Ingestion
 ```bash
 export CONFIG_FILE_PATH=permitta/config.principal_ingestion.yaml
 cli.py ingest --source=ldap --object-type=principal
@@ -98,3 +102,8 @@ mkdocs gh-deploy
 git config http.postBuffer 524288000
 ```
 
+## Keycloak
+```bash
+# export the realm
+
+```

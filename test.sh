@@ -14,4 +14,8 @@ then
 elif [ $1 == 'format' ]
 then
   autoflake --in-place --remove-unused-variables -r permitta-core
+elif [ $1 == 'unit' ]
+then
+  cd permitta-core
+  python -m pytest
 fi

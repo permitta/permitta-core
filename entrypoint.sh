@@ -1,13 +1,12 @@
 #!/bin/bash
 set -e
 
-# Set Python path
 export PYTHONPATH=/app/permitta-core/src
+export FLASK_APP=permitta-core.src.app
 
 if [ "$1" = "start-server" ]; then
-    # Start the Flask app on port 8000
-    echo "Starting Flask server on port 8000..."
-    exec flask run --host=0.0.0.0 --port=8000
+    echo "Starting server on port 8000..."
+    exec uwsgi --http 0.0.0.0:8000 --master -p 4 -w src.uwsgi:app
 else
     # Default: Run the CLI command
     echo "Running CLI command: $@"

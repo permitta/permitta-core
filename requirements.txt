@@ -15,3 +15,4 @@ responses
 mkdocs
 mkdocs-material
 autoflake
+pyuwsgi
