@@ -6,60 +6,61 @@ x-logging: &logging
 
 services:
   opa:
-    image: openpolicyagent/opa:${OPA_VERSION:-0.62.1}-static
+    image: openpolicyagent/opa:latest-static
     ports:
-      - 8181:8181
+      - "8181:8181"
     command:
       - "run"
       - "--server"
       - "--watch"
+      - "--format=pretty"
       - "--log-level=debug"
       - "--log-format=json-pretty"
       - "--addr=0.0.0.0:8181"
-      #      - "--set=decision_logs.console=true"
-      - "-c"
+      - "--set=decision_logs.console=true"
+      - "--config-file"
       - "/policy/config.yaml"
       - "/policy/"
     volumes:
       - ./docker/opa/policy:/policy
 
-  lldap:
-    image: lldap/lldap:stable
-    ports:
-      # For LDAP, not recommended to expose, see Usage section.
-      - "3890:3890"
-      # For LDAPS (LDAP Over SSL), enable port if LLDAP_LDAPS_OPTIONS__ENABLED set true, look env below
-      #- "6360:6360"
-      # For the web front-end
-      - "17170:17170"
-    volumes:
-      # Alternatively, you can mount a local folder
-      - ./instance/lldap:/data
-      - ./docker/lldap/bootstrap:/bootstrap
-    environment:
-      - UID=1000
-      - GID=1000
-      - TZ=Australia/Melbourne
-      - LLDAP_JWT_SECRET=jhgfdfjkhgsdfghlushdvndkfjnsd
-      - LLDAP_KEY_SEED=ioajerjgosdfvnsdufghbsiudhgjfdvn
-      - LLDAP_LDAP_BASE_DN=dc=example,dc=com
-
-      # envs required for lldap
-      - LLDAP_LDAP_USER_EMAIL=admin@example.com
-      - LLDAP_LDAP_USER_PASS=changeme
-
-      # envs required for bootstrap.sh
-      - LLDAP_URL=http://localhost:17170
-      - LLDAP_ADMIN_USERNAME=admin
-      - LLDAP_ADMIN_PASSWORD=changeme # same as LLDAP_LDAP_USER_PASS
-      - USER_CONFIGS_DIR=/bootstrap/user-configs
-      - GROUP_CONFIGS_DIR=/bootstrap/group-configs
-      - DO_CLEANUP=true
+#  lldap:
+#    image: lldap/lldap:stable
+#    ports:
+#      # For LDAP, not recommended to expose, see Usage section.
+#      - "3890:3890"
+#      # For LDAPS (LDAP Over SSL), enable port if LLDAP_LDAPS_OPTIONS__ENABLED set true, look env below
+#      #- "6360:6360"
+#      # For the web front-end
+#      - "17170:17170"
+#    volumes:
+#      # Alternatively, you can mount a local folder
+#      - ./instance/lldap:/data
+#      - ./docker/lldap/bootstrap:/bootstrap
+#    environment:
+#      - UID=1000
+#      - GID=1000
+#      - TZ=Australia/Melbourne
+#      - LLDAP_JWT_SECRET=jhgfdfjkhgsdfghlushdvndkfjnsd
+#      - LLDAP_KEY_SEED=ioajerjgosdfvnsdufghbsiudhgjfdvn
+#      - LLDAP_LDAP_BASE_DN=dc=example,dc=com
+#
+#      # envs required for lldap
+#      - LLDAP_LDAP_USER_EMAIL=admin@example.com
+#      - LLDAP_LDAP_USER_PASS=changeme
+#
+#      # envs required for bootstrap.sh
+#      - LLDAP_URL=http://localhost:17170
+#      - LLDAP_ADMIN_USERNAME=admin
+#      - LLDAP_ADMIN_PASSWORD=changeme # same as LLDAP_LDAP_USER_PASS
+#      - USER_CONFIGS_DIR=/bootstrap/user-configs
+#      - GROUP_CONFIGS_DIR=/bootstrap/group-configs
+#      - DO_CLEANUP=true
 
   postgres:
     image: postgres:16.2
     ports:
-      - 5432:5432
+      - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=postgres
@@ -94,7 +95,39 @@ services:
 #    depends_on:
 #      postgres:
 #        condition: service_healthy
+#    deploy:
+#      resources:
+#        limits:
+#          cpus: '1'
+#          memory: 512M
+#        reservations:
+#          cpus: '0.5'
+#          memory: 256M
 
+
+  keycloak-realm-export:
+    profiles:
+      - keycloak-export
+    image: keycloak/keycloak:latest
+    ports:
+      - "8080:8080"
+    command: [ "export", "--file", "/opt/keycloak/data/export/permitta-realm.json", "--realm", "permitta"]
+    restart: unless-stopped
+    environment:
+      KC_DB: postgres
+      KC_DB_USERNAME: keycloak_user
+      KC_DB_PASSWORD: keycloak_password
+      KC_DB_URL: "jdbc:postgresql://postgres:5432/keycloak"
+      KC_METRICS_ENABLED: "true"
+      KC_LOG_LEVEL: "INFO"
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    volumes:
+      - ./instance/keycloak/data/export:/opt/keycloak/data/export
+    logging: *logging
+    depends_on:
+      keycloak:
+        condition: service_healthy
 
   trino:
     ports:
@@ -103,6 +136,14 @@ services:
     volumes:
       - ./docker/trino/etc:/etc/trino
       - ./docker/trino/catalog:/etc/trino/catalog
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1024M
+        reservations:
+          cpus: '0.5'
+          memory: 1024M
 
   trino-setup:
     image: "trinodb/trino:476"
@@ -117,8 +158,8 @@ services:
         condition: service_started
       minio:
         condition: service_started
-#      mc-job:
-#        condition: service_completed_successfully
+      mc-job:
+        condition: service_completed_successfully
 
   hive-metastore:
     hostname: hive-metastore
@@ -155,6 +196,14 @@ services:
         condition: service_healthy
       minio:
         condition: service_started
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 256M
+        reservations:
+          cpus: '0.5'
+          memory: 128M
 
   minio:
     hostname: minio
@@ -169,6 +218,14 @@ services:
     command: server /data --console-address ":9001"
     volumes:
       - ./docker/s3:/data
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 256M
+        reservations:
+          cpus: '0.5'
+          memory: 128M
 
   # This job will create the "datalake" bucket on Minio
   mc-job:
