@@ -90,12 +90,17 @@ docker run permitta-core ingest --connector-name=ldap --object-type=principal
 
 ## Documentation
 Docs are provided by `mkdocs` using the `mkdocs-material` theme.
-The deployment command pushes the built docs to the `gh-pages` branch which triggers a deploy
+The documentation is automatically deployed to GitHub Pages via GitHub Actions when changes are pushed to the main branch.
+
+For local development:
 ```bash
 # render docs for development
 mkdocs serve
+```
 
-# deploy docs
+Manual deployment (not needed for normal workflow as it's automated):
+```bash
+# deploy docs manually
 mkdocs gh-deploy
 
 # if it fails, try:
