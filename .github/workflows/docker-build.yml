@@ -74,6 +74,7 @@ jobs:
 
     # build image a second time because the test image cannot be multi-arch
     - name: Build Docker multi-arch image and push
+      if: github.ref == 'refs/heads/main'
       uses: docker/build-push-action@v4
       with:
         context: .
