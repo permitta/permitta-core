@@ -34,10 +34,7 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
 
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@v3
-
-    - name: Build Docker image
+    - name: Build Docker test image
       uses: docker/build-push-action@v4
       with:
         context: .
@@ -46,7 +43,6 @@ jobs:
         push: false
         tags: |
           permitta/permitta-core:${{ steps.get_version.outputs.VERSION }}
-          permitta/permitta-core:latest
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
@@ -65,6 +61,11 @@ jobs:
         # Test CLI functionality
         docker run --rm permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} --help
 
+# steps only on the main branch
+    - name: Set up QEMU
+      if: github.ref == 'refs/heads/main'
+      uses: docker/setup-qemu-action@v3
+
     - name: Login to DockerHub
       if: github.ref == 'refs/heads/main'
       uses: docker/login-action@v2
@@ -72,14 +73,14 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name: Push Docker image
-      if: github.ref == 'refs/heads/main'
+    # build image a second time because the test image cannot be multi-arch
+    - name: Build Docker multi-arch image and push
       uses: docker/build-push-action@v4
       with:
         context: .
+        platforms: linux/amd64,linux/arm64
         push: true
         tags: |
           permitta/permitta-core:${{ steps.get_version.outputs.VERSION }}
-          permitta/permitta-core:latest
         cache-from: type=gha
         cache-to: type=gha,mode=max
