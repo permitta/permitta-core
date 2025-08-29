@@ -56,10 +56,10 @@ jobs:
     - name: Run tests in Docker container
       run: |
         # Run OPA tests
-        docker run --rm permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} test opa"
+        docker run --rm permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} test opa
 
         # Run unit tests
-        docker run --rm --network=host permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} test unit"
+        docker run --rm --network=host permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} test unit
 
         # Test CLI functionality
         docker run --rm permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} --help
