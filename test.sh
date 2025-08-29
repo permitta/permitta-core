@@ -16,6 +16,8 @@ then
   autoflake --in-place --remove-unused-variables -r permitta-core
 elif [ $1 == 'unit' ]
 then
+  export CONFIG_FILE_PATH=permitta-core/config/config.unittest.yaml
+  export PYTHON
   cd permitta-core
   python -m pytest
 fi

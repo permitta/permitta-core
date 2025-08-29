@@ -1,4 +1,3 @@
-
 import requests
 from app_logger import Logger, get_logger
 from opa.models.src.opa_query_model import OpaQueryModel

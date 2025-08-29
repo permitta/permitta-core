@@ -1,4 +1,3 @@
-
 from app_logger import Logger, get_logger
 from ingestor.connectors import ConnectorBase
 from ingestor.models import (

@@ -1,4 +1,3 @@
-
 from app_config import AppConfigModelBase
 
 

@@ -1,6 +1,3 @@
-
-
-
 def test_list_users_with_groups():
     # client: LdapClient = LdapClient()
     # client.connect()

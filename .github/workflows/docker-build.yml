@@ -54,16 +54,12 @@ jobs:
         cache-to: type=gha,mode=max
 
     - name: Run tests in Docker container
-      env:
-        CONFIG_FILE_PATH: "permitta-core/config/config.unittest.yaml"
-        FLASK_SECRET_KEY: "github-actions-test-key"
-        FLASK_TESTING: "true"
       run: |
         # Run OPA tests
-        docker run --rm -v $(pwd):/app -w /app permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} bash -c "./test.sh opa"
+        docker run --rm permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} test opa"
 
         # Run unit tests
-        docker run --rm -v $(pwd):/app -w /app --network=host -e CONFIG_FILE_PATH -e FLASK_SECRET_KEY -e FLASK_TESTING permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} bash -c "./test.sh unit"
+        docker run --rm --network=host permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} test unit"
 
         # Test CLI functionality
         docker run --rm permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} --help

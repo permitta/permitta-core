@@ -1,4 +1,3 @@
-
 from sqlalchemy import Boolean, Column, Integer
 from sqlalchemy.orm import declared_attr
 
