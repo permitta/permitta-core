@@ -14,7 +14,6 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
-          POSTGRES_DB: unittest
         ports:
           - 5432:5432
         options: >-
@@ -34,6 +33,9 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
 
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v3
+
 #    - name: Login to DockerHub
 #      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
 #      uses: docker/login-action@v2
@@ -45,6 +47,7 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: .
+        platforms: linux/amd64,linux/arm64
         load: true
         push: false
         tags: |
@@ -53,14 +56,18 @@ jobs:
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
-    - name: Run tests in Docker container
+    - name: Run OPA tests
       run: |
         # Run OPA tests
         docker run --rm permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} test opa
 
+    - name: Run Unit tests
+      run: |
         # Run unit tests
         docker run --rm --network=host permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} test unit
 
+    - name: Run CLI tests
+      run: |
         # Test CLI functionality
         docker run --rm permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} --help
 
