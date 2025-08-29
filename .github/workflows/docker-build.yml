@@ -2,7 +2,7 @@ name: Build, Test, and Push Docker Image
 
 on:
   push:
-    branches: [ main, master, github-actions ]
+    branches: [ main, master, feature/github-actions ]
 
 jobs:
   build-test-push:
