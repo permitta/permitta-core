@@ -2,7 +2,7 @@ name: Build, Test, and Push Docker Image
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main ]
 
 jobs:
   build-test-push:
