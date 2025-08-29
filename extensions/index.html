@@ -9,8 +9,10 @@
       
       
       
-        <link rel="prev" href="../deployment/">
+        <link rel="prev" href="../trino_and_opa/">
       
+      
+        <link rel="next" href="../security/auth/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -18,7 +20,7 @@
     
     
       
-        <title>Developer Setup - Permitta Core</title>
+        <title>Extending Permitta-core - Permitta Core</title>
       
     
     
@@ -60,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#developer-setup" class="md-skip">
+        <a href="#extending-permitta-core" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Developer Setup
+              Extending Permitta-core
             
           </span>
         </div>
@@ -257,10 +259,32 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../extensions/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Extending Permitta-core
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -271,6 +295,86 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#custom-ingestions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Ingestions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Ingestions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-custom-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a Custom Connector
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-json-file-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: JSON File Connector
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-json-file-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example JSON File Format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-your-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring Your Connector
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-your-custom-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Your Custom Connector
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -464,32 +568,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Developer Setup
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../developer_setup/" class="md-nav__link">
         
   
   
@@ -500,128 +582,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#application-components" class="md-nav__link">
-    <span class="md-ellipsis">
-      Application Components
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Application Components">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installation-of-dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installation of dependencies
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code-formatting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code Formatting
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-the-dev-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running the dev environment
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Running the dev environment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#starting-the-dev-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Starting the dev server
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#running-with-docker-compose" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running with Docker Compose
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-the-container-image" class="md-nav__link">
-    <span class="md-ellipsis">
-      Building the container image
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-ingestion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running Ingestion
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Documentation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#keycloak" class="md-nav__link">
-    <span class="md-ellipsis">
-      Keycloak
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -653,19 +613,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#application-components" class="md-nav__link">
+  <a href="#custom-ingestions" class="md-nav__link">
     <span class="md-ellipsis">
-      Application Components
+      Custom Ingestions
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Application Components">
+    <nav class="md-nav" aria-label="Custom Ingestions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#installation-of-dependencies" class="md-nav__link">
+  <a href="#creating-a-custom-connector" class="md-nav__link">
     <span class="md-ellipsis">
-      Installation of dependencies
+      Creating a Custom Connector
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-json-file-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: JSON File Connector
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-json-file-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example JSON File Format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-your-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring Your Connector
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-your-custom-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Your Custom Connector
     </span>
   </a>
   
@@ -673,84 +669,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code-formatting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code Formatting
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-the-dev-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running the dev environment
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Running the dev environment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#starting-the-dev-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Starting the dev server
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#running-with-docker-compose" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running with Docker Compose
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-the-container-image" class="md-nav__link">
-    <span class="md-ellipsis">
-      Building the container image
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-ingestion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running Ingestion
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Documentation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#keycloak" class="md-nav__link">
-    <span class="md-ellipsis">
-      Keycloak
-    </span>
-  </a>
   
 </li>
       
@@ -773,103 +691,137 @@
   
 
 
-<h1 id="developer-setup">Developer Setup</h1>
-<h2 id="application-components">Application Components</h2>
-<ul>
-<li><strong>API server</strong> is very lightweight and is based on <code>flask</code></li>
-<li><strong>Unit tests</strong> are under <code>pytest</code></li>
-<li><strong>ORM</strong> is SQLAlchemy with postgres16, unit tests use <code>DatabaseJanitor</code> with dockerised postgres</li>
-</ul>
-<h3 id="installation-of-dependencies">Installation of dependencies</h3>
-<ul>
-<li>Virtual environment should be at the project root</li>
-<li>Requires local installation of OPA and python 3.12</li>
-<li>Supporting apps run under docker-compose</li>
-<li>An SQL client (e.g: dbeaver) is also required</li>
-</ul>
-<pre><code class="language-bash">brew install opa
-brew install python@3.12
+<h1 id="extending-permitta-core">Extending Permitta-core</h1>
+<p>Permitta-core is designed to be extended in various ways to meet your specific needs.</p>
+<h2 id="custom-ingestions">Custom Ingestions</h2>
+<p>Permitta allows you to create custom ingestion connectors to import data from various sources. This is done by creating subclasses of the <code>ConnectorBase</code> class.
+Subclasses have a <code>CONNECTOR_NAME</code> property which allows the permitta-core to select it at runtime </p>
+<h3 id="creating-a-custom-connector">Creating a Custom Connector</h3>
+<p>To create a custom connector, follow these steps:</p>
+<ol>
+<li>Create a new Python module for your connector</li>
+<li>Create a class that inherits from <code>ConnectorBase</code></li>
+<li>Implement the required methods:</li>
+<li><code>acquire_data(platform)</code>: Fetch data from your source</li>
+<li><code>get_principals()</code>: Transform your data into <code>PrincipalDio</code> objects</li>
+<li><code>get_principal_attributes()</code> (optional): Extract attributes for principals</li>
+</ol>
+<h3 id="example-json-file-connector">Example: JSON File Connector</h3>
+<p>Here's an example of a connector that loads users from a local JSON file:</p>
+<pre><code class="language-python">import json
+from app_logger import Logger, get_logger
+from app_config import AppConfigModelBase
+from ingestor.connectors.connector_base import ConnectorBase
+from ingestor.models import PrincipalDio, PrincipalAttributeDio
 
-python3.12 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+logger: Logger = get_logger(&quot;ingestor.connectors.json_file_connector&quot;)
 
+class JsonFileConnectorConfig(AppConfigModelBase):
+    CONFIG_PREFIX: str = &quot;json_file_connector&quot;
+    json_file_path: str = &quot;users.json&quot;
+
+class JsonFileConnector(ConnectorBase):
+    CONNECTOR_NAME: str = &quot;json-file&quot;
+
+    def __init__(self):
+        super().__init__()
+        self.config: JsonFileConnectorConfig = JsonFileConnectorConfig.load()
+        self.users = []
+        logger.info(f&quot;Created JSON file connector using file: {self.config.json_file_path}&quot;)
+
+    def acquire_data(self, platform: str) -&gt; None:
+        self.platform = platform
+        with open(self.config.json_file_path, 'r') as file:
+            self.users = json.load(file)
+        logger.info(f&quot;Retrieved {len(self.users)} users from JSON file&quot;)
+
+    def get_principals(self) -&gt; list[PrincipalDio]:
+        principals: list[PrincipalDio] = []
+
+        for user in self.users:
+             principal = PrincipalDio(
+                 fq_name=user.get(&quot;id&quot;),
+                 first_name=user.get(&quot;first_name&quot;),
+                 last_name=user.get(&quot;last_name&quot;),
+                 user_name=user.get(&quot;username&quot;),
+                 email=user.get(&quot;email&quot;),
+                 platform=self.platform,
+             )
+             principals.append(principal)
+
+        return principals
+
+    def get_principal_attributes(self) -&gt; list[PrincipalAttributeDio]:
+        attributes: list[PrincipalAttributeDio] = []
+
+        for user in self.users:
+             fq_name = user.get(&quot;id&quot;)
+
+             # Process groups if they exist
+             if &quot;groups&quot; in user:
+                 for group in user[&quot;groups&quot;]:
+                     attribute = PrincipalAttributeDio(
+                         fq_name=fq_name,
+                         attribute_key=&quot;group&quot;,
+                         attribute_value=group,
+                         platform=self.platform,
+                     )
+                     attributes.append(attribute)
+
+             # Process any other attributes
+             if &quot;attributes&quot; in user:
+                 for key, value in user[&quot;attributes&quot;].items():
+                     attribute = PrincipalAttributeDio(
+                         fq_name=fq_name,
+                         attribute_key=key,
+                         attribute_value=value,
+                         platform=self.platform,
+                     )
+                     attributes.append(attribute)
+
+        return attributes
 </code></pre>
-<h2 id="code-formatting">Code Formatting</h2>
-<pre><code class="language-bash"># in project root
-isort --profile black permitta/src
-black permitta/src
+<h3 id="example-json-file-format">Example JSON File Format</h3>
+<p>The connector above expects a JSON file with a structure like this:</p>
+<pre><code class="language-json">[
+  {
+    &quot;id&quot;: &quot;user1&quot;,
+    &quot;first_name&quot;: &quot;John&quot;,
+    &quot;last_name&quot;: &quot;Doe&quot;,
+    &quot;username&quot;: &quot;johndoe&quot;,
+    &quot;email&quot;: &quot;john.doe@example.com&quot;,
+    &quot;groups&quot;: [&quot;admin&quot;, &quot;users&quot;],
+    &quot;attributes&quot;: {
+      &quot;department&quot;: &quot;Engineering&quot;,
+      &quot;location&quot;: &quot;New York&quot;
+    }
+  },
+  {
+    &quot;id&quot;: &quot;user2&quot;,
+    &quot;first_name&quot;: &quot;Jane&quot;,
+    &quot;last_name&quot;: &quot;Smith&quot;,
+    &quot;username&quot;: &quot;janesmith&quot;,
+    &quot;email&quot;: &quot;jane.smith@example.com&quot;,
+    &quot;groups&quot;: [&quot;users&quot;],
+    &quot;attributes&quot;: {
+      &quot;department&quot;: &quot;Marketing&quot;,
+      &quot;location&quot;: &quot;San Francisco&quot;
+    }
+  }
+]
 </code></pre>
-<h2 id="running-the-dev-environment">Running the dev environment</h2>
-<ul>
-<li>Run flask on 8000</li>
-</ul>
-<h3 id="starting-the-dev-server">Starting the dev server</h3>
-<pre><code class="language-bash"># if using podman
-podman machine init
-podman machine start
-podman-compose up -d
-
-# run dependencies
-docker-compose up -d
-
-# populate LLDAP:
-docker compose exec lldap /bootstrap/bootstrap.sh
-
-export PYTHONPATH=permitta/src
-flask --app permitta.src.app run --debug --port 8000
-
-# seed the database
-python permitta/permitta/src/seed_db.py
-
-# nuking a bad flask process
-kill $(pgrep -f flask)
-
-# all the data for lldap and postgres is stored in the `instance` dir. nuke it to reset the app
-rm -rf instance
+<h3 id="configuring-your-connector">Configuring Your Connector</h3>
+<p>The <code>JsonFileConnectorConfig</code> class uses the <code>AppConfigModelBase</code> to load configuration values from a YAML file. 
+You can configure your connector by adding entries to your config file (typically at <code>permitta-core/config/config.yaml</code>):</p>
+<pre><code class="language-yaml"># config files use the CONFIG_PREFIX (json_file_connector) in the config class to load the parameters
+json_file_connector.json_file_path: /path/to/your/users.json
 </code></pre>
-<h3 id="running-with-docker-compose">Running with Docker Compose</h3>
-<p>To run the Permitta Core application along with its dependencies (OPA, PostgreSQL, etc.), you can add the following service to your <code>docker-compose.yaml</code> file:</p>
-<pre><code class="language-yaml">services:
-
-  permitta-core:
-    build: .
-    ports:
-      - &quot;8000:8000&quot;
-    environment:
-      - FLASK_SECRET_KEY=your_secret_key
-      - OIDC_AUTH_PROVIDER_CLIENT_SECRET=your_client_secret
-    depends_on:
-      - opa
-      - postgres
-</code></pre>
-<h2 id="building-the-container-image">Building the container image</h2>
-<pre><code class="language-bash">docker build -t permitta/permitta-core
-</code></pre>
-<h2 id="running-ingestion">Running Ingestion</h2>
-<pre><code class="language-bash">export CONFIG_FILE_PATH=permitta/config.principal_ingestion.yaml
-cli.py ingest --source=ldap --object-type=principal
-
-# or in the container
-docker run permitta-core ingest --connector-name=ldap --object-type=principal
-</code></pre>
-<h2 id="documentation">Documentation</h2>
-<p>Docs are provided by <code>mkdocs</code> using the <code>mkdocs-material</code> theme.
-The documentation is automatically deployed to GitHub Pages via GitHub Actions when changes are pushed to the main branch.</p>
-<p>For local development:</p>
-<pre><code class="language-bash"># render docs for development
-mkdocs serve
-</code></pre>
-<p>Manual deployment (not needed for normal workflow as it's automated):</p>
-<pre><code class="language-bash"># deploy docs manually
-mkdocs gh-deploy
-
-# if it fails, try:
-git config http.postBuffer 524288000
-</code></pre>
-<h2 id="keycloak">Keycloak</h2>
-<pre><code class="language-bash"># export the realm
-
+<p>The configuration values are loaded automatically when the connector is initialized.</p>
+<h3 id="using-your-custom-connector">Using Your Custom Connector</h3>
+<p>Once you've created your connector, you can invoke it from the CLI like any other connector:</p>
+<pre><code class="language-bash">export CONFIG_FILE_PATH=permitta/config.custom_ingestion.yaml
+cli.py ingest --connector-name=json-file --object-type=principal
+cli.py ingest --connector-name=json-file --object-type=principal_attribute
 </code></pre>
 
 

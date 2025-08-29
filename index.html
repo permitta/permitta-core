@@ -10,11 +10,11 @@
       
       
       
-        <link rel="next" href="security/auth/">
+        <link rel="next" href="trino_and_opa/">
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
     
     
       
@@ -275,6 +275,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#extensability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extensability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#motivation" class="md-nav__link">
     <span class="md-ellipsis">
       Motivation
@@ -283,58 +292,54 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#how-trino-and-opa-work-together" class="md-nav__link">
-    <span class="md-ellipsis">
-      How Trino and OPA work together
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How Trino and OPA work together">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#policy-implementation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Policy Implementation
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Policy Implementation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-rego-policy-document" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example Rego Policy Document
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-data-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example Data object
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="trino_and_opa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Trino and OPA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="extensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Extending Permitta-core
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -356,10 +361,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -372,8 +377,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Security
           </label>
@@ -391,7 +396,7 @@
   
   
   <span class="md-ellipsis">
-    Auth
+    API Authentication
     
   </span>
   
@@ -426,10 +431,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
@@ -442,8 +447,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Configuration
           </label>
@@ -582,59 +587,20 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#motivation" class="md-nav__link">
+  <a href="#extensability" class="md-nav__link">
     <span class="md-ellipsis">
-      Motivation
+      Extensability
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-trino-and-opa-work-together" class="md-nav__link">
+  <a href="#motivation" class="md-nav__link">
     <span class="md-ellipsis">
-      How Trino and OPA work together
+      Motivation
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="How Trino and OPA work together">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#policy-implementation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Policy Implementation
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Policy Implementation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-rego-policy-document" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example Rego Policy Document
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-data-object" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example Data object
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -659,6 +625,8 @@
 
 <h1 id="permitta-core">Permitta-core</h1>
 <p><strong>Permitta-core makes OPA + Trino easy</strong></p>
+<h2 id="architecture">Architecture</h2>
+<p><img alt="Architecture" src="images/architecture.png" /></p>
 <p>OPA and Trino are an awesome combination, but maintaining the policy documents and required data object
 can be painful. Permitta-core makes this easy with managed curation of principals and tables,
 as well as a predefined set of ABAC policies suitable for most uses</p>
@@ -666,10 +634,19 @@ as well as a predefined set of ABAC policies suitable for most uses</p>
 <ul>
 <li>Data objects and attributes ingested from various sources (SQL DBs,data catalogs etc)</li>
 <li>Principals and attributes/groups ingested from identity providers (SQL DB, LDAP, etc)</li>
-<li>Pre-built <code>rego</code> policy documents to support common use cases (e.g. RBAC/ABAC) </li>
+<li>Pre-built <code>rego</code> policy documents to support common use cases (e.g. RBAC/ABAC)</li>
 </ul>
-<h2 id="architecture">Architecture</h2>
-<p><img alt="Architecture" src="images/architecture.png" /></p>
+<p>Read more about how <a href="trino_and_opa/">Trino and OPA</a> work together</p>
+<h2 id="extensability">Extensability</h2>
+<p>Permitta-core is built to be extended. <a href="extensions/">Custom connectors</a> can be added easily to retrieve data from a wide range of sources, such as:</p>
+<ul>
+<li><strong>IDPs:</strong> e.g. Keycloak, IdentityNow, Auth0</li>
+<li><strong>User Directories</strong> e.g Azure AD, OpenLDAP</li>
+<li><strong>Data Catalogs:</strong> e.g. Amundsen, OpenMetadata, Datahub</li>
+<li><strong>Databases:</strong> e.g. MongoDB, DynamoDB, SQL DBs</li>
+<li><strong>File Sources:</strong> e.g. json, yaml, csv</li>
+<li><strong>API Sources:</strong> e.g. Custom Identity Providers</li>
+</ul>
 <h2 id="motivation">Motivation</h2>
 <p>In late 2023 <a href="https://www.openpolicyagent.org/">Open Policy Agent (OPA)</a> was introduced into Trino as an <a href="https://trino.io/docs/current/security/opa-access-control.html">authentication method</a>.
 OPA is a very powerful policy enforcement engine which helps to solve many authorisation issues with the previously available 
@@ -687,83 +664,6 @@ as a (possibly) large JSON object, and updated whenever these values change.  </
 <li>Aggregating metadata from sources such as <code>Active Directory</code></li>
 <li>Delivering bundles of policy and context metadata to instances of OPA</li>
 </ul>
-<h2 id="how-trino-and-opa-work-together">How Trino and OPA work together</h2>
-<p>When an SQL statement is supplied to Trino for execution, it executes a (potentially) large number of authorisation 
-checks. Each of these authorisation checks includes an action, a subject and an object. The subject is the user executing
-the query, and the object is the catalog, schema, table or column. </p>
-<p>Upon receiving an authorisation request OPA executes tests defined in the policy document using an input variable 
-provided by Trino, against the data in the context data object.</p>
-<p>For example, a user executes a simple query:</p>
-<p><code>SELECT a, b, c from datalake.hr.employees</code></p>
-<p>This results in many requests to OPA, one of which checks if this user (alice) 
-is allowed to select these columns:</p>
-<pre><code class="language-json">{
-  &quot;context&quot;: {
-    &quot;identity&quot;: {
-      &quot;user&quot;: &quot;alice&quot;
-    }
-  },
-  &quot;action&quot;: {
-    &quot;operation&quot;: &quot;SelectFromColumns&quot;,
-    &quot;resource&quot;: {
-      &quot;table&quot;: {
-        &quot;catalogName&quot;: &quot;datalake&quot;,
-        &quot;schemaName&quot;: &quot;hr&quot;,
-        &quot;tableName&quot;: &quot;employees&quot;,
-        &quot;columns&quot;: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
-      }
-    }
-  }
-}
-</code></pre>
-<h3 id="policy-implementation">Policy Implementation</h3>
-<p>To implement ABAC/RBAC policies with OPA, we require a <code>data</code> object containing the <code>principals</code> 
-and <code>data-objects</code> (schemas, tables, columns etc) as well at attributes or groups for each. 
-OPA uses the information in the <code>data</code> object, along with <code>input</code> object to enforce the rules
-defined in the rego policy document.</p>
-<h4 id="example-rego-policy-document">Example Rego Policy Document</h4>
-<p>This policy ensures that any user who exists in our data object is allowed to <code>SELECT</code> from
-any table in the <code>datalake</code> catalog, as long as the schema is in our data object. 
-All other operations on any other object will be denied</p>
-<pre><code class="language-rego">package permitta.trino
-
-import rego.v1
-import data.trino
-
-allow if {
-  # action is SELECT
-  input.action.operation == &quot;SelectFromColumns&quot;
-
-  # user exists in our data object
-  some principal in data.trino.principals
-  principal.name == input.context.identity.user
-
-  # catalog is datalake
-  input.action.resource.table.catalogName == &quot;datalake&quot;
-
-  # schema is in our data object
-  some schema in data.trino.schemas
-  schema.name == input.action.resource.table.schemaName
-}
-</code></pre>
-<h4 id="example-data-object">Example Data object</h4>
-<pre><code class="language-json">{ 
-  &quot;principals&quot;: [
-    {
-      &quot;name&quot;: &quot;alice&quot;
-    },
-    {
-      &quot;name&quot;: &quot;bob&quot;
-    }
-  ],
-  &quot;schemas&quot;: [
-    {
-      &quot;name&quot;: &quot;hr&quot;
-    }
-  ]
-}
-
-</code></pre>
 
 
 

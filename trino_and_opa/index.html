@@ -9,8 +9,10 @@
       
       
       
-        <link rel="prev" href="../deployment/">
+        <link rel="prev" href="..">
       
+      
+        <link rel="next" href="../extensions/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -18,7 +20,7 @@
     
     
       
-        <title>Developer Setup - Permitta Core</title>
+        <title>Trino and OPA - Permitta Core</title>
       
     
     
@@ -60,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#developer-setup" class="md-skip">
+        <a href="#how-trino-and-opa-work-together" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Developer Setup
+              Trino and OPA
             
           </span>
         </div>
@@ -235,10 +237,32 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../trino_and_opa/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Trino and OPA
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -249,6 +273,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#policy-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Policy Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-rego-policy-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Rego Policy Document
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-data-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Data object
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -464,32 +541,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Developer Setup
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../developer_setup/" class="md-nav__link">
         
   
   
@@ -500,128 +555,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#application-components" class="md-nav__link">
-    <span class="md-ellipsis">
-      Application Components
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Application Components">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installation-of-dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installation of dependencies
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code-formatting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code Formatting
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-the-dev-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running the dev environment
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Running the dev environment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#starting-the-dev-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Starting the dev server
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#running-with-docker-compose" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running with Docker Compose
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-the-container-image" class="md-nav__link">
-    <span class="md-ellipsis">
-      Building the container image
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-ingestion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running Ingestion
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Documentation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#keycloak" class="md-nav__link">
-    <span class="md-ellipsis">
-      Keycloak
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -653,19 +586,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#application-components" class="md-nav__link">
+  <a href="#policy-implementation" class="md-nav__link">
     <span class="md-ellipsis">
-      Application Components
+      Policy Implementation
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Application Components">
+    <nav class="md-nav" aria-label="Policy Implementation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#installation-of-dependencies" class="md-nav__link">
+  <a href="#example-rego-policy-document" class="md-nav__link">
     <span class="md-ellipsis">
-      Installation of dependencies
+      Example Rego Policy Document
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-data-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Data object
     </span>
   </a>
   
@@ -673,84 +615,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code-formatting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code Formatting
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-the-dev-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running the dev environment
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Running the dev environment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#starting-the-dev-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Starting the dev server
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#running-with-docker-compose" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running with Docker Compose
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-the-container-image" class="md-nav__link">
-    <span class="md-ellipsis">
-      Building the container image
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-ingestion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running Ingestion
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Documentation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#keycloak" class="md-nav__link">
-    <span class="md-ellipsis">
-      Keycloak
-    </span>
-  </a>
   
 </li>
       
@@ -773,102 +637,81 @@
   
 
 
-<h1 id="developer-setup">Developer Setup</h1>
-<h2 id="application-components">Application Components</h2>
-<ul>
-<li><strong>API server</strong> is very lightweight and is based on <code>flask</code></li>
-<li><strong>Unit tests</strong> are under <code>pytest</code></li>
-<li><strong>ORM</strong> is SQLAlchemy with postgres16, unit tests use <code>DatabaseJanitor</code> with dockerised postgres</li>
-</ul>
-<h3 id="installation-of-dependencies">Installation of dependencies</h3>
-<ul>
-<li>Virtual environment should be at the project root</li>
-<li>Requires local installation of OPA and python 3.12</li>
-<li>Supporting apps run under docker-compose</li>
-<li>An SQL client (e.g: dbeaver) is also required</li>
-</ul>
-<pre><code class="language-bash">brew install opa
-brew install python@3.12
-
-python3.12 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-
+<h1 id="how-trino-and-opa-work-together">How Trino and OPA work together</h1>
+<p>When an SQL statement is supplied to Trino for execution, it executes a (potentially) large number of authorisation 
+checks. Each of these authorisation checks includes an action, a subject and an object. The subject is the user executing
+the query, and the object is the catalog, schema, table or column. </p>
+<p>Upon receiving an authorisation request OPA executes tests defined in the policy document using an input variable 
+provided by Trino, against the data in the context data object.</p>
+<p>For example, a user executes a simple query:</p>
+<p><code>SELECT a, b, c from datalake.hr.employees</code></p>
+<p>This results in many requests to OPA, one of which checks if this user (alice) 
+is allowed to select these columns:</p>
+<pre><code class="language-json">{
+  &quot;context&quot;: {
+    &quot;identity&quot;: {
+      &quot;user&quot;: &quot;alice&quot;
+    }
+  },
+  &quot;action&quot;: {
+    &quot;operation&quot;: &quot;SelectFromColumns&quot;,
+    &quot;resource&quot;: {
+      &quot;table&quot;: {
+        &quot;catalogName&quot;: &quot;datalake&quot;,
+        &quot;schemaName&quot;: &quot;hr&quot;,
+        &quot;tableName&quot;: &quot;employees&quot;,
+        &quot;columns&quot;: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+      }
+    }
+  }
+}
 </code></pre>
-<h2 id="code-formatting">Code Formatting</h2>
-<pre><code class="language-bash"># in project root
-isort --profile black permitta/src
-black permitta/src
+<h2 id="policy-implementation">Policy Implementation</h2>
+<p>To implement ABAC/RBAC policies with OPA, we require a <code>data</code> object containing the <code>principals</code> 
+and <code>data-objects</code> (schemas, tables, columns etc) as well at attributes or groups for each. 
+OPA uses the information in the <code>data</code> object, along with <code>input</code> object to enforce the rules
+defined in the rego policy document.</p>
+<h3 id="example-rego-policy-document">Example Rego Policy Document</h3>
+<p>This policy ensures that any user who exists in our data object is allowed to <code>SELECT</code> from
+any table in the <code>datalake</code> catalog, as long as the schema is in our data object. 
+All other operations on any other object will be denied</p>
+<pre><code class="language-rego">package permitta.trino
+
+import rego.v1
+import data.trino
+
+allow if {
+  # action is SELECT
+  input.action.operation == &quot;SelectFromColumns&quot;
+
+  # user exists in our data object
+  some principal in data.trino.principals
+  principal.name == input.context.identity.user
+
+  # catalog is datalake
+  input.action.resource.table.catalogName == &quot;datalake&quot;
+
+  # schema is in our data object
+  some schema in data.trino.schemas
+  schema.name == input.action.resource.table.schemaName
+}
 </code></pre>
-<h2 id="running-the-dev-environment">Running the dev environment</h2>
-<ul>
-<li>Run flask on 8000</li>
-</ul>
-<h3 id="starting-the-dev-server">Starting the dev server</h3>
-<pre><code class="language-bash"># if using podman
-podman machine init
-podman machine start
-podman-compose up -d
-
-# run dependencies
-docker-compose up -d
-
-# populate LLDAP:
-docker compose exec lldap /bootstrap/bootstrap.sh
-
-export PYTHONPATH=permitta/src
-flask --app permitta.src.app run --debug --port 8000
-
-# seed the database
-python permitta/permitta/src/seed_db.py
-
-# nuking a bad flask process
-kill $(pgrep -f flask)
-
-# all the data for lldap and postgres is stored in the `instance` dir. nuke it to reset the app
-rm -rf instance
-</code></pre>
-<h3 id="running-with-docker-compose">Running with Docker Compose</h3>
-<p>To run the Permitta Core application along with its dependencies (OPA, PostgreSQL, etc.), you can add the following service to your <code>docker-compose.yaml</code> file:</p>
-<pre><code class="language-yaml">services:
-
-  permitta-core:
-    build: .
-    ports:
-      - &quot;8000:8000&quot;
-    environment:
-      - FLASK_SECRET_KEY=your_secret_key
-      - OIDC_AUTH_PROVIDER_CLIENT_SECRET=your_client_secret
-    depends_on:
-      - opa
-      - postgres
-</code></pre>
-<h2 id="building-the-container-image">Building the container image</h2>
-<pre><code class="language-bash">docker build -t permitta/permitta-core
-</code></pre>
-<h2 id="running-ingestion">Running Ingestion</h2>
-<pre><code class="language-bash">export CONFIG_FILE_PATH=permitta/config.principal_ingestion.yaml
-cli.py ingest --source=ldap --object-type=principal
-
-# or in the container
-docker run permitta-core ingest --connector-name=ldap --object-type=principal
-</code></pre>
-<h2 id="documentation">Documentation</h2>
-<p>Docs are provided by <code>mkdocs</code> using the <code>mkdocs-material</code> theme.
-The documentation is automatically deployed to GitHub Pages via GitHub Actions when changes are pushed to the main branch.</p>
-<p>For local development:</p>
-<pre><code class="language-bash"># render docs for development
-mkdocs serve
-</code></pre>
-<p>Manual deployment (not needed for normal workflow as it's automated):</p>
-<pre><code class="language-bash"># deploy docs manually
-mkdocs gh-deploy
-
-# if it fails, try:
-git config http.postBuffer 524288000
-</code></pre>
-<h2 id="keycloak">Keycloak</h2>
-<pre><code class="language-bash"># export the realm
+<h3 id="example-data-object">Example Data object</h3>
+<pre><code class="language-json">{ 
+  &quot;principals&quot;: [
+    {
+      &quot;name&quot;: &quot;alice&quot;
+    },
+    {
+      &quot;name&quot;: &quot;bob&quot;
+    }
+  ],
+  &quot;schemas&quot;: [
+    {
+      &quot;name&quot;: &quot;hr&quot;
+    }
+  ]
+}
 
 </code></pre>
 
