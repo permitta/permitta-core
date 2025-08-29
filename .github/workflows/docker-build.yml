@@ -59,28 +59,3 @@ jobs:
       run: |
         # Test CLI functionality
         docker run --rm permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} --help
-
-# steps only on the main branch
-    - name: Set up QEMU
-      if: github.ref == 'refs/heads/main'
-      uses: docker/setup-qemu-action@v3
-
-    - name: Login to DockerHub
-      if: github.ref == 'refs/heads/main'
-      uses: docker/login-action@v2
-      with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-    # build image a second time because the test image cannot be multi-arch
-    - name: Build Docker multi-arch image and push
-      if: github.ref == 'refs/heads/main'
-      uses: docker/build-push-action@v4
-      with:
-        context: .
-        platforms: linux/amd64,linux/arm64
-        push: true
-        tags: |
-          permitta/permitta-core:${{ steps.get_version.outputs.VERSION }}
-        cache-from: type=gha
-        cache-to: type=gha,mode=max
