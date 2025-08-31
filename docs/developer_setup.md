@@ -56,6 +56,12 @@ kill $(pgrep -f flask)
 rm -rf instance
 ```
 
+### Running the container
+```bash
+podman run --rm -p 3000:8000 permitta/permitta-core:0.0.1
+curl localhost:3000/api/v1/healthcheck
+```
+
 ### Running with Docker Compose
 To run the Permitta Core application along with its dependencies (OPA, PostgreSQL, etc.), you can add the following service to your `docker-compose.yaml` file:
 
@@ -86,6 +92,18 @@ cli.py ingest --source=ldap --object-type=principal
 
 # or in the container
 docker run permitta-core ingest --connector-name=ldap --object-type=principal
+```
+
+## Database Migrations
+`alembic` is used to migrate the database schema
+
+```bash
+# create a new revision
+export PYTHONPATH=./permitta-core/src
+alembic revision --autogenerate -m "message about the revision"
+
+# upgrade
+alembic upgrade head
 ```
 
 ## Documentation

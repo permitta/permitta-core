@@ -3,6 +3,7 @@ flask-pydantic
 black
 psycopg-binary
 sqlalchemy
+alembic
 pytest-postgresql
 pyyaml
 pytest

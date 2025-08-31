@@ -18,15 +18,29 @@ class AppConfigModelBase:
     """
 
     CONFIG_PREFIX: str = "base"
+    BASE_CONFIG_FILENAME_KEY: str = "config.base"
 
     @staticmethod
-    def _load_yaml_file() -> dict:
-        config_file_path: str = os.getenv(
+    def _load_yaml_file(config_file_path: str = None) -> dict:
+        config_file_path: str = config_file_path or os.getenv(
             "CONFIG_FILE_PATH", "permitta-core/config/config.yaml"
         )
-        with open(config_file_path, "r") as f:
-            config_content: dict = yaml.load(f, Loader=yaml.SafeLoader)
-        return config_content
+
+        def _load(path: str) -> dict:
+            if not os.path.exists(path):
+                raise FileNotFoundError(f"Config file not found at {path}")
+            with open(path, "r") as f:
+                config_content: dict = yaml.load(f, Loader=yaml.SafeLoader)
+
+            # recursively load overrides
+            if config_content.get(AppConfigModelBase.BASE_CONFIG_FILENAME_KEY):
+                config_content = (
+                    _load(config_content[AppConfigModelBase.BASE_CONFIG_FILENAME_KEY])
+                    | config_content
+                )
+            return config_content
+
+        return _load(config_file_path)
 
     @staticmethod
     def get_value(key: str, default: str = None) -> str:
@@ -34,8 +48,10 @@ class AppConfigModelBase:
         return config_content.get(key, default)
 
     @classmethod
-    def load(cls) -> "AppConfigModelBase":
-        config_content: dict = AppConfigModelBase._load_yaml_file()
+    def load(cls, config_file_path: str = None) -> "AppConfigModelBase":
+        config_content: dict = AppConfigModelBase._load_yaml_file(
+            config_file_path=config_file_path
+        )
 
         instance = cls()
         for key, value in config_content.items():

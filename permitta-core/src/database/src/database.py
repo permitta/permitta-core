@@ -24,12 +24,18 @@ class Database:
     def __init__(self):
         self.config: DatabaseConfig = DatabaseConfig.load()
 
-    def connect(self, echo_statements: bool = False) -> None:
-        self.engine: Engine = create_engine(
+    def create_engine(self, echo_statements: bool = False) -> Engine:
+        engine: Engine = create_engine(
             self.config.connection_string,
             echo=echo_statements,
             pool_pre_ping=True,
             pool_recycle=3600,
+        )
+        return engine
+
+    def connect(self, echo_statements: bool = False) -> None:
+        self.engine: Engine = self.create_engine(
+            echo_statements=echo_statements,
         )
         self.Session = sessionmaker(self.engine)
 

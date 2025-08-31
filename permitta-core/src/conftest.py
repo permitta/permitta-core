@@ -5,6 +5,8 @@ import pytest
 from flask import Flask
 from flask.testing import FlaskClient
 from pytest_postgresql.janitor import DatabaseJanitor
+from alembic import command
+from alembic.config import Config
 
 os.environ["CONFIG_FILE_PATH"] = "permitta-core/config/config.unittest.yaml"
 os.environ["FLASK_SECRET_KEY"] = "dont-tell-anyone"
@@ -28,7 +30,9 @@ def database_empty() -> Generator[Database, Any, None]:
         connection_timeout=2,
     ):
         db.connect()
-        db.create_all_tables()
+        # Run all alembic migrations instead of creating tables directly
+        alembic_cfg = Config("permitta-core/alembic.ini")
+        command.upgrade(alembic_cfg, "head")
         yield db
 
 
