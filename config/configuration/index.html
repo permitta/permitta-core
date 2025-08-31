@@ -667,11 +667,11 @@ ldap_client.user_dn: uid=admin,ou=people,dc=example,dc=com
 </code></pre>
 <h2 id="inheritance">Inheritance</h2>
 <p>A <code>yaml</code> config file can inherit from another file and add or replace its contents by key. For example</p>
-<h3 id="appconfigconfigyaml">/app/config/config.yaml</h3>
+<h4 id="appconfigconfigyaml">/app/config/config.yaml</h4>
 <pre><code class="language-yaml">common.db_connection_string: &quot;sqlite:///:memory:&quot;
 common.db_port: &quot;5432&quot;
 </code></pre>
-<h3 id="appconfigconfig_with_overridesyaml">/app/config/config_with_overrides.yaml</h3>
+<h4 id="appconfigconfig_with_overridesyaml">/app/config/config_with_overrides.yaml</h4>
 <pre><code class="language-yaml">config.base:  &quot;/app/config/config.yaml&quot;   # fully qualified path required
 common.db_port: &quot;1234&quot;                    # replaced
 common.db_name: &quot;permitta&quot;                # new
