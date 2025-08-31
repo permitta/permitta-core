@@ -12,6 +12,29 @@ ldap_client.base_dn: dc=example,dc=com
 ldap_client.user_dn: uid=admin,ou=people,dc=example,dc=com
 ```
 
+## Inheritance
+A `yaml` config file can inherit from another file and add or replace its contents by key. For example
+
+### /app/config/config.yaml
+```yaml
+common.db_connection_string: "sqlite:///:memory:"
+common.db_port: "5432"
+```
+
+### /app/config/config_with_overrides.yaml
+```yaml
+config.base:  "/app/config/config.yaml"   # fully qualified path required
+common.db_port: "1234"                    # replaced
+common.db_name: "permitta"                # new
+```
+
+When loading `config_with_overrides.yaml`, the following config would be resolved:
+```yaml
+common.db_connection_string: "sqlite:///:memory:"
+common.db_port: "1234"
+common.db_name: "permitta"
+```
+
 For a complete list of all available configuration properties, see [Properties](properties.md).
 
 ## Environment Variables

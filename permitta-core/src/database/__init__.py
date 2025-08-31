@@ -1,3 +1,2 @@
 from .src.database import BaseModel, Database
-
-# from .src.database_seeder import DatabaseSeeder
+from .src.database_config import DatabaseConfig

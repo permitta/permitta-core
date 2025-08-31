@@ -1,8 +1,6 @@
 # unit test items - do not remove
 common.db_connection_string: "sqlite:///:memory:"
 common.super_secret: "https:/domain?username=$FLASK_SECRET_KEY"
-parent.common.super_secret: "parent_secret"
-parent.name: "parent"
 
 logger.root_level: "INFO"
 
