@@ -569,6 +569,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#running-the-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the container
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#running-with-docker-compose" class="md-nav__link">
     <span class="md-ellipsis">
       Running with Docker Compose
@@ -595,6 +604,15 @@
   <a href="#running-ingestion" class="md-nav__link">
     <span class="md-ellipsis">
       Running Ingestion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Migrations
     </span>
   </a>
   
@@ -705,6 +723,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#running-the-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the container
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#running-with-docker-compose" class="md-nav__link">
     <span class="md-ellipsis">
       Running with Docker Compose
@@ -731,6 +758,15 @@
   <a href="#running-ingestion" class="md-nav__link">
     <span class="md-ellipsis">
       Running Ingestion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Migrations
     </span>
   </a>
   
@@ -828,6 +864,10 @@ kill $(pgrep -f flask)
 # all the data for lldap and postgres is stored in the `instance` dir. nuke it to reset the app
 rm -rf instance
 </code></pre>
+<h3 id="running-the-container">Running the container</h3>
+<pre><code class="language-bash">podman run --rm -p 3000:8000 permitta/permitta-core:0.0.1
+curl localhost:3000/api/v1/healthcheck
+</code></pre>
 <h3 id="running-with-docker-compose">Running with Docker Compose</h3>
 <p>To run the Permitta Core application along with its dependencies (OPA, PostgreSQL, etc.), you can add the following service to your <code>docker-compose.yaml</code> file:</p>
 <pre><code class="language-yaml">services:
@@ -852,6 +892,15 @@ cli.py ingest --source=ldap --object-type=principal
 
 # or in the container
 docker run permitta-core ingest --connector-name=ldap --object-type=principal
+</code></pre>
+<h2 id="database-migrations">Database Migrations</h2>
+<p><code>alembic</code> is used to migrate the database schema</p>
+<pre><code class="language-bash"># create a new revision
+export PYTHONPATH=./permitta-core/src
+alembic revision --autogenerate -m &quot;message about the revision&quot;
+
+# upgrade
+alembic upgrade head
 </code></pre>
 <h2 id="documentation">Documentation</h2>
 <p>Docs are provided by <code>mkdocs</code> using the <code>mkdocs-material</code> theme.

@@ -444,6 +444,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inheritance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inheritance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#appconfigconfigyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      /app/config/config.yaml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appconfigconfig_with_overridesyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      /app/config/config_with_overrides.yaml
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
       Environment Variables
@@ -562,6 +595,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inheritance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inheritance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#appconfigconfigyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      /app/config/config.yaml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appconfigconfig_with_overridesyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      /app/config/config_with_overrides.yaml
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
       Environment Variables
@@ -598,6 +664,22 @@ The location of this file is defined by an environment variable called
 ldap_client.port: &quot;3890&quot;
 ldap_client.base_dn: dc=example,dc=com
 ldap_client.user_dn: uid=admin,ou=people,dc=example,dc=com
+</code></pre>
+<h2 id="inheritance">Inheritance</h2>
+<p>A <code>yaml</code> config file can inherit from another file and add or replace its contents by key. For example</p>
+<h3 id="appconfigconfigyaml">/app/config/config.yaml</h3>
+<pre><code class="language-yaml">common.db_connection_string: &quot;sqlite:///:memory:&quot;
+common.db_port: &quot;5432&quot;
+</code></pre>
+<h3 id="appconfigconfig_with_overridesyaml">/app/config/config_with_overrides.yaml</h3>
+<pre><code class="language-yaml">config.base:  &quot;/app/config/config.yaml&quot;   # fully qualified path required
+common.db_port: &quot;1234&quot;                    # replaced
+common.db_name: &quot;permitta&quot;                # new
+</code></pre>
+<p>When loading <code>config_with_overrides.yaml</code>, the following config would be resolved:</p>
+<pre><code class="language-yaml">common.db_connection_string: &quot;sqlite:///:memory:&quot;
+common.db_port: &quot;1234&quot;
+common.db_name: &quot;permitta&quot;
 </code></pre>
 <p>For a complete list of all available configuration properties, see <a href="../properties/">Properties</a>.</p>
 <h2 id="environment-variables">Environment Variables</h2>
