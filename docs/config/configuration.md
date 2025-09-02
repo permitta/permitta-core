@@ -15,13 +15,13 @@ ldap_client.user_dn: uid=admin,ou=people,dc=example,dc=com
 ## Inheritance
 A `yaml` config file can inherit from another file and add or replace its contents by key. For example
 
-### /app/config/config.yaml
+#### /app/config/config.yaml
 ```yaml
 common.db_connection_string: "sqlite:///:memory:"
 common.db_port: "5432"
 ```
 
-### /app/config/config_with_overrides.yaml
+#### /app/config/config_with_overrides.yaml
 ```yaml
 config.base:  "/app/config/config.yaml"   # fully qualified path required
 common.db_port: "1234"                    # replaced
