@@ -51,10 +51,9 @@ def flask_app(database: Database) -> Generator[Flask, Any, None]:
             "TESTING": True,
         }
     )
-
     yield app
 
 
 @pytest.fixture(scope="module")
-def client(flask_app: Flask) -> FlaskClient:
+def flask_test_client(flask_app: Flask) -> FlaskClient:
     return flask_app.test_client()

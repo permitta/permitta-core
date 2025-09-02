@@ -6,3 +6,5 @@ from .src.opa_permitta_authz_request_model import (
     OpaPermittaAuthzObjectModel,
     OpaPermittaAuthzSubjectModel,
 )
+
+from .src.api_key_authn import require_api_key
