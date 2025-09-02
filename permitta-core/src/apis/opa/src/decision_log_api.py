@@ -2,16 +2,18 @@ import gzip
 import json
 
 from app_logger import Logger, get_logger
-
-logger: Logger = get_logger("opa.decision_log_api")
-
+from auth import authenticate
+from apis.models import ApiConfig
 from flask import Blueprint, g, request
 from repositories import DecisionLogRepository
 
-bp = Blueprint("opa_decision", __name__, url_prefix="/v1/opa/decision")
+logger: Logger = get_logger("opa.decision_log_api")
+bp = Blueprint("opa_decision", __name__, url_prefix="/api/v1/opa/decision")
+api_config: ApiConfig = ApiConfig.load_by_api_name(api_name="opa")
 
 
 @bp.route("", methods=["POST"])
+@authenticate(api_config=api_config)
 def create():
     body = gzip.decompress(request.data)
     logger.info(f"request: {body}")

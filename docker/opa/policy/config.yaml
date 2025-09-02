@@ -1,6 +1,11 @@
 services:
   permitta:
-    url: http://host.docker.internal:8000/v1/opa/
+    url: http://host.docker.internal:8000/api/v1/opa/
+    credentials:
+      bearer:
+        token_path: /config/token.txt
+#        token: bearer-token
+#        token: "${PERMITTA_BEARER_TOKEN}"
 
 #decision_logs:
 #  service: permitta
@@ -21,7 +26,7 @@ bundles:
 #      keyid: global_key
 #      scope: write
 
-status:
-  service: permitta
+#status:
+#  service: permitta
 
 persistence_directory: /policy/persistence

@@ -21,3 +21,8 @@ opa_authz_provider.policy_file_path: "opa/permitta/authz.rego"
 
 
 bundle_generator.temp_directory: /tmp
+
+api.healthcheck.auth_method: none
+
+api.opa.auth_method: api-key
+api.opa.api_key: bearer-token

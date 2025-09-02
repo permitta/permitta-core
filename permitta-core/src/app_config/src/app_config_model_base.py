@@ -48,14 +48,17 @@ class AppConfigModelBase:
         return config_content.get(key, default)
 
     @classmethod
-    def load(cls, config_file_path: str = None) -> "AppConfigModelBase":
+    def load(
+        cls, config_file_path: str = None, config_prefix: str = None
+    ) -> "AppConfigModelBase":
         config_content: dict = AppConfigModelBase._load_yaml_file(
             config_file_path=config_file_path
         )
 
+        config_prefix = config_prefix or cls.CONFIG_PREFIX
         instance = cls()
         for key, value in config_content.items():
-            attr_name: str = key.removeprefix(f"{cls.CONFIG_PREFIX}.")
+            attr_name: str = key.removeprefix(f"{config_prefix}.")
 
             # support merging in $ENV_VAR syntax
             for match in re.findall(r"(\$[A-Z_]*)", value):

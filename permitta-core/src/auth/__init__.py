@@ -7,4 +7,4 @@ from .src.opa_permitta_authz_request_model import (
     OpaPermittaAuthzSubjectModel,
 )
 
-from .src.api_key_authn import require_api_key
+from .src.authenticator import authenticate

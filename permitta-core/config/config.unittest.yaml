@@ -51,4 +51,11 @@ dbapi_connector.data_object_table_column_query: |-
 bundle_generator.temp_directory: /tmp
 bundle_generator.static_rego_file_path: permitta-core/test/test_data/rego
 
-api.healthcheck.api_key: a-secret-api-key
+api.healthcheck.auth_method: none
+
+api.opa.auth_method: api-key
+api.opa.api_key: bearer-token
+
+api.resources.auth_method: oauth2
+api.resources.oauth2_issuer: https://idp.com/oauth2/
+api.resources.oauth2_audience: audience

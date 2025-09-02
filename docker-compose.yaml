@@ -6,7 +6,9 @@ x-logging: &logging
 
 services:
   opa:
-    image: openpolicyagent/opa:latest-static
+    image: openpolicyagent/opa:1.8.0-static
+    environment:
+      - PERMITTA_BEARER_TOKEN="bearer-token"
     ports:
       - "8181:8181"
     command:
@@ -19,10 +21,10 @@ services:
       - "--addr=0.0.0.0:8181"
       - "--set=decision_logs.console=true"
       - "--config-file"
-      - "/policy/config.yaml"
-      - "/policy/"
+      - "/config/policy/config.yaml"
+      - "/config/policy/"
     volumes:
-      - ./docker/opa/policy:/policy
+      - ./docker/opa:/config
 
 #  lldap:
 #    image: lldap/lldap:stable
