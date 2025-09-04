@@ -122,3 +122,61 @@ test_column_mask_alice_select_logistics_shippers if {
   expected := {"expression": "NULL"}
   expected == actual
 }
+
+# ------------------ batched mode  -----------------------
+# bob should see "phone" unmasked and "phonenumber" masked
+test_batchcolumnmask if {
+  actual := batchcolumnmask with input as {
+      "context": {
+          "identity": {
+              "user": "bob"
+          }
+      },
+      "action": {
+          "operation": "GetColumnMask",
+          "filterResources": [
+              {
+                  "column": {
+                    "catalogName": "datalake",
+                    "schemaName": "logistics",
+                    "tableName": "shippers",
+                    "columnName": "phone",
+                    "columnType": "integer"
+                  }
+              },
+              {
+                  "column": {
+                    "catalogName": "datalake",
+                    "columnName": "phonenumber",
+                    "columnType": "integer",
+                    "schemaName": "hr",
+                    "tableName": "employees"
+                  }
+              }
+          ]
+      }
+  }
+  expected := {
+    {
+      "index": 1,
+      "viewExpression": {
+        "expression": "NULL"
+      }
+    }
+  }
+  print(actual)
+  expected == actual
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
