@@ -25,39 +25,55 @@ services:
       - "/config/policy/"
     volumes:
       - ./docker/opa:/config
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: 256M
+        reservations:
+          cpus: '0.1'
+          memory: 128M
 
-#  lldap:
-#    image: lldap/lldap:stable
-#    ports:
-#      # For LDAP, not recommended to expose, see Usage section.
-#      - "3890:3890"
-#      # For LDAPS (LDAP Over SSL), enable port if LLDAP_LDAPS_OPTIONS__ENABLED set true, look env below
-#      #- "6360:6360"
-#      # For the web front-end
-#      - "17170:17170"
-#    volumes:
-#      # Alternatively, you can mount a local folder
-#      - ./instance/lldap:/data
-#      - ./docker/lldap/bootstrap:/bootstrap
-#    environment:
-#      - UID=1000
-#      - GID=1000
-#      - TZ=Australia/Melbourne
-#      - LLDAP_JWT_SECRET=jhgfdfjkhgsdfghlushdvndkfjnsd
-#      - LLDAP_KEY_SEED=ioajerjgosdfvnsdufghbsiudhgjfdvn
-#      - LLDAP_LDAP_BASE_DN=dc=example,dc=com
-#
-#      # envs required for lldap
-#      - LLDAP_LDAP_USER_EMAIL=admin@example.com
-#      - LLDAP_LDAP_USER_PASS=changeme
-#
-#      # envs required for bootstrap.sh
-#      - LLDAP_URL=http://localhost:17170
-#      - LLDAP_ADMIN_USERNAME=admin
-#      - LLDAP_ADMIN_PASSWORD=changeme # same as LLDAP_LDAP_USER_PASS
-#      - USER_CONFIGS_DIR=/bootstrap/user-configs
-#      - GROUP_CONFIGS_DIR=/bootstrap/group-configs
-#      - DO_CLEANUP=true
+  lldap:
+    image: lldap/lldap:stable
+    ports:
+      # For LDAP, not recommended to expose, see Usage section.
+      - "3890:3890"
+      # For LDAPS (LDAP Over SSL), enable port if LLDAP_LDAPS_OPTIONS__ENABLED set true, look env below
+      #- "6360:6360"
+      # For the web front-end
+      - "17170:17170"
+    volumes:
+      # Alternatively, you can mount a local folder
+      - ./instance/lldap:/data
+      - ./docker/lldap/bootstrap:/bootstrap
+    environment:
+      - UID=1000
+      - GID=1000
+      - TZ=Australia/Melbourne
+      - LLDAP_JWT_SECRET=jhgfdfjkhgsdfghlushdvndkfjnsd
+      - LLDAP_KEY_SEED=ioajerjgosdfvnsdufghbsiudhgjfdvn
+      - LLDAP_LDAP_BASE_DN=dc=example,dc=com
+
+      # envs required for lldap
+      - LLDAP_LDAP_USER_EMAIL=admin@example.com
+      - LLDAP_LDAP_USER_PASS=changeme
+
+      # envs required for bootstrap.sh
+      - LLDAP_URL=http://localhost:17170
+      - LLDAP_ADMIN_USERNAME=admin
+      - LLDAP_ADMIN_PASSWORD=changeme # same as LLDAP_LDAP_USER_PASS
+      - USER_CONFIGS_DIR=/bootstrap/user-configs
+      - GROUP_CONFIGS_DIR=/bootstrap/group-configs
+      - DO_CLEANUP=true
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: 256M
+        reservations:
+          cpus: '0.1'
+          memory: 128M
 
   postgres:
     image: postgres:16.2
@@ -70,11 +86,20 @@ services:
     logging: *logging
     volumes:
       - ./docker/postgres/postgres_init_script.sh:/docker-entrypoint-initdb.d/postgres_init_script.sh
+      - ./docker/postgres/data:/postgres-data
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U test_user -d permitta" ]
       interval: 10s
       timeout: 5s
       retries: 10
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: 256M
+        reservations:
+          cpus: '0.1'
+          memory: 128M
 
 #  keycloak:
 #    image: keycloak/keycloak:latest
@@ -107,29 +132,29 @@ services:
 #          memory: 256M
 
 
-  keycloak-realm-export:
-    profiles:
-      - keycloak-export
-    image: keycloak/keycloak:latest
-    ports:
-      - "8080:8080"
-    command: [ "export", "--file", "/opt/keycloak/data/export/permitta-realm.json", "--realm", "permitta"]
-    restart: unless-stopped
-    environment:
-      KC_DB: postgres
-      KC_DB_USERNAME: keycloak_user
-      KC_DB_PASSWORD: keycloak_password
-      KC_DB_URL: "jdbc:postgresql://postgres:5432/keycloak"
-      KC_METRICS_ENABLED: "true"
-      KC_LOG_LEVEL: "INFO"
-      KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD: admin
-    volumes:
-      - ./instance/keycloak/data/export:/opt/keycloak/data/export
-    logging: *logging
-    depends_on:
-      keycloak:
-        condition: service_healthy
+#  keycloak-realm-export:
+#    profiles:
+#      - keycloak-export
+#    image: keycloak/keycloak:latest
+#    ports:
+#      - "8080:8080"
+#    command: [ "export", "--file", "/opt/keycloak/data/export/permitta-realm.json", "--realm", "permitta"]
+#    restart: unless-stopped
+#    environment:
+#      KC_DB: postgres
+#      KC_DB_USERNAME: keycloak_user
+#      KC_DB_PASSWORD: keycloak_password
+#      KC_DB_URL: "jdbc:postgresql://postgres:5432/keycloak"
+#      KC_METRICS_ENABLED: "true"
+#      KC_LOG_LEVEL: "INFO"
+#      KEYCLOAK_ADMIN: admin
+#      KEYCLOAK_ADMIN_PASSWORD: admin
+#    volumes:
+#      - ./instance/keycloak/data/export:/opt/keycloak/data/export
+#    logging: *logging
+#    depends_on:
+#      keycloak:
+#        condition: service_healthy
 
   trino:
     ports:
@@ -138,105 +163,14 @@ services:
     volumes:
       - ./docker/trino/etc:/etc/trino
       - ./docker/trino/catalog:/etc/trino/catalog
-    deploy:
-      resources:
-        limits:
-          cpus: '1'
-          memory: 1024M
-        reservations:
-          cpus: '0.5'
-          memory: 1024M
-
-  trino-setup:
-    image: "trinodb/trino:476"
-    restart: "no"
-    volumes:
-      - ./docker/trino-setup/create_schemas_and_tables.sql:/create_schemas_and_tables.sql
-    entrypoint: [ "bash", "-c", "sleep 10 && trino --user=admin  --file='/create_schemas_and_tables.sql' --server trino:8080" ]
-    depends_on:
-      trino:
-        condition: service_healthy
-      hive-metastore:
-        condition: service_started
-      minio:
-        condition: service_started
-      mc-job:
-        condition: service_completed_successfully
-
-  hive-metastore:
-    hostname: hive-metastore
-    image: 'starburstdata/hive:3.1.3-e.9-arm64'
-    ports:
-      - '9083:9083' # Metastore Thrift
-    environment:
-      HIVE_METASTORE_DRIVER: org.postgresql.Driver
-      HIVE_METASTORE_JDBC_URL: jdbc:postgresql://postgres:5432/hive_db
-      HIVE_METASTORE_USER: hive_user
-      HIVE_METASTORE_PASSWORD: hive_password
-      HIVE_METASTORE_WAREHOUSE_DIR: s3://datalake/
-      S3_ENDPOINT: http://minio:9000
-      S3_ACCESS_KEY: minio
-      S3_SECRET_KEY: minio123
-      S3_PATH_STYLE_ACCESS: "true"
-      REGION: ""
-      GOOGLE_CLOUD_KEY_FILE_PATH: ""
-      AZURE_ADL_CLIENT_ID: ""
-      AZURE_ADL_CREDENTIAL: ""
-      AZURE_ADL_REFRESH_URL: ""
-      AZURE_ABFS_STORAGE_ACCOUNT: ""
-      AZURE_ABFS_ACCESS_KEY: ""
-      AZURE_WASB_STORAGE_ACCOUNT: ""
-      AZURE_ABFS_OAUTH: ""
-      AZURE_ABFS_OAUTH_TOKEN_PROVIDER: ""
-      AZURE_ABFS_OAUTH_CLIENT_ID: ""
-      AZURE_ABFS_OAUTH_SECRET: ""
-      AZURE_ABFS_OAUTH_ENDPOINT: ""
-      AZURE_WASB_ACCESS_KEY: ""
-      HIVE_METASTORE_USERS_IN_ADMIN_ROLE: "admin"
     depends_on:
       postgres:
         condition: service_healthy
-      minio:
-        condition: service_started
     deploy:
       resources:
         limits:
           cpus: '1'
-          memory: 256M
+          memory: 1024M
         reservations:
           cpus: '0.5'
-          memory: 128M
-
-  minio:
-    hostname: minio
-    image: 'minio/minio:RELEASE.2022-05-26T05-48-41Z'
-    container_name: minio
-    ports:
-      - '9000:9000'
-      - '9001:9001'
-    environment:
-      MINIO_ACCESS_KEY: minio
-      MINIO_SECRET_KEY: minio123
-    command: server /data --console-address ":9001"
-    volumes:
-      - ./docker/s3:/data
-    deploy:
-      resources:
-        limits:
-          cpus: '1'
-          memory: 256M
-        reservations:
-          cpus: '0.5'
-          memory: 128M
-
-  # This job will create the "datalake" bucket on Minio
-  mc-job:
-    image: 'minio/mc:RELEASE.2022-05-09T04-08-26Z'
-    entrypoint: |
-      /bin/bash -c "
-      sleep 5;
-      /usr/bin/mc config --quiet host add myminio http://minio:9000 minio minio123;
-      /usr/bin/mc mb --quiet myminio/datalake
-      "
-    depends_on:
-      - minio
+          memory: 1024M
