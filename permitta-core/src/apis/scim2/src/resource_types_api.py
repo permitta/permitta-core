@@ -29,7 +29,7 @@ def get_resource_types():
     """
     resource_types = {
         "schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
-        "totalResults": 1,
+        "totalResults": 2,
         "Resources": [
             {
                 "schemas": ["urn:ietf:params:scim:schemas:core:2.0:ResourceType"],
@@ -41,6 +41,22 @@ def get_resource_types():
                 "schemaExtensions": [],
                 "meta": {
                     "location": "/ResourceTypes/User",
+                    "resourceType": "ResourceType",
+                    "created": "2023-01-01T00:00:00Z",
+                    "lastModified": "2023-01-01T00:00:00Z",
+                    "version": 'W/"1"',
+                },
+            },
+            {
+                "schemas": ["urn:ietf:params:scim:schemas:core:2.0:ResourceType"],
+                "id": "Group",
+                "name": "Group",
+                "endpoint": "/Groups",
+                "description": "Group",
+                "schema": "urn:ietf:params:scim:schemas:core:2.0:Group",
+                "schemaExtensions": [],
+                "meta": {
+                    "location": "/ResourceTypes/Group",
                     "resourceType": "ResourceType",
                     "created": "2023-01-01T00:00:00Z",
                     "lastModified": "2023-01-01T00:00:00Z",
