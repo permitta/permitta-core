@@ -26,3 +26,6 @@ api.healthcheck.auth_method: none
 
 api.opa.auth_method: api-key
 api.opa.api_key: bearer-token
+
+api.scim.auth_method: api-key
+api.scim.api_key: scim-token

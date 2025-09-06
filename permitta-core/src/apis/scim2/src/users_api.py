@@ -8,16 +8,16 @@ logger: Logger = get_logger("scim2.users_api")
 bp = Blueprint("scim2_users", __name__, url_prefix="/api/scim/v2/Users")
 
 
+def create_user_id() -> str:
+    return str(uuid.uuid4())
+
+
 @bp.route("", methods=["GET"])
 def get_users():
-    """
-    Get Users.
-
-    This endpoint returns a list of Users.
-    """
+    # TODO add pagination support
     with g.database.Session.begin() as session:
         repo = PrincipalRepository()
-        count, principals = repo.get_all(session=session)
+        count, principals = repo.get_all_by_source(session=session, source_type="scim")
 
         users = {
             "schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
@@ -34,17 +34,12 @@ def get_users():
 
 @bp.route("/<user_id>", methods=["GET"])
 def get_user(user_id):
-    """
-    Get a User by ID.
-
-    This endpoint returns a specific User by ID.
-    """
     with g.database.Session.begin() as session:
         principal = PrincipalRepository.get_by_source_uid(
             session=session, source_uid=user_id
         )
         if not principal:
-            return make_response(
+            response: Response = make_response(
                 jsonify(
                     {
                         "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
@@ -53,41 +48,36 @@ def get_user(user_id):
                     }
                 ),
             )
+            response.status_code = 404
 
-        response: Response = make_response(
-            jsonify(principal.scim_payload),
-        )
+        else:
+            response: Response = make_response(
+                jsonify(principal.scim_payload),
+            )
     response.headers["Content-Type"] = "application/scim+json"
     return response
 
 
 @bp.route("", methods=["POST"])
 def create_user():
-    """
-    Create a User.
-
-    This endpoint creates a new User.
-    """
     user_data = request.json
-    source_uid = str(uuid.uuid4())
+    source_uid = create_user_id()
     scim_payload = user_data | {"id": source_uid}
 
     with g.database.Session.begin() as session:
         principal: PrincipalDbo = PrincipalDbo()
-        principal.fq_name = user_data.get("userName", "")
+        principal.fq_name = user_data.get("userName", "")  # TODO make this configurable
         principal.first_name = user_data.get("name", {}).get("givenName", "")
         principal.last_name = user_data.get("name", {}).get("familyName", "")
+        principal.user_name = user_data.get("userName", "")
         principal.email = user_data.get("emails", [{}])[0].get("value", "")
-        principal.source_uid = user_data.get("id", "")
-        principal.source_type = "scim"
         principal.source_uid = source_uid
+        principal.source_type = "scim"
         principal.scim_payload = scim_payload
         session.add(principal)
         session.commit()
 
-        response: Response = make_response(
-            jsonify(scim_payload), 201
-        )  # Created status code
+        response: Response = make_response(jsonify(scim_payload), 201)
     response.headers["Content-Type"] = "application/scim+json"
     return response
 
@@ -96,7 +86,7 @@ def create_user():
 def update_user(user_id):
     user_data = request.json
     source_uid = user_id
-    scim_payload = user_data | {"id": source_uid}
+    scim_payload = user_data
 
     with g.database.Session.begin() as session:
         principal: PrincipalDbo = PrincipalRepository.get_by_source_uid(
@@ -105,12 +95,12 @@ def update_user(user_id):
         principal.fq_name = user_data.get("userName", "")
         principal.first_name = user_data.get("name", {}).get("givenName", "")
         principal.last_name = user_data.get("name", {}).get("familyName", "")
+        principal.user_name = user_data.get("userName", "")
         principal.email = user_data.get("emails", [{}])[0].get("value", "")
         principal.source_uid = user_data.get("id", "")
         principal.source_type = "scim"
         principal.source_uid = source_uid
         principal.scim_payload = scim_payload
-        session.add(principal)
         session.commit()
 
         response: Response = make_response(
@@ -128,7 +118,7 @@ def delete_user(user_id):
             session=session, source_uid=source_uid
         )
         if not principal:
-            return make_response(
+            response: Response = make_response(
                 jsonify(
                     {
                         "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
@@ -137,10 +127,12 @@ def delete_user(user_id):
                     }
                 ),
             )
-        session.delete(principal)
-        session.commit()
+            response.status_code = 404
+        else:
+            session.delete(principal)
+            session.commit()
+            response: Response = make_response()
+            response.status_code = 204
 
-    response: Response = make_response()
-    response.status_code = 204
     response.headers["Content-Type"] = "application/scim+json"
     return response

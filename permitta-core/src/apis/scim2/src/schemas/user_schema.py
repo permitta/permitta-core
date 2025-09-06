@@ -78,18 +78,6 @@ user_schema: dict = {
                     "uniqueness": "none",
                 },
                 {
-                    "name": "type",
-                    "type": "string",
-                    "multiValued": False,
-                    "description": "A label indicating the attribute's function, e.g., 'work' or 'home'",
-                    "required": False,
-                    "caseExact": False,
-                    "canonicalValues": ["work", "home", "other"],
-                    "mutability": "readWrite",
-                    "returned": "default",
-                    "uniqueness": "none",
-                },
-                {
                     "name": "primary",
                     "type": "boolean",
                     "multiValued": False,

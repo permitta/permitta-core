@@ -59,3 +59,6 @@ api.opa.api_key: bearer-token
 api.resources.auth_method: oauth2
 api.resources.oauth2_issuer: https://idp.com/oauth2/
 api.resources.oauth2_audience: audience
+
+api.scim.auth_method: api-key
+api.scim.api_key: scim-token

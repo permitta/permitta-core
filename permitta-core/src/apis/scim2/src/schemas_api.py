@@ -24,3 +24,31 @@ def get_schemas():
     )
     response.headers["Content-Type"] = "application/scim+json"
     return response
+
+
+@bp.route("/urn:ietf:params:scim:schemas:core:2.0:User", methods=["GET"])
+def get_user_schema():
+    """
+    Get the User Schema.
+
+    This endpoint returns information about the User schema.
+    """
+    response: Response = make_response(
+        jsonify(user_schema),
+    )
+    response.headers["Content-Type"] = "application/scim+json"
+    return response
+
+
+@bp.route("/urn:ietf:params:scim:schemas:core:2.0:Group", methods=["GET"])
+def get_group_schema():
+    """
+    Get the Group Schema.
+
+    This endpoint returns information about the Group schema.
+    """
+    response: Response = make_response(
+        jsonify(group_schema),
+    )
+    response.headers["Content-Type"] = "application/scim+json"
+    return response

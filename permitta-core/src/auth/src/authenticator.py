@@ -11,6 +11,7 @@ def authenticate(api_config: ApiConfig):
             logger.info(f"Processed api call without authentication")
             return func(*args, **kwargs)
 
+        wrapper.__name__ = func.__name__
         return wrapper
 
     def api_key_auth_decorator(func):
@@ -21,6 +22,7 @@ def authenticate(api_config: ApiConfig):
             logger.info(f"Unauthorized request from {request.remote_addr}")
             return jsonify({"status": "unauthorized"}), 401
 
+        wrapper.__name__ = func.__name__
         return wrapper
 
     def oauth2_auth_decorator(func):

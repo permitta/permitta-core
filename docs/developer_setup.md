@@ -98,12 +98,16 @@ docker run permitta-core ingest --connector-name=ldap --object-type=principal
 `alembic` is used to migrate the database schema
 
 ```bash
-# create a new revision
+# create a new revision (in project root)
 export PYTHONPATH=./permitta-core/src
-alembic revision --autogenerate -m "message about the revision"
+alembic -c permitta-core/alembic.ini revision --autogenerate -m "message about the revision"
+# or
+./entrypoint.sh migrate revision "message about the revision"
 
 # upgrade
 alembic upgrade head
+# or
+./entrypoint.sh migrate upgrade
 ```
 
 ## Documentation
@@ -129,4 +133,11 @@ git config http.postBuffer 524288000
 ```bash
 # export the realm
 
+```
+
+## SCIM test tool
+```bash
+pip install scim2-cli
+
+./test.sh scim
 ```

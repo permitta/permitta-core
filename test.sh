@@ -20,4 +20,7 @@ then
   export PYTHON
   cd permitta-core
   python -m pytest
+elif [ $1 == 'scim' ]
+then
+  scim -u http://localhost:8000/api/scim/v2 test --verbose
 fi
