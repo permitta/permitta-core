@@ -3,6 +3,7 @@ from flask import Blueprint, jsonify, make_response, request, Response, g
 import uuid
 from repositories import PrincipalRepository
 from models import PrincipalDbo
+from api_services import ScimUsersService
 
 logger: Logger = get_logger("scim2.users_api")
 bp = Blueprint("scim2_users", __name__, url_prefix="/api/scim/v2/Users")
@@ -60,23 +61,17 @@ def get_user(user_id):
 
 @bp.route("", methods=["POST"])
 def create_user():
-    user_data = request.json
-    source_uid = create_user_id()
-    scim_payload = user_data | {"id": source_uid}
+    scim_payload = request.json
+    source_uid = scim_payload.get(
+        "id", create_user_id()
+    )  # respect the source ID if present or create a new one
+    scim_payload = scim_payload | {"id": source_uid}
 
     with g.database.Session.begin() as session:
-        principal: PrincipalDbo = PrincipalDbo()
-        principal.fq_name = user_data.get("userName", "")  # TODO make this configurable
-        principal.first_name = user_data.get("name", {}).get("givenName", "")
-        principal.last_name = user_data.get("name", {}).get("familyName", "")
-        principal.user_name = user_data.get("userName", "")
-        principal.email = user_data.get("emails", [{}])[0].get("value", "")
-        principal.source_uid = source_uid
-        principal.source_type = "scim"
-        principal.scim_payload = scim_payload
-        session.add(principal)
+        scim_payload: dict = ScimUsersService().create_user(
+            session=session, scim_payload=scim_payload
+        )
         session.commit()
-
         response: Response = make_response(jsonify(scim_payload), 201)
     response.headers["Content-Type"] = "application/scim+json"
     return response
@@ -84,23 +79,18 @@ def create_user():
 
 @bp.route("/<user_id>", methods=["PUT"])
 def update_user(user_id):
-    user_data = request.json
+    scim_payload = request.json
     source_uid = user_id
-    scim_payload = user_data
 
     with g.database.Session.begin() as session:
         principal: PrincipalDbo = PrincipalRepository.get_by_source_uid(
             session=session, source_uid=source_uid
         )
-        principal.fq_name = user_data.get("userName", "")
-        principal.first_name = user_data.get("name", {}).get("givenName", "")
-        principal.last_name = user_data.get("name", {}).get("familyName", "")
-        principal.user_name = user_data.get("userName", "")
-        principal.email = user_data.get("emails", [{}])[0].get("value", "")
-        principal.source_uid = user_data.get("id", "")
-        principal.source_type = "scim"
-        principal.source_uid = source_uid
-        principal.scim_payload = scim_payload
+        ScimUsersService.update_user(
+            session=session,
+            scim_payload=scim_payload,
+            principal=principal,
+        )
         session.commit()
 
         response: Response = make_response(

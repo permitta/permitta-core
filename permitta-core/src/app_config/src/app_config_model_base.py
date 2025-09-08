@@ -61,7 +61,7 @@ class AppConfigModelBase:
             attr_name: str = key.removeprefix(f"{config_prefix}.")
 
             # support merging in $ENV_VAR syntax
-            for match in re.findall(r"(\$[A-Z_]*)", value):
+            for match in re.findall(r"(\$[A-Z_]+)", value):
                 value = value.replace(match, os.getenv(match[1:], ""))
 
             if hasattr(instance, attr_name):

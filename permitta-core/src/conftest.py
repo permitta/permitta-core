@@ -44,8 +44,8 @@ def database(database_empty: Database) -> Generator[Database, Any, None]:
 
 
 @pytest.fixture(scope="module")
-def flask_app(database: Database) -> Generator[Flask, Any, None]:
-    app = create_app(database=database)
+def flask_app(database_empty: Database) -> Generator[Flask, Any, None]:
+    app = create_app(database=database_empty)
     app.config.update(
         {
             "TESTING": True,

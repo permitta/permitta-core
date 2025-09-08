@@ -6,7 +6,7 @@ from database import Database
 from models import PrincipalDbo
 
 
-def test_create_user(flask_test_client: FlaskClient, database: Database):
+def test_create_user(flask_test_client: FlaskClient, database_empty: Database):
     """
     A post to this endpoint should create a new user in the database.
     If this username already exists, the endpoint should return a 409 error.
@@ -44,8 +44,8 @@ def test_create_user(flask_test_client: FlaskClient, database: Database):
             "id": "12345678-1234-5678-1234-567812345678"
         }
 
-        with database.Session.begin() as session:
-            principal: PrincipalDbo = (
+        with database_empty.Session.begin() as session:
+            principal: PrincipalDbo | None = (
                 session.query(PrincipalDbo)
                 .filter(
                     PrincipalDbo.source_uid == "12345678-1234-5678-1234-567812345678"
@@ -127,7 +127,7 @@ def test_get_user_not_found(flask_test_client: FlaskClient):
     }
 
 
-def test_update_user(flask_test_client: FlaskClient, database: Database):
+def test_update_user(flask_test_client: FlaskClient, database_empty: Database):
     user_id: str = "12345678-1234-5678-1234-567812345678"
     response = flask_test_client.get(f"/api/scim/v2/Users/{user_id}")
     assert response.status_code == 200
@@ -152,8 +152,8 @@ def test_update_user(flask_test_client: FlaskClient, database: Database):
     assert response.headers["Content-Type"] == "application/scim+json"
     assert response.json == user_data
 
-    with database.Session.begin() as session:
-        principal: PrincipalDbo = (
+    with database_empty.Session.begin() as session:
+        principal: PrincipalDbo | None = (
             session.query(PrincipalDbo)
             .filter(PrincipalDbo.source_uid == "12345678-1234-5678-1234-567812345678")
             .first()
