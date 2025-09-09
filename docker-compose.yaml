@@ -101,27 +101,28 @@ services:
           cpus: '0.1'
           memory: 128M
 
-#  keycloak:
-#    image: keycloak/keycloak:latest
-#    ports:
-#      - 8080:8080
-#    command: [ "start-dev", "--import-realm" ]
-#    restart: unless-stopped
-#    environment:
-#      KC_DB: postgres
-#      KC_DB_USERNAME: keycloak_user
-#      KC_DB_PASSWORD: keycloak_password
-#      KC_DB_URL: "jdbc:postgresql://postgres:5432/keycloak"
-#      KC_METRICS_ENABLED: "true"
-#      KC_LOG_LEVEL: "INFO"
-#      KEYCLOAK_ADMIN: admin
-#      KEYCLOAK_ADMIN_PASSWORD: admin
-#    volumes:
-#      - ./docker/keycloak/permitta_realm.json:/opt/keycloak/data/import/realm.json:ro
-#    logging: *logging
-#    depends_on:
-#      postgres:
-#        condition: service_healthy
+  keycloak:
+    build:
+      dockerfile: docker/keycloak/Dockerfile
+    ports:
+      - 8080:8080
+    command: [ "start-dev", "--import-realm" ]
+    restart: unless-stopped
+    environment:
+      KC_DB: postgres
+      KC_DB_USERNAME: keycloak_user
+      KC_DB_PASSWORD: keycloak_password
+      KC_DB_URL: "jdbc:postgresql://postgres:5432/keycloak"
+      KC_METRICS_ENABLED: "true"
+      KC_LOG_LEVEL: "INFO"
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    volumes:
+      - ./docker/keycloak/permitta_realm.json:/opt/keycloak/data/import/realm.json:ro
+    logging: *logging
+    depends_on:
+      postgres:
+        condition: service_healthy
 #    deploy:
 #      resources:
 #        limits:
