@@ -1,7 +1,7 @@
 from app_logger import Logger, get_logger
 from flask import send_from_directory
 from flask_pydantic import validate
-from auth import authenticate
+from apis.common import authenticate
 from apis.models import ApiConfig
 
 from flask import Blueprint, g

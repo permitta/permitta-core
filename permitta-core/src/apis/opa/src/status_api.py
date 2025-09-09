@@ -1,7 +1,7 @@
 from app_logger import Logger, get_logger
 from flask import Blueprint
 from apis.models import ApiConfig
-from auth import authenticate
+from apis.common import authenticate
 
 bp = Blueprint("opa_status", __name__, url_prefix="/api/v1/opa/status")
 logger: Logger = get_logger("opa.status_api")

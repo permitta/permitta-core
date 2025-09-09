@@ -6,6 +6,19 @@ from database import Database
 from models import PrincipalDbo
 
 
+def test_auth_failure(flask_test_client: FlaskClient):
+    response = flask_test_client.get(
+        "/api/scim/v2/Users",
+        headers={"Authorization": "Bearer wrong-token"},
+    )
+    assert response.status_code == 401
+    assert response.json == {
+        "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
+        "detail": f"Authentication failed",
+        "status": "401",
+    }
+
+
 def test_create_user(flask_test_client: FlaskClient, database_empty: Database):
     """
     A post to this endpoint should create a new user in the database.
@@ -33,6 +46,7 @@ def test_create_user(flask_test_client: FlaskClient, database_empty: Database):
             "/api/scim/v2/Users",
             data=json.dumps(user_data),
             content_type="application/json",
+            headers={"Authorization": "Bearer scim-token"},
         )
 
         assert response.status_code == 201
@@ -77,6 +91,7 @@ def test_create_user_with_confliction(
             "/api/scim/v2/Users",
             data=json.dumps({}),
             content_type="application/json",
+            headers={"Authorization": "Bearer scim-token"},
         )
         assert response.status_code == 409
         assert response.headers["Content-Type"] == "application/scim+json"
@@ -88,7 +103,10 @@ def test_create_user_with_confliction(
 
 
 def test_get_users(flask_test_client: FlaskClient):
-    response = flask_test_client.get(f"/api/scim/v2/Users")
+    response = flask_test_client.get(
+        f"/api/scim/v2/Users",
+        headers={"Authorization": "Bearer scim-token"},
+    )
 
     assert response.status_code == 200
     assert response.headers["Content-Type"] == "application/scim+json"
@@ -116,7 +134,10 @@ def test_get_users(flask_test_client: FlaskClient):
 
 def test_get_user(flask_test_client: FlaskClient):
     user_id: str = "12345678-1234-5678-1234-567812345678"
-    response = flask_test_client.get(f"/api/scim/v2/Users/{user_id}")
+    response = flask_test_client.get(
+        f"/api/scim/v2/Users/{user_id}",
+        headers={"Authorization": "Bearer scim-token"},
+    )
 
     assert response.status_code == 200
     assert response.headers["Content-Type"] == "application/scim+json"
@@ -135,7 +156,10 @@ def test_get_user(flask_test_client: FlaskClient):
 
 def test_get_user_not_found(flask_test_client: FlaskClient):
     user_id: str = "c0835e00-1859-4927-8293-e2fd064fda0a"
-    response = flask_test_client.get(f"/api/scim/v2/Users/{user_id}")
+    response = flask_test_client.get(
+        f"/api/scim/v2/Users/{user_id}",
+        headers={"Authorization": "Bearer scim-token"},
+    )
 
     assert response.status_code == 404
     assert response.headers["Content-Type"] == "application/scim+json"
@@ -148,7 +172,10 @@ def test_get_user_not_found(flask_test_client: FlaskClient):
 
 def test_update_user(flask_test_client: FlaskClient, database_empty: Database):
     user_id: str = "12345678-1234-5678-1234-567812345678"
-    response = flask_test_client.get(f"/api/scim/v2/Users/{user_id}")
+    response = flask_test_client.get(
+        f"/api/scim/v2/Users/{user_id}",
+        headers={"Authorization": "Bearer scim-token"},
+    )
     assert response.status_code == 200
 
     # change the user data and PUT it back
@@ -165,6 +192,7 @@ def test_update_user(flask_test_client: FlaskClient, database_empty: Database):
         f"/api/scim/v2/Users/{user_id}",
         data=json.dumps(user_data),
         content_type="application/json",
+        headers={"Authorization": "Bearer scim-token"},
     )
 
     assert response.status_code == 200
@@ -195,6 +223,7 @@ def test_update_user_not_found(flask_test_client: FlaskClient):
         f"/api/scim/v2/Users/{user_id}",
         data=json.dumps({}),
         content_type="application/json",
+        headers={"Authorization": "Bearer scim-token"},
     )
 
     assert response.status_code == 404
@@ -208,7 +237,10 @@ def test_update_user_not_found(flask_test_client: FlaskClient):
 
 def test_delete_user(flask_test_client: FlaskClient):
     user_id: str = "12345678-1234-5678-1234-567812345678"
-    response = flask_test_client.delete(f"/api/scim/v2/Users/{user_id}")
+    response = flask_test_client.delete(
+        f"/api/scim/v2/Users/{user_id}",
+        headers={"Authorization": "Bearer scim-token"},
+    )
 
     assert response.status_code == 204
     assert response.headers["Content-Type"] == "application/scim+json"
@@ -216,7 +248,10 @@ def test_delete_user(flask_test_client: FlaskClient):
 
 def test_delete_user_not_found(flask_test_client: FlaskClient):
     user_id: str = "c0835e00-1859-4927-8293-e2fd064fda0a"
-    response = flask_test_client.delete(f"/api/scim/v2/Users/{user_id}")
+    response = flask_test_client.delete(
+        f"/api/scim/v2/Users/{user_id}",
+        headers={"Authorization": "Bearer scim-token"},
+    )
 
     assert response.status_code == 404
     assert response.headers["Content-Type"] == "application/scim+json"

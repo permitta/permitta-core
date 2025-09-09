@@ -7,14 +7,11 @@ from apis.scim2 import (
     scim2_service_provider_config_bp,
     scim2_resource_types_bp,
     scim2_schemas_bp,
-    scim2_resource_type_user_bp,
     scim2_users_bp,
-    scim2_resource_type_group_bp,
     scim2_groups_bp,
 )
 from app_config import AppConfigModelBase
 from app_logger import Logger, get_logger
-from auth import OpaAuthzProvider
 from database import Database
 from flask import Flask, g, request, jsonify
 from werkzeug.exceptions import HTTPException
@@ -56,9 +53,7 @@ def create_app(database: Database | None = None) -> Flask:
     flask_app.register_blueprint(scim2_service_provider_config_bp)
     flask_app.register_blueprint(scim2_resource_types_bp)
     flask_app.register_blueprint(scim2_schemas_bp)
-    flask_app.register_blueprint(scim2_resource_type_user_bp)
     flask_app.register_blueprint(scim2_users_bp)
-    flask_app.register_blueprint(scim2_resource_type_group_bp)
     flask_app.register_blueprint(scim2_groups_bp)
 
     @flask_app.errorhandler(HTTPException)

@@ -6,5 +6,3 @@ from .src.opa_permitta_authz_request_model import (
     OpaPermittaAuthzObjectModel,
     OpaPermittaAuthzSubjectModel,
 )
-
-from .src.authenticator import authenticate

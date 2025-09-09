@@ -6,6 +6,19 @@ from database import Database
 from models import PrincipalGroupDbo
 
 
+def test_auth_failure(flask_test_client: FlaskClient):
+    response = flask_test_client.get(
+        "/api/scim/v2/Groups",
+        headers={"Authorization": "Bearer wrong-token"},
+    )
+    assert response.status_code == 401
+    assert response.json == {
+        "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
+        "detail": f"Authentication failed",
+        "status": "401",
+    }
+
+
 def test_create_group(flask_test_client: FlaskClient, database_empty: Database):
     scim_payload = {
         "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
@@ -34,6 +47,7 @@ def test_create_group(flask_test_client: FlaskClient, database_empty: Database):
             "/api/scim/v2/Groups",
             data=json.dumps(scim_payload),
             content_type="application/json",
+            headers={"Authorization": "Bearer scim-token"},
         )
 
         assert response.status_code == 201
@@ -77,6 +91,7 @@ def test_create_group_with_confliction(
             "/api/scim/v2/Groups",
             data=json.dumps({}),
             content_type="application/json",
+            headers={"Authorization": "Bearer scim-token"},
         )
         assert response.status_code == 409
         assert response.headers["Content-Type"] == "application/scim+json"
@@ -88,7 +103,10 @@ def test_create_group_with_confliction(
 
 
 def test_get_groups(flask_test_client: FlaskClient):
-    response = flask_test_client.get(f"/api/scim/v2/Groups")
+    response = flask_test_client.get(
+        f"/api/scim/v2/Groups",
+        headers={"Authorization": "Bearer scim-token"},
+    )
 
     assert response.status_code == 200
     assert response.headers["Content-Type"] == "application/scim+json"
@@ -124,7 +142,10 @@ def test_get_groups(flask_test_client: FlaskClient):
 
 def test_get_group(flask_test_client: FlaskClient):
     group_id: str = "12345678-1234-5678-1234-567812345678"
-    response = flask_test_client.get(f"/api/scim/v2/Groups/{group_id}")
+    response = flask_test_client.get(
+        f"/api/scim/v2/Groups/{group_id}",
+        headers={"Authorization": "Bearer scim-token"},
+    )
 
     assert response.status_code == 200
     assert response.headers["Content-Type"] == "application/scim+json"
@@ -151,7 +172,10 @@ def test_get_group(flask_test_client: FlaskClient):
 
 def test_get_group_not_found(flask_test_client: FlaskClient):
     group_id: str = "c0835e00-1859-4927-8293-e2fd064fda0a"
-    response = flask_test_client.get(f"/api/scim/v2/Groups/{group_id}")
+    response = flask_test_client.get(
+        f"/api/scim/v2/Groups/{group_id}",
+        headers={"Authorization": "Bearer scim-token"},
+    )
 
     assert response.status_code == 404
     assert response.headers["Content-Type"] == "application/scim+json"
@@ -164,7 +188,10 @@ def test_get_group_not_found(flask_test_client: FlaskClient):
 
 def test_update_group(flask_test_client: FlaskClient, database_empty: Database):
     group_id: str = "12345678-1234-5678-1234-567812345678"
-    response = flask_test_client.get(f"/api/scim/v2/Groups/{group_id}")
+    response = flask_test_client.get(
+        f"/api/scim/v2/Groups/{group_id}",
+        headers={"Authorization": "Bearer scim-token"},
+    )
     assert response.status_code == 200
 
     # change the group data and PUT it back
@@ -199,6 +226,7 @@ def test_update_group(flask_test_client: FlaskClient, database_empty: Database):
         f"/api/scim/v2/Groups/{group_id}",
         data=json.dumps(scim_payload),
         content_type="application/json",
+        headers={"Authorization": "Bearer scim-token"},
     )
 
     assert response.status_code == 200
@@ -229,6 +257,7 @@ def test_update_group_not_found(flask_test_client: FlaskClient):
         f"/api/scim/v2/Groups/{group_id}",
         data=json.dumps({}),
         content_type="application/json",
+        headers={"Authorization": "Bearer scim-token"},
     )
 
     assert response.status_code == 404
@@ -242,7 +271,10 @@ def test_update_group_not_found(flask_test_client: FlaskClient):
 
 def test_delete_group(flask_test_client: FlaskClient):
     group_id: str = "12345678-1234-5678-1234-567812345678"
-    response = flask_test_client.delete(f"/api/scim/v2/Groups/{group_id}")
+    response = flask_test_client.delete(
+        f"/api/scim/v2/Groups/{group_id}",
+        headers={"Authorization": "Bearer scim-token"},
+    )
 
     assert response.status_code == 204
     assert response.headers["Content-Type"] == "application/scim+json"
@@ -250,7 +282,10 @@ def test_delete_group(flask_test_client: FlaskClient):
 
 def test_delete_group_not_found(flask_test_client: FlaskClient):
     group_id: str = "c0835e00-1859-4927-8293-e2fd064fda0a"
-    response = flask_test_client.delete(f"/api/scim/v2/Groups/{group_id}")
+    response = flask_test_client.delete(
+        f"/api/scim/v2/Groups/{group_id}",
+        headers={"Authorization": "Bearer scim-token"},
+    )
 
     assert response.status_code == 404
     assert response.headers["Content-Type"] == "application/scim+json"

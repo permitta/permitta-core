@@ -1,4 +1,4 @@
-from flask import request, jsonify
+from flask import request, jsonify, abort
 from app_logger import Logger, get_logger
 from apis.models import ApiConfig
 
@@ -20,7 +20,7 @@ def authenticate(api_config: ApiConfig):
                 return func(*args, **kwargs)
 
             logger.info(f"Unauthorized request from {request.remote_addr}")
-            return jsonify({"status": "unauthorized"}), 401
+            abort(401, description="Authentication failed")
 
         wrapper.__name__ = func.__name__
         return wrapper

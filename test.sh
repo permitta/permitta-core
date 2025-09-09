@@ -22,5 +22,5 @@ then
   python -m pytest
 elif [ $1 == 'scim' ]
 then
-  scim -u http://localhost:8000/api/scim/v2 test --verbose
+  scim -u http://localhost:8000/api/scim/v2 --header "Authorization: Bearer scim-token" test --verbose
 fi

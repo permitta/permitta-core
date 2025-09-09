@@ -2,7 +2,7 @@ import gzip
 import json
 
 from app_logger import Logger, get_logger
-from auth import authenticate
+from apis.common import authenticate
 from apis.models import ApiConfig
 from flask import Blueprint, g, request
 from repositories import DecisionLogRepository
