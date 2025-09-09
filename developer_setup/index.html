@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
       
@@ -636,6 +636,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#scim-test-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      SCIM test tool
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -790,6 +799,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#scim-test-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      SCIM test tool
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -895,12 +913,16 @@ docker run permitta-core ingest --connector-name=ldap --object-type=principal
 </code></pre>
 <h2 id="database-migrations">Database Migrations</h2>
 <p><code>alembic</code> is used to migrate the database schema</p>
-<pre><code class="language-bash"># create a new revision
+<pre><code class="language-bash"># create a new revision (in project root)
 export PYTHONPATH=./permitta-core/src
-alembic revision --autogenerate -m &quot;message about the revision&quot;
+alembic -c permitta-core/alembic.ini revision --autogenerate -m &quot;message about the revision&quot;
+# or
+./entrypoint.sh migrate revision &quot;message about the revision&quot;
 
 # upgrade
 alembic upgrade head
+# or
+./entrypoint.sh migrate upgrade
 </code></pre>
 <h2 id="documentation">Documentation</h2>
 <p>Docs are provided by <code>mkdocs</code> using the <code>mkdocs-material</code> theme.
@@ -919,6 +941,11 @@ git config http.postBuffer 524288000
 <h2 id="keycloak">Keycloak</h2>
 <pre><code class="language-bash"># export the realm
 
+</code></pre>
+<h2 id="scim-test-tool">SCIM test tool</h2>
+<pre><code class="language-bash">pip install scim2-cli
+
+./test.sh scim
 </code></pre>
 
 
