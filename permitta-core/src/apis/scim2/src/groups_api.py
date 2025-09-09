@@ -1,32 +1,36 @@
 from app_logger import Logger, get_logger
 from flask import Blueprint, jsonify, make_response, request, Response, g
 import uuid
-from repositories import PrincipalRepository
-from models import PrincipalDbo
+from models import PrincipalGroupDbo
+from api_services.scim2 import ScimGroupsService
 
 logger: Logger = get_logger("scim2.groups_api")
 bp = Blueprint("scim2_groups", __name__, url_prefix="/api/scim/v2/Groups")
 
 
+def create_id() -> str:
+    return str(uuid.uuid4())
+
+
 @bp.route("", methods=["GET"])
 def get_groups():
-    """
-    Get Groups.
+    # TODO validate these
+    start_index: int = int(request.args.get("startIndex", 1))
+    count: int = int(request.args.get("count", 10000))
 
-    This endpoint returns a list of Groups.
-    """
     with g.database.Session.begin() as session:
-        repo = PrincipalRepository()
-        count, principals = repo.get_all(session=session)
-        
-        # Filter principals to only include those that are groups
-        group_principals = [p for p in principals if p.scim_payload.get("schemas") == ["urn:ietf:params:scim:schemas:core:2.0:Group"]]
-        group_count = len(group_principals)
+        group_count, principal_groups = ScimGroupsService.get_groups(
+            session=session,
+            offset=start_index - 1,
+            count=count,
+        )
 
         groups = {
             "schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
             "totalResults": group_count,
-            "Resources": [principal.scim_payload for principal in group_principals],
+            "startIndex": start_index,
+            "itemsPerPage": count,
+            "Resources": [pg.scim_payload for pg in principal_groups],
         }
 
         response: Response = make_response(
@@ -38,17 +42,12 @@ def get_groups():
 
 @bp.route("/<group_id>", methods=["GET"])
 def get_group(group_id):
-    """
-    Get a Group by ID.
-
-    This endpoint returns a specific Group by ID.
-    """
     with g.database.Session.begin() as session:
-        principal = PrincipalRepository.get_by_source_uid(
+        principal_group: PrincipalGroupDbo = ScimGroupsService.get_group_by_id(
             session=session, source_uid=group_id
         )
-        if not principal or principal.scim_payload.get("schemas") != ["urn:ietf:params:scim:schemas:core:2.0:Group"]:
-            return make_response(
+        if not principal_group:
+            response: Response = make_response(
                 jsonify(
                     {
                         "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
@@ -57,37 +56,43 @@ def get_group(group_id):
                     }
                 ),
             )
-
-        response: Response = make_response(
-            jsonify(principal.scim_payload),
-        )
+            response.status_code = 404
+        else:
+            response: Response = make_response(
+                jsonify(principal_group.scim_payload),
+            )
     response.headers["Content-Type"] = "application/scim+json"
     return response
 
 
 @bp.route("", methods=["POST"])
 def create_group():
-    """
-    Create a Group.
-
-    This endpoint creates a new Group.
-    """
-    group_data = request.json
-    source_uid = str(uuid.uuid4())
-    scim_payload = group_data | {"id": source_uid}
+    scim_payload = request.json
+    source_uid = scim_payload.get(
+        "id", create_id()
+    )  # respect the source ID if present or create a new one
+    scim_payload = scim_payload | {"id": source_uid}
 
     with g.database.Session.begin() as session:
-        principal: PrincipalDbo = PrincipalDbo()
-        principal.fq_name = group_data.get("displayName", "")
-        principal.source_uid = source_uid
-        principal.source_type = "scim"
-        principal.scim_payload = scim_payload
-        session.add(principal)
-        session.commit()
+        if ScimGroupsService.group_exists(session=session, source_uid=source_uid):
+            response: Response = make_response(
+                jsonify(
+                    {
+                        "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
+                        "detail": f"Group with ID {source_uid} already exists",
+                        "status": 409,
+                    }
+                ),
+            )
+            response.status_code = 409
 
-        response: Response = make_response(
-            jsonify(scim_payload), 201
-        )  # Created status code
+        else:
+            ScimGroupsService.create_group(
+                session=session,
+                scim_payload=scim_payload,
+            )
+            session.commit()
+            response: Response = make_response(jsonify(scim_payload), 201)
     response.headers["Content-Type"] = "application/scim+json"
     return response
 
@@ -99,16 +104,15 @@ def update_group(group_id):
 
     This endpoint updates an existing Group.
     """
-    group_data = request.json
     source_uid = group_id
-    scim_payload = group_data | {"id": source_uid}
+    scim_payload = request.json | {"id": source_uid}
 
     with g.database.Session.begin() as session:
-        principal: PrincipalDbo = PrincipalRepository.get_by_source_uid(
-            session=session, source_uid=source_uid
+        principal_group: PrincipalGroupDbo = ScimGroupsService.get_group_by_id(
+            session=session, source_uid=group_id
         )
-        if not principal or principal.scim_payload.get("schemas") != ["urn:ietf:params:scim:schemas:core:2.0:Group"]:
-            return make_response(
+        if not principal_group:
+            response: Response = make_response(
                 jsonify(
                     {
                         "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
@@ -117,17 +121,17 @@ def update_group(group_id):
                     }
                 ),
             )
-        
-        principal.fq_name = group_data.get("displayName", "")
-        principal.source_uid = source_uid
-        principal.source_type = "scim"
-        principal.scim_payload = scim_payload
-        session.add(principal)
-        session.commit()
+            response.status_code = 404
+        else:
+            ScimGroupsService.update_group(
+                scim_payload=scim_payload,
+                principal_group=principal_group,
+            )
+            response: Response = make_response(
+                jsonify(principal_group.scim_payload),
+            )
+            session.commit()
 
-        response: Response = make_response(
-            jsonify(scim_payload), 200
-        )
     response.headers["Content-Type"] = "application/scim+json"
     return response
 
@@ -139,13 +143,12 @@ def delete_group(group_id):
 
     This endpoint deletes a Group.
     """
-    source_uid = group_id
     with g.database.Session.begin() as session:
-        principal: PrincipalDbo = PrincipalRepository.get_by_source_uid(
-            session=session, source_uid=source_uid
+        principal_group: PrincipalGroupDbo = ScimGroupsService.get_group_by_id(
+            session=session, source_uid=group_id
         )
-        if not principal or principal.scim_payload.get("schemas") != ["urn:ietf:params:scim:schemas:core:2.0:Group"]:
-            return make_response(
+        if not principal_group:
+            response: Response = make_response(
                 jsonify(
                     {
                         "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
@@ -154,10 +157,13 @@ def delete_group(group_id):
                     }
                 ),
             )
-        session.delete(principal)
-        session.commit()
+            response.status_code = 404
+        else:
+            response: Response = make_response(
+                jsonify(principal_group.scim_payload), 204
+            )
+            session.delete(principal_group)
+            session.commit()
 
-    response: Response = make_response()
-    response.status_code = 204
     response.headers["Content-Type"] = "application/scim+json"
     return response

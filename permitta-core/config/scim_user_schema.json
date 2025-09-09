@@ -1,4 +1,4 @@
-user_schema: dict = {
+{
     "id": "urn:ietf:params:scim:schemas:core:2.0:User",
     "name": "User",
     "description": "User Account",
@@ -6,105 +6,105 @@ user_schema: dict = {
         {
             "name": "id",
             "type": "string",
-            "multiValued": False,
+            "multiValued": false,
             "description": "Unique identifier for the User",
-            "required": True,
-            "caseExact": True,
+            "required": true,
+            "caseExact": true,
             "mutability": "readOnly",
             "returned": "always",
-            "uniqueness": "server",
+            "uniqueness": "server"
         },
         {
             "name": "userName",
             "type": "string",
-            "multiValued": False,
+            "multiValued": false,
             "description": "Unique identifier for the User",
-            "required": True,
-            "caseExact": False,
+            "required": true,
+            "caseExact": false,
             "mutability": "readWrite",
             "returned": "always",
-            "uniqueness": "server",
+            "uniqueness": "server"
         },
         {
             "name": "name",
             "type": "complex",
-            "multiValued": False,
+            "multiValued": false,
             "description": "The components of the user's name",
-            "required": False,
+            "required": false,
             "subAttributes": [
                 {
                     "name": "givenName",
                     "type": "string",
-                    "multiValued": False,
+                    "multiValued": false,
                     "description": "The given name of the User",
-                    "required": False,
-                    "caseExact": False,
+                    "required": false,
+                    "caseExact": false,
                     "mutability": "readWrite",
                     "returned": "default",
-                    "uniqueness": "none",
+                    "uniqueness": "none"
                 },
                 {
                     "name": "familyName",
                     "type": "string",
-                    "multiValued": False,
+                    "multiValued": false,
                     "description": "The family name of the User",
-                    "required": False,
-                    "caseExact": False,
+                    "required": false,
+                    "caseExact": false,
                     "mutability": "readWrite",
                     "returned": "default",
-                    "uniqueness": "none",
-                },
+                    "uniqueness": "none"
+                }
             ],
             "mutability": "readWrite",
             "returned": "default",
-            "uniqueness": "none",
+            "uniqueness": "none"
         },
         {
             "name": "emails",
             "type": "complex",
-            "multiValued": True,
+            "multiValued": true,
             "description": "Email addresses for the user",
-            "required": False,
+            "required": false,
             "subAttributes": [
                 {
                     "name": "value",
                     "type": "string",
-                    "multiValued": False,
+                    "multiValued": false,
                     "description": "Email address value",
-                    "required": False,
-                    "caseExact": False,
+                    "required": false,
+                    "caseExact": false,
                     "mutability": "readWrite",
                     "returned": "default",
-                    "uniqueness": "none",
+                    "uniqueness": "none"
                 },
                 {
                     "name": "primary",
                     "type": "boolean",
-                    "multiValued": False,
+                    "multiValued": false,
                     "description": "A Boolean value indicating the 'primary' or preferred attribute value",
-                    "required": False,
+                    "required": false,
                     "mutability": "readWrite",
                     "returned": "default",
-                    "uniqueness": "none",
-                },
+                    "uniqueness": "none"
+                }
             ],
             "mutability": "readWrite",
             "returned": "default",
-            "uniqueness": "none",
+            "uniqueness": "none"
         },
         {
             "name": "active",
             "type": "boolean",
-            "multiValued": False,
+            "multiValued": false,
             "description": "A Boolean value indicating the User's administrative status",
-            "required": False,
+            "required": false,
             "mutability": "readWrite",
             "returned": "default",
-            "uniqueness": "none",
-        },
+            "uniqueness": "none"
+        }
     ],
     "meta": {
         "resourceType": "Schema",
-        "location": "/Schemas/urn:ietf:params:scim:schemas:core:2.0:User",
-    },
+        "location": "/Schemas/urn:ietf:params:scim:schemas:core:2.0:User"
+    }
 }

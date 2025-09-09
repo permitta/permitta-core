@@ -1,26 +1,60 @@
+from typing import Tuple
 import copy
 from app_logger import Logger, get_logger
 from models import PrincipalDbo, PrincipalAttributeDbo
-from .scim_service_config import ScimServiceConfig
+from .scim_config import ScimConfig
 from .scim_service_base import ScimServiceBase
 
-logger: Logger = get_logger("scim2.service")
-scim_service_config = ScimServiceConfig.load()
+logger: Logger = get_logger("scim2.service.users")
+scim_config = ScimConfig.load()
 
 
 class ScimUsersService(ScimServiceBase):
-    SOURCE_TYPE = "scim"
+
+    @staticmethod
+    def get_users(
+        session,
+        offset: int,
+        count: int,
+    ) -> Tuple[int, list[PrincipalDbo]]:
+        """
+        Returns all groups which were defined by SCIM
+        We cant return others because they might be deleted by SCIM and we won't have the payload anyway
+        """
+        total_count: int = session.query(PrincipalDbo).count()
+        groups: list[PrincipalDbo] = (
+            session.query(PrincipalDbo)
+            .filter(PrincipalDbo.source_type == ScimServiceBase.SOURCE_TYPE)
+            .offset(offset)
+            .limit(count)
+            .all()
+        )
+        return total_count, groups
+
+    @staticmethod
+    def get_user_by_id(session, source_uid: str) -> PrincipalDbo:
+        return (
+            session.query(PrincipalDbo)
+            .filter(PrincipalDbo.source_uid == source_uid)
+            .first()
+        )
+
+    @staticmethod
+    def user_exists(session, source_uid: str) -> bool:
+        return (
+            ScimUsersService.get_user_by_id(session=session, source_uid=source_uid)
+            is not None
+        )
 
     @staticmethod
     def create_user(session, scim_payload: dict) -> dict:
         """
         Returns the updated payload which came from the original request
         """
-        principal: PrincipalDbo = PrincipalDbo()
         principal = ScimUsersService.update_user(
             session=session,
             scim_payload=scim_payload,
-            principal=principal,
+            principal=PrincipalDbo(),
         )
 
         session.add(principal)
@@ -34,37 +68,37 @@ class ScimUsersService(ScimServiceBase):
         session, principal: PrincipalDbo, scim_payload: dict
     ) -> PrincipalDbo:
         principal.fq_name = ScimServiceBase._get_jsonpath_attribute(
-            scim_payload, scim_service_config.principal_fq_name_jsonpath
+            scim_payload, scim_config.principal_fq_name_jsonpath
         )
 
         principal.first_name = ScimServiceBase._get_jsonpath_attribute(
-            scim_payload, scim_service_config.principal_first_name_jsonpath
+            scim_payload, scim_config.principal_first_name_jsonpath
         )
 
         principal.last_name = ScimServiceBase._get_jsonpath_attribute(
-            scim_payload, scim_service_config.principal_last_name_jsonpath
+            scim_payload, scim_config.principal_last_name_jsonpath
         )
 
         principal.user_name = ScimServiceBase._get_jsonpath_attribute(
-            scim_payload, scim_service_config.principal_user_name_jsonpath
+            scim_payload, scim_config.principal_user_name_jsonpath
         )
 
         principal.email = ScimServiceBase._get_jsonpath_attribute(
-            scim_payload, scim_service_config.principal_email_jsonpath
+            scim_payload, scim_config.principal_email_jsonpath
         )
 
         principal.source_uid = ScimServiceBase._get_jsonpath_attribute(
-            scim_payload, scim_service_config.principal_source_uid_jsonpath
+            scim_payload, scim_config.principal_source_uid_jsonpath
         )
         principal.source_type = ScimUsersService.SOURCE_TYPE
         principal.scim_payload = scim_payload
 
         # attributes
-        if scim_service_config.principal_attributes_jsonpath:
+        if scim_config.principal_attributes_jsonpath:
             attributes: dict = (
                 ScimServiceBase._get_jsonpath_attribute(
                     copy.deepcopy(scim_payload),
-                    scim_service_config.principal_attributes_jsonpath,
+                    scim_config.principal_attributes_jsonpath,
                 )
                 or {}
             )

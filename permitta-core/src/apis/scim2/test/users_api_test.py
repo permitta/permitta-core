@@ -26,7 +26,7 @@ def test_create_user(flask_test_client: FlaskClient, database_empty: Database):
     }
 
     with patch(
-        "apis.scim2.src.users_api.create_user_id",
+        "apis.scim2.src.users_api.create_id",
         return_value="12345678-1234-5678-1234-567812345678",
     ):
         response = flask_test_client.post(
@@ -66,6 +66,27 @@ def test_create_user(flask_test_client: FlaskClient, database_empty: Database):
             }
 
 
+def test_create_user_with_confliction(
+    flask_test_client: FlaskClient, database_empty: Database
+):
+    with patch(
+        "apis.scim2.src.users_api.create_id",
+        return_value="12345678-1234-5678-1234-567812345678",
+    ):
+        response = flask_test_client.post(
+            "/api/scim/v2/Users",
+            data=json.dumps({}),
+            content_type="application/json",
+        )
+        assert response.status_code == 409
+        assert response.headers["Content-Type"] == "application/scim+json"
+        assert response.json == {
+            "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
+            "detail": "User with ID 12345678-1234-5678-1234-567812345678 already exists",
+            "status": 409,
+        }
+
+
 def test_get_users(flask_test_client: FlaskClient):
     response = flask_test_client.get(f"/api/scim/v2/Users")
 
@@ -75,6 +96,8 @@ def test_get_users(flask_test_client: FlaskClient):
     assert response.json == {
         "schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
         "totalResults": 1,
+        "startIndex": 1,
+        "itemsPerPage": 10000,
         "Resources": [
             {
                 "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
@@ -89,10 +112,6 @@ def test_get_users(flask_test_client: FlaskClient):
             }
         ],
     }
-
-
-def test_get_users_with_pagination(flask_test_client: FlaskClient):
-    assert False
 
 
 def test_get_user(flask_test_client: FlaskClient):
@@ -168,6 +187,23 @@ def test_update_user(flask_test_client: FlaskClient, database_empty: Database):
         assert principal.source_uid == "12345678-1234-5678-1234-567812345678"
         assert principal.source_type == "scim"
         assert principal.scim_payload == user_data
+
+
+def test_update_user_not_found(flask_test_client: FlaskClient):
+    user_id: str = "c0835e00-1859-4927-8293-e2fd064fda0a"
+    response = flask_test_client.put(
+        f"/api/scim/v2/Users/{user_id}",
+        data=json.dumps({}),
+        content_type="application/json",
+    )
+
+    assert response.status_code == 404
+    assert response.headers["Content-Type"] == "application/scim+json"
+    assert response.json == {
+        "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
+        "detail": f"User with ID c0835e00-1859-4927-8293-e2fd064fda0a not found",
+        "status": 404,
+    }
 
 
 def test_delete_user(flask_test_client: FlaskClient):

@@ -21,16 +21,16 @@ def get_service_provider_config():
         "documentationUri": "http://example.com/documentation",
         "patch": {"supported": False},
         "bulk": {"supported": False, "maxOperations": 0, "maxPayloadSize": 0},
-        "filter": {"supported": True, "maxResults": 100},
+        "filter": {"supported": False, "maxResults": 100},
         "changePassword": {"supported": False},
-        "sort": {"supported": True},
+        "sort": {"supported": False},
         "etag": {"supported": False},
         "authenticationSchemes": [
             {
                 "name": "OAuth Bearer Token",
                 "description": "Authentication scheme using the OAuth Bearer Token Standard",
                 "specUri": "http://www.rfc-editor.org/info/rfc6750",
-                "documentationUri": "http://example.com/documentation/oauth",
+                "documentationUri": "http://example.com/documentation/oauth",  # TODO
                 "type": "oauthbearertoken",
                 "primary": True,
             }

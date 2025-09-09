@@ -28,13 +28,6 @@ class PrincipalRepository(RepositoryBase):
         return query.count(), query.all()
 
     @staticmethod
-    def get_all_by_source(session, source_type: str) -> Tuple[int, list[PrincipalDbo]]:
-        query: Query = session.query(PrincipalDbo).filter(
-            PrincipalDbo.source_type == source_type
-        )
-        return query.count(), query.all()
-
-    @staticmethod
     def get_by_id(session, principal_id: int) -> PrincipalDbo:
         principal: PrincipalDbo = (
             session.query(PrincipalDbo)
