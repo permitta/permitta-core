@@ -9,7 +9,7 @@ def test_index(flask_test_client: FlaskClient):
     # no auth
     response = flask_test_client.get("/api/v1/opa/bundle/trino")
     assert response.status_code == 401
-    assert response.json == {"status": "unauthorized"}
+    assert response.json == {"detail": "Authentication failed", "status": "401"}
 
     # good auth
     response = flask_test_client.get(

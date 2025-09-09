@@ -1,5 +1,5 @@
 from apis.models import ApiConfig
-from apis._common.src.authenticator import authenticate
+from apis.common.src.authenticator import authenticate
 
 
 def test_authenticator():

@@ -58,20 +58,18 @@ def create_app(database: Database | None = None) -> Flask:
 
     @flask_app.errorhandler(HTTPException)
     def handle_exception(e):
-        if request.path.startswith(
-            "/api/scim/"
-        ):  # Check if the request is for the SCIM API
-            response = jsonify(
-                {
-                    "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
-                    "detail": e.description,
-                    "status": f"{e.code}",
-                }
-            )
-            response.status_code = e.code
-            return response
-        else:
-            return e  # return all others to flask
+        api_error: dict = {
+            "detail": e.description,
+            "status": f"{e.code}",
+        }
+
+        # Check if the request is for the SCIM API - probably should be in the blueprint
+        if request.path.startswith("/api/scim/"):
+            api_error["schemas"] = ["urn:ietf:params:scim:api:messages:2.0:Error"]
+
+        response = jsonify(api_error)
+        response.status_code = e.code
+        return response
 
     @flask_app.before_request
     def before_request():
