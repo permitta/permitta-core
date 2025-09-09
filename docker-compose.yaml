@@ -8,7 +8,7 @@ services:
   opa:
     image: openpolicyagent/opa:1.8.0-static
     environment:
-      - PERMITTA_BEARER_TOKEN="bearer-token"
+      - BEARER_TOKEN="bearer-token"
     ports:
       - "8181:8181"
     command:
@@ -37,14 +37,9 @@ services:
   lldap:
     image: lldap/lldap:stable
     ports:
-      # For LDAP, not recommended to expose, see Usage section.
       - "3890:3890"
-      # For LDAPS (LDAP Over SSL), enable port if LLDAP_LDAPS_OPTIONS__ENABLED set true, look env below
-      #- "6360:6360"
-      # For the web front-end
       - "17170:17170"
     volumes:
-      # Alternatively, you can mount a local folder
       - ./instance/lldap:/data
       - ./docker/lldap/bootstrap:/bootstrap
     environment:
@@ -62,7 +57,7 @@ services:
       # envs required for bootstrap.sh
       - LLDAP_URL=http://localhost:17170
       - LLDAP_ADMIN_USERNAME=admin
-      - LLDAP_ADMIN_PASSWORD=changeme # same as LLDAP_LDAP_USER_PASS
+      - LLDAP_ADMIN_PASSWORD=changeme
       - USER_CONFIGS_DIR=/bootstrap/user-configs
       - GROUP_CONFIGS_DIR=/bootstrap/group-configs
       - DO_CLEANUP=true
@@ -88,7 +83,7 @@ services:
       - ./docker/postgres/postgres_init_script.sh:/docker-entrypoint-initdb.d/postgres_init_script.sh
       - ./docker/postgres/data:/postgres-data
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U test_user -d permitta" ]
+      test: [ "CMD-SHELL", "pg_isready -U test_user -d testdb" ]
       interval: 10s
       timeout: 5s
       retries: 10
@@ -118,7 +113,7 @@ services:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
     volumes:
-      - ./docker/keycloak/permitta_realm.json:/opt/keycloak/data/import/realm.json:ro
+      - ./docker/keycloak/moat_realm.json:/opt/keycloak/data/import/realm.json:ro
     logging: *logging
     depends_on:
       postgres:
@@ -139,7 +134,7 @@ services:
 #    image: keycloak/keycloak:latest
 #    ports:
 #      - "8080:8080"
-#    command: [ "export", "--file", "/opt/keycloak/data/export/permitta-realm.json", "--realm", "permitta"]
+#    command: [ "export", "--file", "/opt/keycloak/data/export/moat-realm.json", "--realm", "moat"]
 #    restart: unless-stopped
 #    environment:
 #      KC_DB: postgres

@@ -1,5 +1,5 @@
 # Deployment
-It is recommended to deploy `permitta-core` in a containerised environment (e.g Kubernetes). A permitta-core deployment consists of
+It is recommended to deploy `moat` in a containerised environment (e.g Kubernetes). A moat deployment consists of
 an api server and a number of cronjobs.
 
 ## API Server
@@ -7,7 +7,7 @@ The API server should be deployed using a k8s `kind: Deployment` with optional r
 highly-available so a single replica is fine for most purposes.
 
 ## Ingestion Cronjobs
-Data in permitta-core is ingested and maintained by periodic ingestion jobs. These can be implemented in many ways however k8s `kind: CronJob`
+Data in moat is ingested and maintained by periodic ingestion jobs. These can be implemented in many ways however k8s `kind: CronJob`
 are the recommended pattern. Any scheduler (crontab, airflow, CICD etc) can be used to execute the ingestion jobs via the CLI or container.
 
 In general, four ingestion jobs are required, and can run at different frequencies. The individual jobs ingest:
@@ -21,9 +21,9 @@ The OPA instance should be deployed as "close" as possible to the Trino coordina
 used, so eliminating network hops is cruical for performance. Ideally the OPA container should be in the same pod, or at least
 on the name node as the coordinator
 
-## Deploying `permitta-core` in Kubernetes
+## Deploying `moat` in Kubernetes
 
-The repository includes example Kubernetes manifests that can be used as a starting point for deploying `permitta-core` in a Kubernetes environment. 
+The repository includes example Kubernetes manifests that can be used as a starting point for deploying `moat` in a Kubernetes environment. 
 **These templates are examples only** and should be customized to fit your specific requirements and environment.
 
 ### Example Kubernetes Manifests
@@ -31,8 +31,8 @@ The repository includes example Kubernetes manifests that can be used as a start
 The following Kubernetes manifest templates are provided:
 
 #### Server Components
-- `kubernetes/server/deployment.yaml`: Deployment for the permitta-api server
-- `kubernetes/server/service.yaml`: Service to expose the permitta-api
+- `kubernetes/server/deployment.yaml`: Deployment for the moat-api server
+- `kubernetes/server/service.yaml`: Service to expose the moat-api
 - `kubernetes/server/configmap.yaml`: ConfigMap for Rego policies
 
 #### Ingestor Components

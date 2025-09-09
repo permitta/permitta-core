@@ -1,0 +1,60 @@
+# unit test items - do not remove
+common.db_connection_string: "sqlite:///:memory:"
+common.super_secret: "https:/domain?username=$FLASK_SECRET_KEY"
+
+logger.root_level: "INFO"
+
+flask.secret_key: "$FLASK_SECRET_KEY"
+
+database.protocol: "postgresql+psycopg"
+database.user: "postgres"
+database.password: "password"
+database.host: "localhost"
+database.port: "5432"
+database.database: "unittest"
+database.seed_data_path: "moat/test/seed_data"
+
+connector.json_file.principals.file_path: "config/principals.json"
+
+ldap_client.host: localhost
+ldap_client.port: "3890"
+ldap_client.base_dn: dc=example,dc=com
+ldap_client.user_dn: uid=admin,ou=people,dc=example,dc=com
+ldap_client.password: changeme
+ldap_client.user_base_dn: ou=people,dc=example,dc=com
+
+ldap_connector.user_search_base: ou=people,dc=example,dc=com
+ldap_connector.user_search_filter: (&(uid=*)(memberof=cn=moat_users_gl,ou=groups,dc=example,dc=com))
+ldap_connector.attr_user_name: uid
+ldap_connector.attr_user_id: uid
+ldap_connector.attr_first_name: givenname
+ldap_connector.attr_last_name: sn
+ldap_connector.attr_email: mail
+ldap_connector.attr_groups: memberOf
+ldap_connector.group_name_regex: "cn=([a-z_]*),."
+
+trino_client.host: localhost
+trino_client.port: "8081"
+trino_client.username: admin
+
+dbapi_connector.client_type: trino
+dbapi_connector.data_object_table_column_query: |-
+  select table_catalog || '.' || table_schema || '.' || table_name as fq_table_name
+  from datalake.information_schema.tables
+
+bundle_generator.temp_directory: /tmp
+bundle_generator.static_rego_file_path: moat/test/test_data/rego
+
+api.healthcheck.auth_method: none
+
+api.opa.auth_method: api-key
+api.opa.api_key: bearer-token
+
+api.resources.auth_method: oauth2
+api.resources.oauth2_issuer: https://idp.com/oauth2/
+api.resources.oauth2_audience: audience
+
+api.scim.auth_method: api-key
+api.scim.api_key: scim-token
+
+scim.principal_attributes_jsonpath: "$.'urn:ietf:params:scim:custom'"

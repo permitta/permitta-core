@@ -1,0 +1,53 @@
+[
+  {
+    "username": "bob",
+    "first_name": "Bob",
+    "last_name": "Dylan",
+    "email": "bob.dylan@moat.io",
+    "groups": [
+      "SALES_DIRECTORS_GL",
+      "HR_SUPERVISORS_GL"
+    ]
+  },
+  {
+    "username": "alice",
+    "first_name": "Alice",
+    "last_name": "Cooper",
+    "email": "alice.cooper@moat.io",
+    "groups": [
+      "SALES_ANALYSTS_GL",
+      "MARKETING_DIRECTORS_GL",
+      "DEVELOPERS"
+    ]
+  },
+  {
+    "username": "frank",
+    "first_name": "Frank",
+    "last_name": "Zappa",
+    "email": "frank.zappa@moat.io",
+    "groups": [
+      "SALES_SUPERVISORS_GL",
+      "HR_DIRECTORS_GL"
+    ]
+  },
+  {
+    "username": "anne",
+    "first_name": "Anne",
+    "last_name": "Murray",
+    "email": "anne.murray@moat.io",
+    "groups": [
+      "MARKETING_SUPERVISORS_GL",
+      "HR_ANALYSTS_GL"
+    ]
+  },
+  {
+    "username": "janis",
+    "first_name": "Janis",
+    "last_name": "Joplin",
+    "email": "janis.joplin@moat.io",
+    "groups": [
+      "IT_SUPERVISORS_GL",
+      "ADMINISTRATORS"
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+logger.root_level: "INFO"
+
+flask.secret_key: "$FLASK_SECRET_KEY"
+
+database.protocol: "postgresql+psycopg"
+database.user: "test_user"
+database.password: "test_password"
+database.host: "localhost"
+database.port: "5432"
+database.database: "testdb"
+
+opa_client.timeout_seconds: "0.1"
+
+bundle_generator.temp_directory: /tmp
+
+api.healthcheck.auth_method: none
+
+api.opa.auth_method: api-key
+api.opa.api_key: bearer-token
+
+api.scim.auth_method: api-key
+api.scim.api_key: scim-token

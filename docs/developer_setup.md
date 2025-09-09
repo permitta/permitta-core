@@ -24,8 +24,8 @@ pip install -r requirements.txt
 ## Code Formatting
 ```bash
 # in project root
-isort --profile black permitta/src
-black permitta/src
+isort --profile black moat/src
+black moat/src
 ```
 ## Running the dev environment
 * Run flask on 8000
@@ -38,16 +38,16 @@ podman machine start
 podman-compose up -d
 
 # run dependencies
-docker-compose up -d
+podman-compose up -d
 
 # populate LLDAP:
-docker compose exec lldap /bootstrap/bootstrap.sh
+podman-compose exec lldap /bootstrap/bootstrap.sh
 
-export PYTHONPATH=permitta/src
-flask --app permitta.src.app run --debug --port 8000
+export PYTHONPATH=moat/src
+flask --app moat.src.app run --debug --port 8000
 
 # seed the database
-python permitta/permitta/src/seed_db.py
+python moat/moat/src/seed_db.py
 
 # nuking a bad flask process
 kill $(pgrep -f flask)
@@ -58,7 +58,7 @@ rm -rf instance
 
 ### Running the container
 ```bash
-podman run --rm -p 3000:8000 permitta/permitta-core:0.0.1
+podman run --rm -p 3000:8000 moat/moat:0.0.1
 curl localhost:3000/api/v1/healthcheck
 ```
 
@@ -68,7 +68,7 @@ To run the Permitta Core application along with its dependencies (OPA, PostgreSQ
 ```yaml
 services:
 
-  permitta-core:
+  moat:
     build: .
     ports:
       - "8000:8000"
@@ -82,16 +82,16 @@ services:
 
 ## Building the container image
 ```bash
-docker build -t permitta/permitta-core
+docker build -t moat/moat
 ```
 
 ## Running Ingestion
 ```bash
-export CONFIG_FILE_PATH=permitta/config.principal_ingestion.yaml
+export CONFIG_FILE_PATH=moat/config.principal_ingestion.yaml
 cli.py ingest --source=ldap --object-type=principal
 
 # or in the container
-docker run permitta-core ingest --connector-name=ldap --object-type=principal
+docker run moat ingest --connector-name=ldap --object-type=principal
 ```
 
 ## Database Migrations
@@ -99,8 +99,8 @@ docker run permitta-core ingest --connector-name=ldap --object-type=principal
 
 ```bash
 # create a new revision (in project root)
-export PYTHONPATH=./permitta-core/src
-alembic -c permitta-core/alembic.ini revision --autogenerate -m "message about the revision"
+export PYTHONPATH=./moat/src
+alembic -c moat/alembic.ini revision --autogenerate -m "message about the revision"
 # or
 ./entrypoint.sh migrate revision "message about the revision"
 

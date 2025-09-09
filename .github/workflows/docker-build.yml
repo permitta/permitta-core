@@ -41,21 +41,21 @@ jobs:
         load: true
         push: false
         tags: |
-          permitta/permitta-core:${{ steps.get_version.outputs.VERSION }}
+          moat-io/moat:${{ steps.get_version.outputs.VERSION }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
     - name: Run OPA tests
       run: |
         # Run OPA tests
-        docker run --rm permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} test opa
+        docker run --rm moat-io/moat:${{ steps.get_version.outputs.VERSION }} test opa
 
     - name: Run Unit tests
       run: |
         # Run unit tests
-        docker run --rm --network=host permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} test unit
+        docker run --rm --network=host moat-io/moat:${{ steps.get_version.outputs.VERSION }} test unit
 
     - name: Run CLI tests
       run: |
         # Test CLI functionality
-        docker run --rm permitta/permitta-core:${{ steps.get_version.outputs.VERSION }} --help
+        docker run --rm moat-io/moat:${{ steps.get_version.outputs.VERSION }} --help

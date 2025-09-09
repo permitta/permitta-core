@@ -1,12 +1,12 @@
 services:
-  permitta:
+  moat:
     url: http://host.docker.internal:8000/api/v1/opa/
     credentials:
       bearer:
         token_path: /config/token.txt
 
 decision_logs:
-  service: permitta
+  service: moat
   resource: /decision
   reporting:
     min_delay_seconds: 1
@@ -14,7 +14,7 @@ decision_logs:
 
 bundles:
   trino:
-    service: permitta
+    service: moat
     resource: /bundle/trino
 #    persist: true
     polling:
@@ -25,6 +25,6 @@ bundles:
 #      scope: write
 
 #status:
-#  service: permitta
+#  service: moat
 
 persistence_directory: /policy/persistence

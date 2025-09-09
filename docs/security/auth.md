@@ -25,13 +25,13 @@ api.bundle.api-key: 6c0cbf5029aed0af395ac4b864c6b095
 When making API requests, include the API key in the HTTP header:
 
 ```bash
-curl -X GET https://your-permitta-instance/api/endpoint \
+curl -X GET https://your-moat-instance/api/endpoint \
   -H "Authorization: Bearer 6c0cbf5029aed0af395ac4b864c6b095"
 ```
 
 ## OAuth2 Authentication
 For more robust authentication, Permitta Core supports OAuth2 authentication using the client credentials flow.
-In this scenario, permitta-core is acting as a `resource server` with an external `authorisation server` (e.g Keycloak, Okta)
+In this scenario, moat is acting as a `resource server` with an external `authorisation server` (e.g Keycloak, Okta)
 
 ### Configuration
 ```yaml
@@ -49,4 +49,4 @@ The client credentials flow is designed for server-to-server authentication wher
 2. The client requests an access token from the authorization server's token endpoint.
 3. The authorization server authenticates the client and issues an access token.
 4. The client uses the access token to authenticate requests to the Permitta Core API.
-5. The permitta-core API validates the token against the authorization server 
+5. The moat API validates the token against the authorization server 
