@@ -4,15 +4,13 @@ services:
     credentials:
       bearer:
         token_path: /config/token.txt
-#        token: bearer-token
-#        token: "${PERMITTA_BEARER_TOKEN}"
 
-#decision_logs:
-#  service: permitta
-#  resource: /decision
-#  reporting:
-#    min_delay_seconds: 1
-#    max_delay_seconds: 10
+decision_logs:
+  service: permitta
+  resource: /decision
+  reporting:
+    min_delay_seconds: 1
+    max_delay_seconds: 10
 
 bundles:
   trino:

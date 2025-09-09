@@ -10,39 +10,41 @@ def test_create_execute_query() -> None:
     decision_log_dbo: DecisionLogDbo = DecisionLogRepository.create(
         decision_log={
             "labels": {
-                "id": "337e33a2-7ee8-4dee-92d9-6db3b4294aba",
-                "version": "0.64.1",
+                "id": "21f99a79-b44c-4e0e-926e-23a29ed2c99a",
+                "version": "1.8.0",
             },
-            "decision_id": "f5c6415d-c013-4fef-8d1b-ec3830a82d0e",
+            "decision_id": "236b0920-effd-4a94-b49f-0a4b4b211f1b",
+            "bundles": {"trino": {}},
             "path": "permitta/trino/allow",
             "input": {
                 "action": {"operation": "ExecuteQuery"},
                 "context": {
-                    "identity": {"groups": [], "user": "alice"},
-                    "softwareStack": {"trinoVersion": "448"},
+                    "identity": {"groups": [], "user": "alice.cooper"},
+                    "softwareStack": {"trinoVersion": "476"},
                 },
             },
             "result": True,
-            "requested_by": "172.23.0.4:46008",
-            "timestamp": "2024-06-03T21:06:50.686549126Z",
+            "requested_by": "10.89.1.6:56792",
+            "timestamp": "2025-09-04T22:53:16.320877389Z",
             "metrics": {
-                "counter_server_query_cache_hit": 1,
-                "timer_rego_external_resolve_ns": 792,
-                "timer_rego_input_parse_ns": 46458,
-                "timer_rego_query_eval_ns": 264125,
-                "timer_server_handler_ns": 368708,
+                "counter_server_query_cache_hit": 0,
+                "timer_rego_external_resolve_ns": 333,
+                "timer_rego_input_parse_ns": 112708,
+                "timer_rego_query_compile_ns": 64125,
+                "timer_rego_query_eval_ns": 307333,
+                "timer_server_handler_ns": 640082,
             },
-            "req_id": 2682,
+            "req_id": 1,
         }
     )
 
-    assert decision_log_dbo.decision_log_id == "f5c6415d-c013-4fef-8d1b-ec3830a82d0e"
+    assert decision_log_dbo.decision_log_id == "236b0920-effd-4a94-b49f-0a4b4b211f1b"
     assert decision_log_dbo.path == "permitta/trino/allow"
     assert decision_log_dbo.operation == "ExecuteQuery"
-    assert decision_log_dbo.username == "alice"
+    assert decision_log_dbo.username == "alice.cooper"
     assert decision_log_dbo.permitted == True
     assert decision_log_dbo.timestamp == datetime(
-        2024, 6, 3, 21, 6, 50, 686549, tzinfo=timezone.utc
+        2025, 9, 4, 22, 53, 16, 320877, tzinfo=timezone.utc
     )
 
 

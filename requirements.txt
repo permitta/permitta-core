@@ -17,3 +17,4 @@ mkdocs
 mkdocs-material
 autoflake
 pyuwsgi
+jsonpath-ng

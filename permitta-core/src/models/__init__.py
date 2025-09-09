@@ -9,7 +9,11 @@ from .src.dbos.ingestion_process_dbo import IngestionProcessDbo
 from .src.object_type_enum import ObjectTypeEnum
 
 # principals
-from .src.dbos.principal_dbo import PrincipalDbo, PrincipalAttributeDbo
+from .src.dbos.principal_dbo import (
+    PrincipalDbo,
+    PrincipalAttributeDbo,
+    PrincipalGroupDbo,
+)
 
 # resources
 from .src.dbos.resource_dbo import ResourceDbo, ResourceAttributeDbo

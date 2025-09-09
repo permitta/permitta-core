@@ -1,7 +1,8 @@
 from database import BaseModel
-from sqlalchemy import Column, DateTime, Integer, String
+from sqlalchemy import Column, DateTime, Integer, String, JSON
 from sqlalchemy.orm import Mapped, relationship
 from sqlalchemy.sql.functions import current_timestamp
+from sqlalchemy.dialects.postgresql import ARRAY
 from .common_mixin_dbo import IngestionDboMixin
 
 
@@ -14,6 +15,9 @@ class PrincipalDbo(IngestionDboMixin, BaseModel):
     last_name: str = Column(String)
     user_name: str = Column(String)
     email: str = Column(String)
+    source_type: str = Column(String)
+    source_uid: str = Column(String)
+    scim_payload: dict = Column(JSON)
 
     record_updated_date: str = Column(
         DateTime(timezone=True), server_default=current_timestamp()
@@ -30,13 +34,15 @@ class PrincipalDbo(IngestionDboMixin, BaseModel):
     )
 
 
-#
-# class PrincipalGroupDbo(IngestionDboMixin, BaseModel):
-#     __tablename__ = "principal_groups"
-#
-#     principal_group_id = Column(Integer, primary_key=True, autoincrement=True)
-#     fq_name = Column(String())
-#     principal_fq_name = Column(String())
+class PrincipalGroupDbo(IngestionDboMixin, BaseModel):
+    __tablename__ = "principal_groups"
+
+    principal_group_id = Column(Integer, primary_key=True, autoincrement=True)
+    fq_name = Column(String())
+    members = Column(ARRAY(String()))
+    source_type: str = Column(String)
+    source_uid: str = Column(String)
+    scim_payload: dict = Column(JSON)
 
 
 class PrincipalAttributeDbo(IngestionDboMixin, BaseModel):

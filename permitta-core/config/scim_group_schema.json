@@ -1,0 +1,91 @@
+{
+    "id": "urn:ietf:params:scim:schemas:core:2.0:Group",
+    "name": "Group",
+    "description": "Group",
+    "attributes": [
+        {
+            "name": "id",
+            "type": "string",
+            "multiValued": false,
+            "description": "Unique identifier for the Group",
+            "required": true,
+            "caseExact": true,
+            "mutability": "readOnly",
+            "returned": "always",
+            "uniqueness": "server"
+        },
+        {
+            "name": "displayName",
+            "type": "string",
+            "multiValued": false,
+            "description": "A human-readable name for the Group",
+            "required": true,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "always",
+            "uniqueness": "server"
+        },
+        {
+            "name": "members",
+            "type": "complex",
+            "multiValued": true,
+            "description": "A list of members of the Group",
+            "required": false,
+            "subAttributes": [
+                {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "Identifier of the member of this Group",
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                },
+                {
+                    "name": "type",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "A label indicating the type of resource, e.g., 'User' or 'Group'",
+                    "required": false,
+                    "caseExact": false,
+                    "canonicalValues": ["User", "Group"],
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                },
+                {
+                    "name": "$ref",
+                    "type": "reference",
+                    "multiValued": false,
+                    "description": "The URI of the corresponding resource",
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none",
+                    "referenceTypes": ["User", "Group"]
+                },
+                {
+                    "name": "display",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "A human-readable name for the member",
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                }
+            ],
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+        }
+    ],
+    "meta": {
+        "resourceType": "Schema",
+        "location": "/Schemas/urn:ietf:params:scim:schemas:core:2.0:Group"
+    }
+}

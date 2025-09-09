@@ -46,6 +46,15 @@ class PrincipalRepository(RepositoryBase):
         return principal
 
     @staticmethod
+    def get_by_source_uid(session, source_uid: int) -> PrincipalDbo:
+        principal: PrincipalDbo = (
+            session.query(PrincipalDbo)
+            .filter(PrincipalDbo.source_uid == source_uid)
+            .first()
+        )
+        return principal
+
+    @staticmethod
     def merge_staging(session, ingestion_process_id: int) -> int:
         merge_stmt: str = PrincipalRepository._get_merge_statement(
             source_model=PrincipalStagingDbo,
