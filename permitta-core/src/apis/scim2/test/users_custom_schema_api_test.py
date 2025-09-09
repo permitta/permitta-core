@@ -51,6 +51,7 @@ def test_create_user(flask_test_client: FlaskClient, database_empty: Database):
         "/api/scim/v2/Users",
         data=json.dumps(user_data),
         content_type="application/json",
+        headers={"Authorization": "Bearer scim-token"},
     )
 
     assert response.status_code == 201
@@ -96,6 +97,7 @@ def _get_updated_attributes(
         f"/api/scim/v2/Users/{user_id}",
         data=json.dumps(user_data),
         content_type="application/json",
+        headers={"Authorization": "Bearer scim-token"},
     )
 
     assert response.status_code == 200
@@ -116,7 +118,10 @@ def _get_updated_attributes(
 
 
 def _get_user_data(client: FlaskClient, user_id: str = "alice.cooper@moat.io") -> dict:
-    response = client.get(f"/api/scim/v2/Users/{user_id}")
+    response = client.get(
+        f"/api/scim/v2/Users/{user_id}",
+        headers={"Authorization": "Bearer scim-token"},
+    )
     assert response.status_code == 200
     assert response.headers["Content-Type"] == "application/scim+json"
     return response.json

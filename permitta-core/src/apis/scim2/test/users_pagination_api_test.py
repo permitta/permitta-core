@@ -7,7 +7,10 @@ from models import PrincipalDbo
 
 
 def test_get_users_with_pagination_empty(flask_test_client: FlaskClient):
-    response = flask_test_client.get(f"/api/scim/v2/Users?startIndex=1&count=2")
+    response = flask_test_client.get(
+        f"/api/scim/v2/Users?startIndex=1&count=2",
+        headers={"Authorization": "Bearer scim-token"},
+    )
 
     assert response.status_code == 200
     assert response.headers["Content-Type"] == "application/scim+json"
@@ -38,23 +41,33 @@ def test_get_users_with_pagination(flask_test_client: FlaskClient):
             "/api/scim/v2/Users",
             data=json.dumps(user_data),
             content_type="application/json",
+            headers={"Authorization": "Bearer scim-token"},
         )
 
-    response = flask_test_client.get("/api/scim/v2/Users?startIndex=1&count=2")
+    response = flask_test_client.get(
+        "/api/scim/v2/Users?startIndex=1&count=2",
+        headers={"Authorization": "Bearer scim-token"},
+    )
 
     assert response.json["totalResults"] == 10
     assert response.json["startIndex"] == 1
     assert response.json["itemsPerPage"] == 2
     assert len(response.json["Resources"]) == 2
 
-    response = flask_test_client.get("/api/scim/v2/Users?startIndex=3&count=5")
+    response = flask_test_client.get(
+        "/api/scim/v2/Users?startIndex=3&count=5",
+        headers={"Authorization": "Bearer scim-token"},
+    )
 
     assert response.json["totalResults"] == 10
     assert response.json["startIndex"] == 3
     assert response.json["itemsPerPage"] == 5
     assert len(response.json["Resources"]) == 5
 
-    response = flask_test_client.get("/api/scim/v2/Users?startIndex=8&count=5")
+    response = flask_test_client.get(
+        "/api/scim/v2/Users?startIndex=8&count=5",
+        headers={"Authorization": "Bearer scim-token"},
+    )
 
     assert response.json["totalResults"] == 10
     assert response.json["startIndex"] == 8

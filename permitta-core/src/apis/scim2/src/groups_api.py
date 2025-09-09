@@ -1,11 +1,14 @@
 from app_logger import Logger, get_logger
 from flask import Blueprint, jsonify, make_response, request, Response, g
 import uuid
+from apis.common import authenticate
+from apis.models import ApiConfig
 from models import PrincipalGroupDbo
 from api_services.scim2 import ScimGroupsService
 
 logger: Logger = get_logger("scim2.groups_api")
 bp = Blueprint("scim2_groups", __name__, url_prefix="/api/scim/v2/Groups")
+api_config: ApiConfig = ApiConfig.load_by_api_name(api_name="scim")
 
 
 def create_id() -> str:
@@ -13,6 +16,7 @@ def create_id() -> str:
 
 
 @bp.route("", methods=["GET"])
+@authenticate(api_config=api_config)
 def get_groups():
     # TODO validate these
     start_index: int = int(request.args.get("startIndex", 1))
@@ -41,6 +45,7 @@ def get_groups():
 
 
 @bp.route("/<group_id>", methods=["GET"])
+@authenticate(api_config=api_config)
 def get_group(group_id):
     with g.database.Session.begin() as session:
         principal_group: PrincipalGroupDbo = ScimGroupsService.get_group_by_id(
@@ -66,6 +71,7 @@ def get_group(group_id):
 
 
 @bp.route("", methods=["POST"])
+@authenticate(api_config=api_config)
 def create_group():
     scim_payload = request.json
     source_uid = scim_payload.get(
@@ -98,6 +104,7 @@ def create_group():
 
 
 @bp.route("/<group_id>", methods=["PUT"])
+@authenticate(api_config=api_config)
 def update_group(group_id):
     """
     Update a Group.
@@ -137,6 +144,7 @@ def update_group(group_id):
 
 
 @bp.route("/<group_id>", methods=["DELETE"])
+@authenticate(api_config=api_config)
 def delete_group(group_id):
     """
     Delete a Group.

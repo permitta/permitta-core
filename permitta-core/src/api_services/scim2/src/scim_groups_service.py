@@ -70,8 +70,11 @@ class ScimGroupsService(ScimServiceBase):
             scim_payload, scim_config.group_source_uid_jsonpath
         )
 
-        members_raw: list[str] = ScimServiceBase._get_jsonpath_attribute(
-            scim_payload, scim_config.group_member_username_jsonpath
+        members_raw: list[str] = (
+            ScimServiceBase._get_jsonpath_attribute(
+                scim_payload, scim_config.group_member_username_jsonpath
+            )
+            or []
         )
         principal_group.members = []
 

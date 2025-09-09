@@ -1,7 +1,7 @@
 from app_logger import Logger, get_logger
 from flask import Blueprint, Response, g, jsonify, make_response, request
 from apis.models import ApiConfig
-from auth import authenticate
+from apis.common import authenticate
 
 logger: Logger = get_logger("api.healthcheck")
 

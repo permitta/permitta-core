@@ -1,12 +1,17 @@
 from app_logger import Logger, get_logger
 from flask import Blueprint, jsonify, make_response, request, Response, g
 import uuid
+from apis.common import authenticate
+
+from apis.models import ApiConfig
+
 from repositories import PrincipalRepository
 from models import PrincipalDbo
 from api_services.scim2 import ScimUsersService
 
 logger: Logger = get_logger("scim2.users_api")
 bp = Blueprint("scim2_users", __name__, url_prefix="/api/scim/v2/Users")
+api_config: ApiConfig = ApiConfig.load_by_api_name(api_name="scim")
 
 
 def create_id() -> str:
@@ -14,6 +19,7 @@ def create_id() -> str:
 
 
 @bp.route("", methods=["GET"])
+@authenticate(api_config=api_config)
 def get_users():
     # TODO validate these
     start_index: int = int(request.args.get("startIndex", 1))
@@ -42,6 +48,7 @@ def get_users():
 
 
 @bp.route("/<user_id>", methods=["GET"])
+@authenticate(api_config=api_config)
 def get_user(user_id):
     with g.database.Session.begin() as session:
         principal = ScimUsersService.get_user_by_id(session=session, source_uid=user_id)
@@ -66,6 +73,7 @@ def get_user(user_id):
 
 
 @bp.route("", methods=["POST"])
+@authenticate(api_config=api_config)
 def create_user():
     scim_payload = request.json
     source_uid = scim_payload.get(
@@ -97,6 +105,7 @@ def create_user():
 
 
 @bp.route("/<user_id>", methods=["PUT"])
+@authenticate(api_config=api_config)
 def update_user(user_id):
     source_uid = user_id
     scim_payload = request.json | {"id": source_uid}
@@ -132,6 +141,7 @@ def update_user(user_id):
 
 
 @bp.route("/<user_id>", methods=["DELETE"])
+@authenticate(api_config=api_config)
 def delete_user(user_id):
     source_uid = user_id
     with g.database.Session.begin() as session:
