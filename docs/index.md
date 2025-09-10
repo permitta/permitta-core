@@ -43,7 +43,7 @@ as a (possibly) large JSON object, and updated whenever these values change.
 
 While extremely powerful, OPA is hard to use for non-developers, and has a significant integration cost. 
 
-**Permitta simplifies the use of OPA with Trino by:**
+**Moat simplifies the use of OPA with Trino by:**
 
 * Aggregating metadata from sources such as `Active Directory`
 * Delivering bundles of policy and context metadata to instances of OPA

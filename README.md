@@ -28,7 +28,7 @@ point its bundle service to the moat deployment
 * Decision log capture
 
 ## Development
-The Permitta dev environment relies on a postgres database, OPA, trino, hive-metastore, minio and lldap to run.
+The Moat dev environment relies on a postgres database, OPA, trino, hive-metastore, minio and lldap to run.
 All of these dependencies are present in the `docker-compose` in the repo root
 
 [developer_setup.md](docs/developer_setup.md)
@@ -37,7 +37,7 @@ It is recommended to run the dependencies under `docker-compose` and debug the p
 
 
 #### Ingestion
-Data ingestion is treated as first-class ETL in Permitta
+Data ingestion is treated as first-class ETL in Moat
 * Ingestion jobs are asynchronous and CLI-driven. Best deployed using kubernetes CronJobs or similar
 * Common ingestion controller instantiates connectors specific to the ingestion source. 
   * Additional sources can easily be added by creating new connectors. Currently supports Trino and LDAP

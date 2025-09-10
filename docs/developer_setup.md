@@ -63,7 +63,7 @@ curl localhost:3000/api/v1/healthcheck
 ```
 
 ### Running with Docker Compose
-To run the Permitta Core application along with its dependencies (OPA, PostgreSQL, etc.), you can add the following service to your `docker-compose.yaml` file:
+To run the Moat application along with its dependencies (OPA, PostgreSQL, etc.), you can add the following service to your `docker-compose.yaml` file:
 
 ```yaml
 services:

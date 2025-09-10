@@ -1,6 +1,6 @@
 # Configuration Properties
 
-This document lists all available configuration properties for Permitta Core
+This document lists all available configuration properties for Moat
 
 ## `bundle_generator.static_rego_file_path`
 * Type: `string`
@@ -239,7 +239,7 @@ The LDAP user search filter.
 * Default: `INFO`
 * Example: `DEBUG`
 
-Sets the log level of the root logger. This applies to all loggers within Permitta as they all inherit from the root logger.
+Sets the log level of the root logger. This applies to all loggers within Moat as they all inherit from the root logger.
 
 ## `logger.<name>_level`
 * Type: `enum`
@@ -268,7 +268,7 @@ The name of the OPA policy.
 * Default: `localhost`
 * Example: `opa.moat.svc.cluster.local`
 
-The hostname of the OPA instance that Permitta should connect to.
+The hostname of the OPA instance that Moat should connect to.
 
 ## `opa_client.path`
 * Type: `path`
