@@ -9,6 +9,10 @@ jobs:
   build-test-push:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+      packages: write
+
     services:
       postgres:
         image: postgres:16
