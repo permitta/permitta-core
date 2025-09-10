@@ -92,7 +92,6 @@ jobs:
         push: true
         tags: |
           ghcr.io/${{ github.repository_owner }}/moat:${{ steps.get_version.outputs.VERSION }}
-          ghcr.io/${{ github.repository_owner }}/moat:latest
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
