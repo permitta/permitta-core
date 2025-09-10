@@ -1,14 +1,14 @@
-# Permitta-core
-**Permitta-core makes OPA + Trino easy**
+# Moat
+**Moat makes OPA + Trino easy**
 
 ## Architecture
 ![Architecture](images/architecture.png)
 
 OPA and Trino are an awesome combination, but maintaining the policy documents and required data object
-can be painful. Permitta-core makes this easy with managed curation of principals and tables,
+can be painful. Moat makes this easy with managed curation of principals and tables,
 as well as a predefined set of ABAC policies suitable for most uses
 
-Permitta-core provides an API to serve bundles to OPA, including:
+Moat provides an API to serve bundles to OPA, including:
 
 * Data objects and attributes ingested from various sources (SQL DBs,data catalogs etc)
 * Principals and attributes/groups ingested from identity providers (SQL DB, LDAP, etc)
@@ -17,7 +17,7 @@ Permitta-core provides an API to serve bundles to OPA, including:
 Read more about how [Trino and OPA](trino_and_opa.md) work together
 
 ## Extensability
-Permitta-core is built to be extended. [Custom connectors](extensions.md) can be added easily to retrieve data from a wide range of sources, such as:
+Moat is built to be extended. [Custom connectors](extensions.md) can be added easily to retrieve data from a wide range of sources, such as:
 
 * **IDPs:** e.g. Keycloak, IdentityNow, Auth0
 * **User Directories** e.g Azure AD, OpenLDAP

@@ -1,26 +1,26 @@
-# Permitta-core
+# Moat
 OPA bundle manager for Trino
 
 ## Documentation
-https://permitta.github.io/permitta-core/
+https://moat-io.github.io/moat/
 
-## Permitta makes using OPA with Trino simple and fun
+## Moat makes using OPA with Trino simple and fun
 
 OPA and Trino are an awesome combination, but maintaining the policy documents and required data object
-can be painful. Permitta-core makes this easy with managed curation of principals and tables,
+can be painful. Moat makes this easy with managed curation of principals and tables,
 as well as a predefined set of ABAC policies suitable for most uses
 
-Permitta-core provides an API to serve bundles to OPA, including:
+Moat provides an API to serve bundles to OPA, including:
 * Data objects and attributes ingested from various sources (SQL DBs,data catalogs etc)
 * Principals and attributes/groups ingested from identity providers (SQL DB, LDAP, etc)
 * Pre-built `rego` policy documents to support common use cases (e.g. RBAC) 
 
-Permitta-core itself is not involved in policy decisions at runtime, it  simply provides the information to the battle-hardened
-OPA. Therefore permitta-core is not required to have a high uptime, as downtime will not affect consumers of your trino instance.
+Moat itself is not involved in policy decisions at runtime, it  simply provides the information to the battle-hardened
+OPA. Therefore moat is not required to have a high uptime, as downtime will not affect consumers of your trino instance.
 
-Permitta-core can serve bundles to any number of OPA/Trino installations. This makes it very convenient to manage permissions
+Moat can serve bundles to any number of OPA/Trino installations. This makes it very convenient to manage permissions
 across a fleet of trino clusters as well as ephemeral clusters. Simply add an OPA container to the coordinator deployment and 
-point its bundle service to the permitta-core deployment
+point its bundle service to the moat deployment
 
 ## Features
 * Bundle API for serving data and policy documents to OPA

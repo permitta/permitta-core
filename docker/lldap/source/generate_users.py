@@ -1,15 +1,15 @@
 import json
 
-with open("permitta/seed_data/principals.json") as f:
+with open("moat/seed_data/principals.json") as f:
     principals = json.load(f)
 
-with open("permitta/seed_data/principal_groups.json") as tags_file:
+with open("moat/seed_data/principal_groups.json") as tags_file:
     all_group_props = [
         g.get("membership_property") for g in json.load(tags_file).get("groups")
     ]
 
 with open("docker/lldap/bootstrap/group-configs/groups.json", "w") as f:
-    f.write(json.dumps({"name": "permitta_users_gl"}) + "\n")
+    f.write(json.dumps({"name": "moat_users_gl"}) + "\n")
 
     for group_prop in all_group_props:
         f.write(json.dumps({"name": group_prop.get("value")}) + "\n")
@@ -33,6 +33,6 @@ with open("docker/lldap/bootstrap/user-configs/users.json", "w") as f:
             "firstName": principal.get("first_name").title(),
             "lastName": principal.get("last_name").title(),
             "gravatar_avatar": "true",
-            "groups": [group_prop["value"], "permitta_users_gl"],
+            "groups": [group_prop["value"], "moat_users_gl"],
         }
         f.write(json.dumps(ldap_user) + "\n")

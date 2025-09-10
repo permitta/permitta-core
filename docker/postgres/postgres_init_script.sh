@@ -15,9 +15,9 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
     GRANT ALL ON SCHEMA public TO keycloak_user;
 
     CREATE USER test_user WITH PASSWORD 'test_password';
-    CREATE DATABASE permitta;
-    GRANT ALL PRIVILEGES ON DATABASE permitta TO test_user;
-    \c permitta "$POSTGRES_USER";
+    CREATE DATABASE testdb;
+    GRANT ALL PRIVILEGES ON DATABASE testdb TO test_user;
+    \c testdb "$POSTGRES_USER";
     GRANT ALL ON SCHEMA public TO test_user;
 
     CREATE USER trino_user WITH PASSWORD 'trino_password';

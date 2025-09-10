@@ -12,14 +12,14 @@ The path to static Rego files used for bundle generation.
 ## `bundle_generator.temp_directory`
 * Type: `string`
 * Default: `<none>`
-* Example: `/tmp/permitta-bundles`
+* Example: `/tmp/moat-bundles`
 
 The temporary directory for bundle generation.
 
 ## `common.db_connection_string`
 * Type: `string`
 * Default: `<none>`
-* Example: `postgresql://user:password@localhost:5432/permitta`
+* Example: `postgresql://user:password@localhost:5432/moat`
 
 The database connection string for common operations.
 
@@ -40,7 +40,7 @@ The path to the JSON file containing principal data.
 ## `database.database`
 * Type: `string`
 * Default: `<none>`
-* Example: `permitta`
+* Example: `moat`
 
 The database name.
 
@@ -82,7 +82,7 @@ The path to seed data for the database.
 ## `database.user`
 * Type: `string`
 * Default: `<none>`
-* Example: `permitta`
+* Example: `moat`
 
 The database user.
 
@@ -252,28 +252,28 @@ Sets the log level for a specific logger named `<name>`.
 ## `opa_authz_provider.policy_file_path`
 * Type: `string`
 * Default: `<none>`
-* Example: `opa/permitta/authz.rego`
+* Example: `opa/moat/authz.rego`
 
 The path to the OPA policy file.
 
 ## `opa_authz_provider.policy_name`
 * Type: `string`
-* Default: `permitta/authz`
-* Example: `permitta/authz`
+* Default: `moat/authz`
+* Example: `moat/authz`
 
 The name of the OPA policy.
 
 ## `opa_client.hostname`
 * Type: `string`
 * Default: `localhost`
-* Example: `opa.permitta.svc.cluster.local`
+* Example: `opa.moat.svc.cluster.local`
 
 The hostname of the OPA instance that Permitta should connect to.
 
 ## `opa_client.path`
 * Type: `path`
-* Default: `/v1/data/permitta/authz/allow`
-* Example: `/v1/data/permitta/authz/allow`
+* Default: `/v1/data/moat/authz/allow`
+* Example: `/v1/data/moat/authz/allow`
 
 The path to the OPA API endpoint.
 

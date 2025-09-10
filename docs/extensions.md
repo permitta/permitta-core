@@ -1,11 +1,11 @@
-# Extending Permitta-core
+# Extending Moat
 
-Permitta-core is designed to be extended in various ways to meet your specific needs.
+Moat is designed to be extended in various ways to meet your specific needs.
 
 ## Custom Ingestions
 
 Permitta allows you to create custom ingestion connectors to import data from various sources. This is done by creating subclasses of the `ConnectorBase` class.
-Subclasses have a `CONNECTOR_NAME` property which allows the permitta-core to select it at runtime 
+Subclasses have a `CONNECTOR_NAME` property which allows the moat to select it at runtime 
 
 ### Creating a Custom Connector
 
@@ -133,7 +133,7 @@ The connector above expects a JSON file with a structure like this:
 ### Configuring Your Connector
 
 The `JsonFileConnectorConfig` class uses the `AppConfigModelBase` to load configuration values from a YAML file. 
-You can configure your connector by adding entries to your config file (typically at `permitta-core/config/config.yaml`):
+You can configure your connector by adding entries to your config file (typically at `moat/config/config.yaml`):
 
 ```yaml
 # config files use the CONFIG_PREFIX (json_file_connector) in the config class to load the parameters
@@ -147,7 +147,7 @@ The configuration values are loaded automatically when the connector is initiali
 Once you've created your connector, you can invoke it from the CLI like any other connector:
 
 ```bash
-export CONFIG_FILE_PATH=permitta/config.custom_ingestion.yaml
+export CONFIG_FILE_PATH=moat/config.custom_ingestion.yaml
 cli.py ingest --connector-name=json-file --object-type=principal
 cli.py ingest --connector-name=json-file --object-type=principal_attribute
 ```

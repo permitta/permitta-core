@@ -1,7 +1,7 @@
 #! /bin/bash
 
-REPO_NAME="permitta"
-IMAGE_NAME="permitta-core"
+REPO_NAME="moat"
+IMAGE_NAME="moat"
 IMAGE_TAG=$(cat version.txt)
 BUILD_CONTEXT="."
 

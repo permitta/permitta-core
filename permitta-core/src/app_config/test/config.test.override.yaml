@@ -1,2 +1,0 @@
-config.base:  "permitta-core/src/app_config/test/config.test.yaml"
-common.overridden: "override"

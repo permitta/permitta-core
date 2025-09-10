@@ -13,12 +13,12 @@ then
   ls
 elif [ $1 == 'format' ]
 then
-  autoflake --in-place --remove-unused-variables -r permitta-core
+  autoflake --in-place --remove-unused-variables -r moat
 elif [ $1 == 'unit' ]
 then
-  export CONFIG_FILE_PATH=permitta-core/config/config.unittest.yaml
+  export CONFIG_FILE_PATH=moat/config/config.unittest.yaml
   export PYTHON
-  cd permitta-core
+  cd moat
   python -m pytest
 elif [ $1 == 'scim' ]
 then

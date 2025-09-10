@@ -25,14 +25,14 @@ common.db_port: "5432"
 ```yaml
 config.base:  "/app/config/config.yaml"   # fully qualified path required
 common.db_port: "1234"                    # replaced
-common.db_name: "permitta"                # new
+common.db_name: "moat"                    # new
 ```
 
 When loading `config_with_overrides.yaml`, the following config would be resolved:
 ```yaml
 common.db_connection_string: "sqlite:///:memory:"
 common.db_port: "1234"
-common.db_name: "permitta"
+common.db_name: "moat"
 ```
 
 For a complete list of all available configuration properties, see [Properties](properties.md).

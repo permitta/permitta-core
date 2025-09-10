@@ -47,7 +47,7 @@ any table in the `datalake` catalog, as long as the schema is in our data object
 All other operations on any other object will be denied
 
 ```rego
-package permitta.trino
+package moat.trino
 
 import rego.v1
 import data.trino

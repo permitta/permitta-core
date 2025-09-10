@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: permitta-ingestion-config
+  name: ingestion-config
 data:
   config.principal_ingestion.yaml: |
     logger.root_level: "INFO"
