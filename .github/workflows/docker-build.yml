@@ -70,19 +70,15 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Check if image already exists in registry
-      if: github.ref == 'refs/heads/main'
+#      if: github.ref == 'refs/heads/main'
       id: check_image
       run: |
         IMAGE_EXISTS=$(docker manifest inspect ghcr.io/${{ github.repository_owner }}/moat:${{ steps.get_version.outputs.VERSION }} > /dev/null && echo "true" || echo "false")
         echo "exists=${IMAGE_EXISTS}" >> $GITHUB_OUTPUT
         echo "Checking if image ghcr.io/${{ github.repository_owner }}/moat:${{ steps.get_version.outputs.VERSION }} exists: ${IMAGE_EXISTS}"  
 
-    - name: Skip push (image already exists)
-      if: github.ref == 'refs/heads/main' && steps.check_image.outputs.exists == 'true'
-      run: echo "Image ghcr.io/${{ github.repository_owner }}/moat:${{ steps.get_version.outputs.VERSION }} already exists in the registry. Skipping push."
-
     - name: Push to GitHub Container Registry
-      if: github.ref == 'refs/heads/main' && steps.check_image.outputs.exists != 'true'
+      if: steps.check_image.outputs.exists != 'true'
       uses: docker/build-push-action@v4
       with:
         context: .
