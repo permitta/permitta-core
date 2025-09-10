@@ -9,10 +9,6 @@ jobs:
   build-test-push:
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: write
-      packages: write
-
     services:
       postgres:
         image: postgres:16
@@ -38,7 +34,7 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
 
-    - name: Build test image
+    - name: Build Docker test image
       uses: docker/build-push-action@v4
       with:
         context: .
@@ -46,7 +42,6 @@ jobs:
         push: false
         tags: |
           moat-io/moat:${{ steps.get_version.outputs.VERSION }}
-          ghcr.io/${{ github.repository_owner }}/moat:${{ steps.get_version.outputs.VERSION }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
@@ -80,13 +75,12 @@ jobs:
         echo "Checking if image ghcr.io/${{ github.repository_owner }}/moat:${{ steps.get_version.outputs.VERSION }} exists: ${IMAGE_EXISTS}"  
 
     - name: Git Tag
-      if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/release' && steps.check_image.outputs.exists != 'true'
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git tag -a v${{ steps.get_version.outputs.VERSION }} -m "Release version ${{ steps.get_version.outputs.VERSION }}"
         git push origin v${{ steps.get_version.outputs.VERSION }}  
-
 
     - name: Push to GitHub Container Registry
       if: github.ref == 'refs/heads/release' && steps.check_image.outputs.exists != 'true'
