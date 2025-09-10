@@ -59,3 +59,37 @@ jobs:
       run: |
         # Test CLI functionality
         docker run --rm moat-io/moat:${{ steps.get_version.outputs.VERSION }} --help
+
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v2
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Check if image already exists in registry
+      id: check_image
+      run: |
+        IMAGE_EXISTS=$(docker manifest inspect ghcr.io/${{ github.repository_owner }}/moat:${{ steps.get_version.outputs.VERSION }} > /dev/null && echo "true" || echo "false")
+        echo "exists=${IMAGE_EXISTS}" >> $GITHUB_OUTPUT
+        echo "Checking if image ghcr.io/${{ github.repository_owner }}/moat:${{ steps.get_version.outputs.VERSION }} exists: ${IMAGE_EXISTS}"  
+
+    - name: Git Tag
+      if: github.ref == 'refs/heads/release' && steps.check_image.outputs.exists != 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git tag -a v${{ steps.get_version.outputs.VERSION }} -m "Release version ${{ steps.get_version.outputs.VERSION }}"
+        git push origin v${{ steps.get_version.outputs.VERSION }}  
+
+    - name: Push to GitHub Container Registry
+      if: github.ref == 'refs/heads/release' && steps.check_image.outputs.exists != 'true'
+      id: push
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        push: true
+        tags: |
+          ghcr.io/${{ github.repository_owner }}/moat:${{ steps.get_version.outputs.VERSION }}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
