@@ -752,7 +752,7 @@
 
 
 <h1 id="authentication-authorization">Authentication &amp; Authorization</h1>
-<p>Permitta Core APIs support three authentication methods: <code>none</code>, <code>api-key</code> or <code>oauth2</code>.
+<p>Moat APIs support three authentication methods: <code>none</code>, <code>api-key</code> or <code>oauth2</code>.
 Each API can support a separate authentication method</p>
 <h2 id="configuration">Configuration</h2>
 <p>Configuration values take the form <code>api.&lt;resource-name&gt;.&lt;config-parameter&gt;</code></p>
@@ -773,7 +773,7 @@ Each request is authenticated if the supplied <code>Bearer</code> token matches 
   -H &quot;Authorization: Bearer 6c0cbf5029aed0af395ac4b864c6b095&quot;
 </code></pre>
 <h2 id="oauth2-authentication">OAuth2 Authentication</h2>
-<p>For more robust authentication, Permitta Core supports OAuth2 authentication using the client credentials flow.
+<p>For more robust authentication, Moat supports OAuth2 authentication using the client credentials flow.
 In this scenario, moat is acting as a <code>resource server</code> with an external <code>authorisation server</code> (e.g Keycloak, Okta)</p>
 <h3 id="configuration_2">Configuration</h3>
 <pre><code class="language-yaml"># OAuth2 authentication configuration
@@ -788,7 +788,7 @@ api.resources.oauth2_audience: &lt;audience&gt;
 <li>The client application authenticates with the OAuth2 provider using its client ID and client secret.</li>
 <li>The client requests an access token from the authorization server's token endpoint.</li>
 <li>The authorization server authenticates the client and issues an access token.</li>
-<li>The client uses the access token to authenticate requests to the Permitta Core API.</li>
+<li>The client uses the access token to authenticate requests to the Moat API.</li>
 <li>The moat API validates the token against the authorization server </li>
 </ol>
 
