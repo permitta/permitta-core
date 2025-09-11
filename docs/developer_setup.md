@@ -129,11 +129,6 @@ mkdocs gh-deploy
 git config http.postBuffer 524288000
 ```
 
-## Keycloak
-```bash
-# export the realm
-
-```
 
 ## SCIM test tool
 ```bash

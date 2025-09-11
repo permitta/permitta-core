@@ -6,6 +6,8 @@ an api server and a number of cronjobs.
 The API server should be deployed using a k8s `kind: Deployment` with optional replication. The API service is not required to be
 highly-available so a single replica is fine for most purposes.
 
+It is highly recommended that moat be deployed behind an SSL enabled load balancer or reverse proxy
+
 ## Ingestion Cronjobs
 Data in moat is ingested and maintained by periodic ingestion jobs. These can be implemented in many ways however k8s `kind: CronJob`
 are the recommended pattern. Any scheduler (crontab, airflow, CICD etc) can be used to execute the ingestion jobs via the CLI or container.
