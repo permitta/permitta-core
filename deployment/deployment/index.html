@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../../security/auth/">
+        <link rel="prev" href="../../extensions/">
       
       
-        <link rel="next" href="../properties/">
+        <link rel="next" href="../opa_setup/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Configuration File - Moat</title>
+        <title>Application - Moat</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configuration-file-syntax" class="md-skip">
+        <a href="#deployment" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Configuration File
+              Application
             
           </span>
         </div>
@@ -373,20 +373,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -402,7 +402,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Deployment
@@ -413,10 +413,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../deployment/deployment/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Application
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -427,6 +449,119 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Server
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingestion-cronjobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingestion Cronjobs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opa-and-trino" class="md-nav__link">
+    <span class="md-ellipsis">
+      OPA and Trino
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-moat-in-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploying moat in Kubernetes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying moat in Kubernetes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-kubernetes-manifests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Kubernetes Manifests
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Kubernetes Manifests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ingestor-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingestor Components
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment Steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -439,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/opa_setup/" class="md-nav__link">
+      <a href="../opa_setup/" class="md-nav__link">
         
   
   
@@ -558,20 +693,20 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
         
           
           <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
@@ -587,7 +722,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             Configuration
@@ -598,32 +733,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Configuration File
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../config/configuration/" class="md-nav__link">
         
   
   
@@ -634,68 +747,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#inheritance" class="md-nav__link">
-    <span class="md-ellipsis">
-      Inheritance
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Inheritance">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#appconfigconfigyaml" class="md-nav__link">
-    <span class="md-ellipsis">
-      /app/config/config.yaml
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#appconfigconfig_with_overridesyaml" class="md-nav__link">
-    <span class="md-ellipsis">
-      /app/config/config_with_overrides.yaml
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environment Variables
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -708,7 +759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../properties/" class="md-nav__link">
+      <a href="../../config/properties/" class="md-nav__link">
         
   
   
@@ -758,28 +809,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#inheritance" class="md-nav__link">
+  <a href="#api-server" class="md-nav__link">
     <span class="md-ellipsis">
-      Inheritance
+      API Server
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Inheritance">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingestion-cronjobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingestion Cronjobs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opa-and-trino" class="md-nav__link">
+    <span class="md-ellipsis">
+      OPA and Trino
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-moat-in-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploying moat in Kubernetes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying moat in Kubernetes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#appconfigconfigyaml" class="md-nav__link">
+  <a href="#example-kubernetes-manifests" class="md-nav__link">
     <span class="md-ellipsis">
-      /app/config/config.yaml
+      Example Kubernetes Manifests
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Kubernetes Manifests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server Components
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#appconfigconfig_with_overridesyaml" class="md-nav__link">
+  <a href="#ingestor-components" class="md-nav__link">
     <span class="md-ellipsis">
-      /app/config/config_with_overrides.yaml
+      Ingestor Components
     </span>
   </a>
   
@@ -789,13 +877,27 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#deployment-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Environment Variables
+      Deployment Steps
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -818,41 +920,65 @@
   
 
 
-<h1 id="configuration-file-syntax">Configuration File Syntax</h1>
-<p>All configuration items are defined in a yaml file provided to the application.
-The location of this file is defined by an environment variable called 
-<code>CONFIG_FILE_PATH</code>. The value of this variable should be an absolute path.</p>
-<p>The yaml file is a flat structure, with all keys at the top level. E.g:</p>
-<pre><code class="language-yaml">ldap_client.host: localhost
-ldap_client.port: &quot;3890&quot;
-ldap_client.base_dn: dc=example,dc=com
-ldap_client.user_dn: uid=admin,ou=people,dc=example,dc=com
+<h1 id="deployment">Deployment</h1>
+<p>It is recommended to deploy <code>moat</code> in a containerised environment (e.g Kubernetes). A moat deployment consists of
+an api server and a number of cronjobs.</p>
+<h2 id="api-server">API Server</h2>
+<p>The API server should be deployed using a k8s <code>kind: Deployment</code> with optional replication. The API service is not required to be
+highly-available so a single replica is fine for most purposes.</p>
+<p>It is highly recommended that moat be deployed behind an SSL enabled load balancer or reverse proxy</p>
+<h2 id="ingestion-cronjobs">Ingestion Cronjobs</h2>
+<p>Data in moat is ingested and maintained by periodic ingestion jobs. These can be implemented in many ways however k8s <code>kind: CronJob</code>
+are the recommended pattern. Any scheduler (crontab, airflow, CICD etc) can be used to execute the ingestion jobs via the CLI or container.</p>
+<p>In general, four ingestion jobs are required, and can run at different frequencies. The individual jobs ingest:
+* Principals (e.g users from a LDAP source)
+* Principal attributes (e.g user tags from IdentityNow or other IDP)
+* Resources (e.g tables or collections from a database)
+* Resource attributes (e.g table tags from a database or data catalog)</p>
+<h2 id="opa-and-trino">OPA and Trino</h2>
+<p>The OPA instance should be deployed as "close" as possible to the Trino coordinator. The API between Trino and OPA is heavily
+used, so eliminating network hops is cruical for performance. Ideally the OPA container should be in the same pod, or at least
+on the name node as the coordinator</p>
+<h2 id="deploying-moat-in-kubernetes">Deploying <code>moat</code> in Kubernetes</h2>
+<p>The repository includes example Kubernetes manifests that can be used as a starting point for deploying <code>moat</code> in a Kubernetes environment. 
+<strong>These templates are examples only</strong> and should be customized to fit your specific requirements and environment.</p>
+<h3 id="example-kubernetes-manifests">Example Kubernetes Manifests</h3>
+<p>The following Kubernetes manifest templates are provided:</p>
+<h4 id="server-components">Server Components</h4>
+<ul>
+<li><code>kubernetes/server/deployment.yaml</code>: Deployment for the moat-api server</li>
+<li><code>kubernetes/server/service.yaml</code>: Service to expose the moat-api</li>
+<li><code>kubernetes/server/configmap.yaml</code>: ConfigMap for Rego policies</li>
+</ul>
+<h4 id="ingestor-components">Ingestor Components</h4>
+<ul>
+<li><code>kubernetes/ingestor/cronjob.yaml</code>: CronJob for scheduled data ingestion</li>
+<li><code>kubernetes/ingestor/configmap.yaml</code>: ConfigMap for ingestor configuration</li>
+</ul>
+<h3 id="deployment-steps">Deployment Steps</h3>
+<ol>
+<li>Customize the configuration files:</li>
+<li>Update the Rego policies in <code>configmap.yaml</code> with your actual authorization policies</li>
+<li>Create appropriate secrets for database connections and other sensitive information</li>
+<li>
+<p>Modify the ingestor configuration to match your data sources</p>
+</li>
+<li>
+<p>Apply the Kubernetes manifests:</p>
+</li>
+</ol>
+<pre><code class="language-bash">kubectl apply -f kubernetes/server/
+kubectl apply -f kubernetes/ingestor/
 </code></pre>
-<h2 id="inheritance">Inheritance</h2>
-<p>A <code>yaml</code> config file can inherit from another file and add or replace its contents by key. For example</p>
-<h4 id="appconfigconfigyaml">/app/config/config.yaml</h4>
-<pre><code class="language-yaml">common.db_connection_string: &quot;sqlite:///:memory:&quot;
-common.db_port: &quot;5432&quot;
-</code></pre>
-<h4 id="appconfigconfig_with_overridesyaml">/app/config/config_with_overrides.yaml</h4>
-<pre><code class="language-yaml">config.base:  &quot;/app/config/config.yaml&quot;   # fully qualified path required
-common.db_port: &quot;1234&quot;                    # replaced
-common.db_name: &quot;moat&quot;                    # new
-</code></pre>
-<p>When loading <code>config_with_overrides.yaml</code>, the following config would be resolved:</p>
-<pre><code class="language-yaml">common.db_connection_string: &quot;sqlite:///:memory:&quot;
-common.db_port: &quot;1234&quot;
-common.db_name: &quot;moat&quot;
-</code></pre>
-<p>For a complete list of all available configuration properties, see <a href="../properties/">Properties</a>.</p>
-<h2 id="environment-variables">Environment Variables</h2>
-<p>If environment variables are preferred for some configuration items (e.g secrets)
-these can be referenced in the configuration file using a bash-style syntax. These
-values will be retrieved from the environment and included in the configuration
-object at runtime.</p>
-<pre><code class="language-yaml">ldap_client.password: $LDAP_PASSWORD 
-ldap_client.user_dn: uid=$LDAP_UID,ou=people,dc=example,dc=com
-</code></pre>
+<h3 id="important-considerations">Important Considerations</h3>
+<ul>
+<li><strong>Resource Requirements</strong>: Adjust CPU and memory requests/limits based on your workload</li>
+<li><strong>Scaling</strong>: Consider setting up horizontal pod autoscaling for the API server</li>
+<li><strong>Persistence</strong>: Configure appropriate persistent storage for any stateful components</li>
+<li><strong>Security</strong>: Review and enhance the security settings, especially for production deployments</li>
+<li><strong>Monitoring</strong>: Set up monitoring and alerting for the deployed components</li>
+</ul>
+<p>Remember that these templates are starting points and should be adapted to your specific infrastructure, security requirements, and operational practices.</p>
 
 
 

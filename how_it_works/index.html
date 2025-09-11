@@ -9,22 +9,22 @@
       
       
       
-        <link rel="prev" href="../../security/auth/">
+        <link rel="prev" href="../trino_and_opa/">
       
       
-        <link rel="next" href="../properties/">
+        <link rel="next" href="../provisioning/scim/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
       
-        <title>Configuration File - Moat</title>
+        <title>How it works - Moat</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
       
       
 
@@ -43,7 +43,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configuration-file-syntax" class="md-skip">
+        <a href="#how-it-works" class="md-skip">
           Skip to content
         </a>
       
@@ -78,7 +78,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Moat" class="md-header__button md-logo" aria-label="Moat" data-md-component="logo">
+    <a href=".." title="Moat" class="md-header__button md-logo" aria-label="Moat" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Configuration File
+              How it works
             
           </span>
         </div>
@@ -188,7 +188,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Moat" class="md-nav__button md-logo" aria-label="Moat" data-md-component="logo">
+    <a href=".." title="Moat" class="md-nav__button md-logo" aria-label="Moat" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -218,7 +218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -240,7 +240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../trino_and_opa/" class="md-nav__link">
+      <a href="../trino_and_opa/" class="md-nav__link">
         
   
   
@@ -259,10 +259,32 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../how_it_works/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    How it works
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -273,6 +295,101 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Classes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Metadata
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scim20" class="md-nav__link">
+    <span class="md-ellipsis">
+      SCIM2.0
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ingestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingestion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object Metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policy-documents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy Documents
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -324,7 +441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../provisioning/scim/" class="md-nav__link">
+      <a href="../provisioning/scim/" class="md-nav__link">
         
   
   
@@ -354,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../extensions/" class="md-nav__link">
+      <a href="../extensions/" class="md-nav__link">
         
   
   
@@ -416,7 +533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/deployment/" class="md-nav__link">
+      <a href="../deployment/deployment/" class="md-nav__link">
         
   
   
@@ -439,7 +556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/opa_setup/" class="md-nav__link">
+      <a href="../deployment/opa_setup/" class="md-nav__link">
         
   
   
@@ -469,7 +586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developer_setup/" class="md-nav__link">
+      <a href="../developer_setup/" class="md-nav__link">
         
   
   
@@ -531,7 +648,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../security/auth/" class="md-nav__link">
+      <a href="../security/auth/" class="md-nav__link">
         
   
   
@@ -558,20 +675,20 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
         
           
           <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
@@ -587,7 +704,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             Configuration
@@ -598,32 +715,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Configuration File
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../config/configuration/" class="md-nav__link">
         
   
   
@@ -634,68 +729,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#inheritance" class="md-nav__link">
-    <span class="md-ellipsis">
-      Inheritance
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Inheritance">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#appconfigconfigyaml" class="md-nav__link">
-    <span class="md-ellipsis">
-      /app/config/config.yaml
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#appconfigconfig_with_overridesyaml" class="md-nav__link">
-    <span class="md-ellipsis">
-      /app/config/config_with_overrides.yaml
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environment Variables
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -708,7 +741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../properties/" class="md-nav__link">
+      <a href="../config/properties/" class="md-nav__link">
         
   
   
@@ -758,28 +791,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#inheritance" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Inheritance
+      Overview
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Inheritance">
+    <nav class="md-nav" aria-label="Overview">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#appconfigconfigyaml" class="md-nav__link">
+  <a href="#metadata-classes" class="md-nav__link">
     <span class="md-ellipsis">
-      /app/config/config.yaml
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#appconfigconfig_with_overridesyaml" class="md-nav__link">
-    <span class="md-ellipsis">
-      /app/config/config_with_overrides.yaml
+      Metadata Classes
     </span>
   </a>
   
@@ -791,9 +815,51 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
+  <a href="#user-metadata" class="md-nav__link">
     <span class="md-ellipsis">
-      Environment Variables
+      User Metadata
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scim20" class="md-nav__link">
+    <span class="md-ellipsis">
+      SCIM2.0
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ingestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingestion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object Metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policy-documents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy Documents
     </span>
   </a>
   
@@ -818,41 +884,46 @@
   
 
 
-<h1 id="configuration-file-syntax">Configuration File Syntax</h1>
-<p>All configuration items are defined in a yaml file provided to the application.
-The location of this file is defined by an environment variable called 
-<code>CONFIG_FILE_PATH</code>. The value of this variable should be an absolute path.</p>
-<p>The yaml file is a flat structure, with all keys at the top level. E.g:</p>
-<pre><code class="language-yaml">ldap_client.host: localhost
-ldap_client.port: &quot;3890&quot;
-ldap_client.base_dn: dc=example,dc=com
-ldap_client.user_dn: uid=admin,ou=people,dc=example,dc=com
-</code></pre>
-<h2 id="inheritance">Inheritance</h2>
-<p>A <code>yaml</code> config file can inherit from another file and add or replace its contents by key. For example</p>
-<h4 id="appconfigconfigyaml">/app/config/config.yaml</h4>
-<pre><code class="language-yaml">common.db_connection_string: &quot;sqlite:///:memory:&quot;
-common.db_port: &quot;5432&quot;
-</code></pre>
-<h4 id="appconfigconfig_with_overridesyaml">/app/config/config_with_overrides.yaml</h4>
-<pre><code class="language-yaml">config.base:  &quot;/app/config/config.yaml&quot;   # fully qualified path required
-common.db_port: &quot;1234&quot;                    # replaced
-common.db_name: &quot;moat&quot;                    # new
-</code></pre>
-<p>When loading <code>config_with_overrides.yaml</code>, the following config would be resolved:</p>
-<pre><code class="language-yaml">common.db_connection_string: &quot;sqlite:///:memory:&quot;
-common.db_port: &quot;1234&quot;
-common.db_name: &quot;moat&quot;
-</code></pre>
-<p>For a complete list of all available configuration properties, see <a href="../properties/">Properties</a>.</p>
-<h2 id="environment-variables">Environment Variables</h2>
-<p>If environment variables are preferred for some configuration items (e.g secrets)
-these can be referenced in the configuration file using a bash-style syntax. These
-values will be retrieved from the environment and included in the configuration
-object at runtime.</p>
-<pre><code class="language-yaml">ldap_client.password: $LDAP_PASSWORD 
-ldap_client.user_dn: uid=$LDAP_UID,ou=people,dc=example,dc=com
-</code></pre>
+<h1 id="how-it-works">How it works</h1>
+<h2 id="overview">Overview</h2>
+<p>Moat provides the data required by OPA to make its policy decisions. 
+OPA expects a bundle file (a tarball) comprised of:</p>
+<ul>
+<li><code>rego</code> policy documents defining the policies to be applied</li>
+<li>A data object - a <code>json</code> file containing:</li>
+<li>User metadata - e.g username, groups, attributes, tags</li>
+<li>Object (tables/views) metadata - e.g database, schema, table name and tags (usually from a data catalog)</li>
+</ul>
+<p>OPA periodically requests this data via an HTTP(S) API.</p>
+<h3 id="metadata-classes">Metadata Classes</h3>
+<p>The metadata classes supported by moat are:</p>
+<ul>
+<li><strong>Principals:</strong> Users and service accounts</li>
+<li><strong>Principal Attributes:</strong> Key-value pairs describing users, normally from an identity provider</li>
+<li><strong>Principal Groups:</strong> RBAC-style user groups</li>
+<li><strong>Resources:</strong> Data objects such as databases, schemas, tables, columns, collections etc</li>
+<li><strong>Resource Attributes:</strong> Key-value pairs as either attributes or tags on data objects. Normally from a data catalog</li>
+</ul>
+<h2 id="user-metadata">User Metadata</h2>
+<p>User metadata can either be periodically ingested from an identity source, or pushed by a SCIM2.0 client.</p>
+<h3 id="scim20">SCIM2.0</h3>
+<p>Moat implements the industry standard SCIM2.0 protocol to allow changes to users, groups and entitlements
+to be received in near real time. The standard <code>User</code> and <code>Group</code> schemas are supported, and custom schemas
+can be defined. See <a href="../provisioning/scim/">scim</a> for more information</p>
+<h3 id="ingestion">Ingestion</h3>
+<p>For implementations where a SCIM client is not available or desired, users, groups and entitlements can be 
+ingested from various sources. Currently Moat supports <code>LDAP</code> as a source of users and groups.</p>
+<p>The ingestion system is easy to extend by providing a subclass containing the specific implementation of your
+chosen identity source. See <a href="../extensions/">extensions</a> for more information on custom connectors.</p>
+<h2 id="object-metadata">Object Metadata</h2>
+<p>Object metadata is ingested in the same way as users and groups. Currently moat supports SQL sources via DBAPI 
+connectors to ingest data objects and their attributes or tags. Custom connectors can also be built for sources other 
+than those supported OOTB. Contributions are most welcome for new connectors.</p>
+<h2 id="policy-documents">Policy Documents</h2>
+<p>Policy documents are not ingested by moat as such, but are included in the bundle provided to trino.</p>
+<p>It is recommended that policy documents be controlled using normal version control tooling (.e.g git).
+The <code>rego</code> files can be provided to moat using either a <code>git-sync</code> pattern, or any normal CICD process.</p>
+<p>Configmaps are a good pattern for kubernetes-based deployments</p>
 
 
 
@@ -901,10 +972,10 @@ ldap_client.user_dn: uid=$LDAP_UID,ou=people,dc=example,dc=com
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.path"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand", "navigation.path"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
   </body>
