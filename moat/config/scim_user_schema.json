@@ -93,6 +93,29 @@
             "uniqueness": "none"
         },
         {
+            "name": "entitlements",
+            "type": "complex",
+            "multiValued": true,
+            "description": "A user's entitlements",
+            "required": false,
+            "subAttributes": [
+                {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "A string representation of a users entitlement",
+                    "required": false,
+                    "caseExact": true,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                }
+            ],
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+        },
+        {
             "name": "active",
             "type": "boolean",
             "multiValued": false,

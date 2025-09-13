@@ -48,9 +48,6 @@ class ScimUsersService(ScimServiceBase):
 
     @staticmethod
     def create_user(session, scim_payload: dict) -> dict:
-        """
-        Returns the updated payload which came from the original request
-        """
         principal = ScimUsersService.update_user(
             session=session,
             scim_payload=scim_payload,
@@ -90,46 +87,80 @@ class ScimUsersService(ScimServiceBase):
         principal.source_uid = ScimServiceBase._get_jsonpath_attribute(
             scim_payload, scim_config.principal_source_uid_jsonpath
         )
+
+        principal.active = ScimServiceBase._get_jsonpath_attribute(
+            scim_payload, scim_config.principal_active_jsonpath
+        )
+
         principal.source_type = ScimUsersService.SOURCE_TYPE
         principal.scim_payload = scim_payload
 
         # attributes
         if scim_config.principal_attributes_jsonpath:
-            attributes: dict = (
-                ScimServiceBase._get_jsonpath_attribute(
-                    copy.deepcopy(scim_payload),
-                    scim_config.principal_attributes_jsonpath,
-                )
-                or {}
+            ScimUsersService._merge_attributes_on_principal(
+                session=session, principal=principal, scim_payload=scim_payload
             )
 
-            # attributes should be a dict, with scalar or simple list values
-            for attribute_key, attribute_value in attributes.items():
-                if isinstance(attribute_value, list):  # flatten
-                    attributes[attribute_key] = ",".join([a for a in attribute_value])
-
-            # diff against existing attrs on the principal
-            scim_attributes = [(k, v) for k, v in attributes.items()]
-            principal_attributes = [
-                (a.attribute_key, a.attribute_value) for a in principal.attributes
-            ]
-
-            # delete the removed attributes
-            [
-                session.delete(pa)
-                for pa in principal.attributes
-                if (pa.attribute_key, pa.attribute_value) not in scim_attributes
-            ]
-
-            added_attributes = [
-                a for a in scim_attributes if a not in principal_attributes
-            ]
-
-            for attribute_key, attribute_value in added_attributes:
-                attribute: PrincipalAttributeDbo = PrincipalAttributeDbo()
-                attribute.fq_name = principal.fq_name
-                attribute.attribute_key = attribute_key
-                attribute.attribute_value = attribute_value
-                principal.attributes.append(attribute)
+        # entitlements
+        ScimUsersService._merge_entitlements_on_principal(
+            principal=principal, scim_payload=scim_payload
+        )
 
         return principal
+
+    @staticmethod
+    def _merge_attributes_on_principal(
+        session, principal: PrincipalDbo, scim_payload: dict
+    ) -> None:
+        attributes: dict = (
+            ScimServiceBase._get_jsonpath_attribute(
+                copy.deepcopy(scim_payload),
+                scim_config.principal_attributes_jsonpath,
+            )
+            or {}
+        )
+
+        # attributes should be a dict, with scalar or simple list values
+        for attribute_key, attribute_value in attributes.items():
+            if isinstance(attribute_value, list):  # flatten
+                attributes[attribute_key] = ",".join([a for a in attribute_value])
+
+        # diff against existing attrs on the principal
+        scim_attributes = [(k, v) for k, v in attributes.items()]
+        principal_attributes = [
+            (a.attribute_key, a.attribute_value) for a in principal.attributes
+        ]
+
+        # delete the removed attributes
+        [
+            session.delete(pa)
+            for pa in principal.attributes
+            if (pa.attribute_key, pa.attribute_value) not in scim_attributes
+        ]
+
+        added_attributes = [a for a in scim_attributes if a not in principal_attributes]
+
+        for attribute_key, attribute_value in added_attributes:
+            attribute: PrincipalAttributeDbo = PrincipalAttributeDbo()
+            attribute.fq_name = principal.fq_name
+            attribute.attribute_key = attribute_key
+            attribute.attribute_value = attribute_value
+            principal.attributes.append(attribute)
+
+    @staticmethod
+    def _merge_entitlements_on_principal(
+        principal: PrincipalDbo, scim_payload: dict
+    ) -> None:
+        entitlements: list[str] | str = (
+            ScimServiceBase._get_jsonpath_attribute(
+                scim_payload,
+                scim_config.principal_entitlements_jsonpath,
+            )
+            or []
+        )
+
+        if not isinstance(entitlements, list):
+            entitlements = [entitlements]
+
+        # nothing really required here as they are on the same object
+        principal.entitlements = list(set(entitlements))
