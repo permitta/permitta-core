@@ -1019,12 +1019,12 @@ endpoint has been provided, which allows auto-configuration of clients. </p>
 <td></td>
 </tr>
 <tr>
-<td><code>emails.value</code></td>
+<td><code>emails[].value</code></td>
 <td>email</td>
 <td>Email address. Only primary is captured</td>
 </tr>
 <tr>
-<td><code>emails.primary</code></td>
+<td><code>emails[].primary</code></td>
 <td>bool</td>
 <td>Primary email or other</td>
 </tr>
@@ -1032,6 +1032,16 @@ endpoint has been provided, which allows auto-configuration of clients. </p>
 <td><code>active</code></td>
 <td>bool</td>
 <td>Whether the user is active or not</td>
+</tr>
+<tr>
+<td><code>entitlements</code></td>
+<td>array</td>
+<td></td>
+</tr>
+<tr>
+<td><code>entitlements[].value</code></td>
+<td>string</td>
+<td>The user's entitlement</td>
 </tr>
 </tbody>
 </table>
