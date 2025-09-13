@@ -12,11 +12,16 @@ dev_addr: localhost:8001
 nav:
   - Home: index.md
   - Trino and OPA: trino_and_opa.md
+  - How it works: how_it_works.md
+  - Provisioning:
+      - SCIM2.0: provisioning/scim.md
   - Extending: extensions.md
+  - Deployment:
+      - Application: deployment/deployment.md
+      - OPA: deployment/opa_setup.md
+  - Developer Setup: developer_setup.md
   - Security:
       - API Authentication: security/auth.md
   - Configuration:
       - Configuration File: config/configuration.md
       - Configuration Properties: config/properties.md
-  - Deployment: deployment.md
-  - Developer Setup: developer_setup.md
