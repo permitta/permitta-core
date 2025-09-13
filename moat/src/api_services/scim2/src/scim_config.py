@@ -9,8 +9,10 @@ class ScimConfig(AppConfigModelBase):
     principal_user_name_jsonpath: str = "$.userName"
     principal_email_jsonpath: str = "$.emails[?(@.primary)].value"
     principal_source_uid_jsonpath: str = "$.id"
+    principal_active_jsonpath: str = "$.active"
 
     principal_attributes_jsonpath: str = None
+    principal_entitlements_jsonpath: str = "$.entitlements[*].value"
 
     group_fq_name_jsonpath: str = "$.displayName"
     group_source_uid_jsonpath: str = "$.id"

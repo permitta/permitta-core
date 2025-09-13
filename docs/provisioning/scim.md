@@ -20,16 +20,18 @@ The default schema files are located at:
 
 ### urn:ietf:params:scim:schemas:core:2.0:User
 
-| Field             | Type   | Purpose                                               |
-|-------------------|--------|-------------------------------------------------------|
-| `id`              | string | User ID in source system. Defaults to UUID if not set |
-| `userName`        | string | The username which will be provided to OPA / Trino    |
-| `name.givenName`  | string | User's first name                                     |
-| `name.familyName` | string | User's last name                                      |
-| `emails`          | array  |                                                       |
-| `emails.value`    | email  | Email address. Only primary is captured               |
-| `emails.primary`  | bool   | Primary email or other                                |
-| `active`          | bool   | Whether the user is active or not                     |
+| Field                  | Type   | Purpose                                               |
+|------------------------|--------|-------------------------------------------------------|
+| `id`                   | string | User ID in source system. Defaults to UUID if not set |
+| `userName`             | string | The username which will be provided to OPA / Trino    |
+| `name.givenName`       | string | User's first name                                     |
+| `name.familyName`      | string | User's last name                                      |
+| `emails`               | array  |                                                       |
+| `emails[].value`       | email  | Email address. Only primary is captured               |
+| `emails[].primary`     | bool   | Primary email or other                                |
+| `active`               | bool   | Whether the user is active or not                     |
+| `entitlements`         | array  |                                                       |
+| `entitlements[].value` | string | The user's entitlement                                |
 
 
 

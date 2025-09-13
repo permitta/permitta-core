@@ -148,8 +148,8 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
     GRANT SELECT ON ALL TABLES IN SCHEMA logistics TO trino_user;
 
     CREATE DATABASE warehouse;
-    GRANT ALL PRIVILEGES ON DATABASE workspace TO trino_user;
-    \c redshift "$POSTGRES_USER";
+    GRANT ALL PRIVILEGES ON DATABASE warehouse TO trino_user;
+    \c warehouse "$POSTGRES_USER";
 
     CREATE SCHEMA IF NOT EXISTS bronze;
 

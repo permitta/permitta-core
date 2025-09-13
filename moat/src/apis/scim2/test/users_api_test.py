@@ -35,6 +35,7 @@ def test_create_user(flask_test_client: FlaskClient, database_empty: Database):
             {"value": "alice.cooper@moat.io", "primary": True},
             {"value": "alice.cooper@hotmail.com"},
         ],
+        "entitlements": [{"value": "entitlement1"}, {"value": "entitlement2"}],
         "active": True,
     }
 
@@ -78,6 +79,8 @@ def test_create_user(flask_test_client: FlaskClient, database_empty: Database):
             assert principal.scim_payload == user_data | {
                 "id": "12345678-1234-5678-1234-567812345678"
             }
+
+            assert sorted(principal.entitlements) == ["entitlement1", "entitlement2"]
 
 
 def test_create_user_with_confliction(
@@ -126,6 +129,7 @@ def test_get_users(flask_test_client: FlaskClient):
                     {"value": "alice.cooper@moat.io", "primary": True},
                     {"value": "alice.cooper@hotmail.com"},
                 ],
+                "entitlements": [{"value": "entitlement1"}, {"value": "entitlement2"}],
                 "active": True,
             }
         ],
@@ -150,6 +154,7 @@ def test_get_user(flask_test_client: FlaskClient):
             {"value": "alice.cooper@moat.io", "primary": True},
             {"value": "alice.cooper@hotmail.com"},
         ],
+        "entitlements": [{"value": "entitlement1"}, {"value": "entitlement2"}],
         "active": True,
     }
 
@@ -185,6 +190,7 @@ def test_update_user(flask_test_client: FlaskClient, database_empty: Database):
         "userName": "boris.yeltsin",
         "name": {"givenName": "Boris", "familyName": "Yeltsin"},
         "emails": [{"value": "boris.yeltsin@moat.io", "primary": True}],
+        "entitlements": [{"value": "entitlement1"}],
         "active": False,
     }
 
@@ -215,6 +221,8 @@ def test_update_user(flask_test_client: FlaskClient, database_empty: Database):
         assert principal.source_uid == "12345678-1234-5678-1234-567812345678"
         assert principal.source_type == "scim"
         assert principal.scim_payload == user_data
+        assert principal.entitlements == ["entitlement1"]
+        assert principal.active is False
 
 
 def test_update_user_not_found(flask_test_client: FlaskClient):

@@ -18,6 +18,7 @@ class PrincipalDbo(IngestionDboMixin, BaseModel):
     source_type: str = Column(String)
     source_uid: str = Column(String)
     scim_payload: dict = Column(JSON)
+    entitlements: list[str] = Column(ARRAY(String()))
 
     record_updated_date: str = Column(
         DateTime(timezone=True), server_default=current_timestamp()
@@ -25,8 +26,7 @@ class PrincipalDbo(IngestionDboMixin, BaseModel):
     record_updated_by: str = Column(String)
 
     attributes: Mapped[list["PrincipalAttributeDbo"]] = relationship(
-        "PrincipalAttributeDbo",
-        # back_populates="principal",
+        argument="PrincipalAttributeDbo",
         primaryjoin="PrincipalAttributeDbo.fq_name == PrincipalDbo.fq_name",
         foreign_keys=fq_name,
         remote_side="PrincipalAttributeDbo.fq_name",
